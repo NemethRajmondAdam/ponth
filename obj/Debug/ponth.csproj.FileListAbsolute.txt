@@ -1,0 +1,61 @@
+D:\NémethRajmondÁdám\ponth\bin\Debug\ponth.exe.config
+D:\NémethRajmondÁdám\ponth\bin\Debug\ponth.exe
+D:\NémethRajmondÁdám\ponth\bin\Debug\ponth.pdb
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.csproj.AssemblyReference.cache
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.FormMain.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.Properties.Resources.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.csproj.GenerateResource.cache
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.csproj.CoreCompileInputs.cache
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.exe
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.pdb
+E:\C#\ponth\bin\Debug\ponth.exe.config
+E:\C#\ponth\bin\Debug\ponth.exe
+E:\C#\ponth\bin\Debug\ponth.pdb
+E:\C#\ponth\obj\Debug\ponth.csproj.AssemblyReference.cache
+E:\C#\ponth\obj\Debug\ponth.FormMain.resources
+E:\C#\ponth\obj\Debug\ponth.Properties.Resources.resources
+E:\C#\ponth\obj\Debug\ponth.csproj.GenerateResource.cache
+E:\C#\ponth\obj\Debug\ponth.csproj.CoreCompileInputs.cache
+E:\C#\ponth\obj\Debug\ponth.exe
+E:\C#\ponth\obj\Debug\ponth.pdb
+E:\C#\ponth\obj\Debug\ponth.FormBase.resources
+E:\C#\ponth\obj\Debug\ponth.OrderDetailsForm.resources
+E:\C#\ponth\obj\Debug\ponth.OrderingForm.resources
+E:\C#\ponth\obj\Debug\ponth.PayingMethodForm.resources
+D:\Németh Rajmond Ádám 13.i\ponth\bin\Debug\ponth.exe.config
+D:\Németh Rajmond Ádám 13.i\ponth\bin\Debug\ponth.exe
+D:\Németh Rajmond Ádám 13.i\ponth\bin\Debug\ponth.pdb
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.csproj.AssemblyReference.cache
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.FormBase.resources
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.FormMain.resources
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.OrderDetailsForm.resources
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.PayingMethodForm.resources
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.Properties.Resources.resources
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.csproj.GenerateResource.cache
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.csproj.CoreCompileInputs.cache
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.exe
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.pdb
+D:\Németh Rajmond Ádám 13.i\ponth\bin\Debug\en\ponth.resources.dll
+D:\Németh Rajmond Ádám 13.i\ponth\bin\Debug\hu\ponth.resources.dll
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.FormMain.en.resources
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.FormMain.hu.resources
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\en\ponth.resources.dll
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\hu\ponth.resources.dll
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.OrderDetailsForm.en.resources
+D:\Németh Rajmond Ádám 13.i\ponth\bin\Debug\de\ponth.resources.dll
+D:\Németh Rajmond Ádám 13.i\ponth\bin\Debug\es\ponth.resources.dll
+D:\Németh Rajmond Ádám 13.i\ponth\bin\Debug\fr\ponth.resources.dll
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.FormMain.de.resources
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.FormMain.es.resources
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.FormMain.fr.resources
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.OrderDetailsForm.de.resources
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.OrderDetailsForm.es.resources
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.OrderDetailsForm.fr.resources
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\de\ponth.resources.dll
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\es\ponth.resources.dll
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\fr\ponth.resources.dll
+D:\Németh Rajmond Ádám 13.i\ponth\bin\Debug\MySql.Data.dll
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.csproj.CopyComplete
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.CocktailEditPageForm.resources
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.OrderingForm.resources
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.LanguageSelectForm.resources
