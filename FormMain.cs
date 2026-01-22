@@ -53,6 +53,7 @@ namespace ponth
         private void UpdateLanguageButton()
         {
             btn_ChangeLang.Text = $"-{LanguageManager.CurrentLanguageName}-";
+            d.MakeRoundedBtn(btn_ChangeLang,20);
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -60,6 +61,9 @@ namespace ponth
             d.MakeRoundedBtn(btn_ChangeLang, 20);
 
             btn_ChangeLang.Text = $"-{LanguageManager.CurrentLanguageName}-";
+
+            TableViewForm frm = new TableViewForm();
+            frm.ShowDialog();
         }
 
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)

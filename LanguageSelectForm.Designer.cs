@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LanguageSelectForm));
             this.panelMain = new System.Windows.Forms.Panel();
+            this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnES = new System.Windows.Forms.Button();
             this.btnFR = new System.Windows.Forms.Button();
             this.btnDE = new System.Windows.Forms.Button();
             this.btnEN = new System.Windows.Forms.Button();
             this.btnHUN = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +57,18 @@
             this.panelMain.Size = new System.Drawing.Size(800, 450);
             this.panelMain.TabIndex = 0;
             // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnSave.Location = new System.Drawing.Point(554, 387);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(109, 51);
+            this.btnSave.TabIndex = 6;
+            this.btnSave.Text = "Mentés";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -70,6 +82,7 @@
             // 
             // btnES
             // 
+            this.btnES.Image = global::ponth.Properties.Resources.ES_Selected;
             this.btnES.Location = new System.Drawing.Point(201, 294);
             this.btnES.Name = "btnES";
             this.btnES.Size = new System.Drawing.Size(188, 56);
@@ -82,6 +95,7 @@
             // 
             // btnFR
             // 
+            this.btnFR.Image = global::ponth.Properties.Resources.FR_Selected;
             this.btnFR.Location = new System.Drawing.Point(403, 194);
             this.btnFR.Name = "btnFR";
             this.btnFR.Size = new System.Drawing.Size(188, 56);
@@ -94,6 +108,7 @@
             // 
             // btnDE
             // 
+            this.btnDE.Image = global::ponth.Properties.Resources.DE_Selected;
             this.btnDE.Location = new System.Drawing.Point(201, 194);
             this.btnDE.Name = "btnDE";
             this.btnDE.Size = new System.Drawing.Size(188, 56);
@@ -106,6 +121,7 @@
             // 
             // btnEN
             // 
+            this.btnEN.Image = global::ponth.Properties.Resources.EN_Selected;
             this.btnEN.Location = new System.Drawing.Point(403, 93);
             this.btnEN.Name = "btnEN";
             this.btnEN.Size = new System.Drawing.Size(188, 56);
@@ -119,6 +135,7 @@
             // btnHUN
             // 
             this.btnHUN.BackColor = System.Drawing.SystemColors.Control;
+            this.btnHUN.Image = global::ponth.Properties.Resources.HU_Unselected;
             this.btnHUN.Location = new System.Drawing.Point(201, 93);
             this.btnHUN.Name = "btnHUN";
             this.btnHUN.Size = new System.Drawing.Size(188, 56);
@@ -128,18 +145,6 @@
             this.btnHUN.Text = "HUN";
             this.btnHUN.UseVisualStyleBackColor = false;
             this.btnHUN.Click += new System.EventHandler(this.LanguageButton_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSave.Location = new System.Drawing.Point(554, 387);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(109, 51);
-            this.btnSave.TabIndex = 6;
-            this.btnSave.Text = "Mentés";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // LanguageSelectForm
             // 

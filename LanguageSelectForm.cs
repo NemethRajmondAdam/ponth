@@ -45,7 +45,7 @@ namespace ponth
                 selectedButton.Enabled = true;
                 selectedButton.BackColor = SystemColors.Control;
                 selectedButton.ForeColor = Color.Black;
-                
+
             }
 
             // Új gomb kijelölése
@@ -59,8 +59,9 @@ namespace ponth
             btn.Enabled = false;
             btn.BackColor = Color.LightCyan;
             btn.ForeColor = Color.Gray;
-            
+
         }
+
 
         private void LanguageSelectForm_Load(object sender, EventArgs e)
         {
@@ -90,6 +91,7 @@ namespace ponth
 
             selectedButton = btnList[langI];
             selectedBtnEdit(selectedButton);
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
