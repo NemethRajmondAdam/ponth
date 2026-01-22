@@ -1,0 +1,19 @@
+Mester remek:
+Asztali alkalmazas része:
+C#->localis database (ha marad idő szerverre)
+	|_> hozzávalók (gyümölcsök, üdítők, alkoholok => árak => koktélok fix árak => aránymódosítási lehetőség -> üdítők és alkoholok dl ára)
+Asztalt nyitni-> számolja egy asztalnál mennyit fogyasztottak és mit, a végén lehessen fizetni amikor lezárja az asztalt, akár szétbontva)
+Új hozzávalok hozzáadása, új koktélok hozzáadása, új asztal hozzáadása, árak változtatása
+Fizetésnél a fizetendő összeg, vendég mennyit fizetett, mennyi a visszajáró
+
+Weblap:
+Leírás a bisztróról, hogyan működik a foglalás és a rendelés, külön fülön, hogy mik kaphatóak -> milyen koktál mit tartalmaz és milyen arányban
+Asztalfoglalás => adatlap kitöltésével, és megkapod az asztalod számát (írja át a databasebe hogy az adot asztal foglalt), visszaigazoló email
+QR kód-> rendelési oldal-> fizetési oldal (opció a pénztárnál való fizetés)
+
+
+alcohols table price -> cl/ft
+softdrinks table price -> dl/ft
+ingredients table price -> g/ft
+
+
