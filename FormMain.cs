@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ponth.CostumeControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,10 +17,10 @@ namespace ponth
     {
         public FormMain()
         {
-            
+
             InitializeComponent();
         }
-        
+
         private Desing d = new Desing();
 
         private void orderToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,33 +38,55 @@ namespace ponth
         private void btn_ChangeLang_Click(object sender, EventArgs e)
         {
 
-            LanguageSelectForm frm = new LanguageSelectForm();
-            frm.ShowDialog();
+            var uc = new ucLanguageSelect();
 
-            // Az aktuális form újratöltése
-            this.Controls.Clear();
-            this.InitializeComponent();
+            uc.OnLanguageSelected += (langIndex) =>
+            {
+                LanguageManager.ToggleLanguage(langIndex);
+                LanguageManager.ApplyCulture();
 
-            //MessageBox.Show(LanguageManager.CurrentLanguage);
 
-            // Visszajelzés a gombon
-            UpdateLanguageButton();
+            };
+
+            uc.OnLanguageChanged += (langIndex) =>
+            {
+                LanguageManager.ToggleLanguage(langIndex);
+                LanguageManager.ApplyCulture();
+
+                // Az aktuális form újratöltése
+                this.Controls.Clear();
+                this.InitializeComponent();
+                UpdateLanguageButton();
+            };
+
+            uc.OnCancel += () =>
+            {
+                panelLanguageSelect.Controls.Clear();
+                panelLanguageSelect.Visible = false;
+            };
+
+            panelLanguageSelect.Controls.Clear();
+            panelLanguageSelect.Controls.Add(uc);
+            panelLanguageSelect.Size = new Size(816, 489);
+            uc.Dock = DockStyle.Fill;
+            panelLanguageSelect.Visible = true;
         }
 
         private void UpdateLanguageButton()
         {
+            btn_ChangeLang.ForeColor = Color.FromArgb(194, 159, 67);
             btn_ChangeLang.Text = $"-{LanguageManager.CurrentLanguageName}-";
-            d.MakeRoundedBtn(btn_ChangeLang,20);
+            d.MakeRoundedBtn(btn_ChangeLang, 20);
+            panelLanguageSelect.Visible = false;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
             d.MakeRoundedBtn(btn_ChangeLang, 20);
-
+            btn_ChangeLang.ForeColor = Color.FromArgb(194, 159, 67);
             btn_ChangeLang.Text = $"-{LanguageManager.CurrentLanguageName}-";
 
-            TableViewForm frm = new TableViewForm();
-            frm.ShowDialog();
+            panelLanguageSelect.Visible = false;
         }
 
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,9 +97,8 @@ namespace ponth
 
         private void button2_Click(object sender, EventArgs e)
         {
-            btn_ChangeLang.Text = $"Nyelv: {LanguageManager.CurrentLanguageName}";
-            LanguageManager.ApplyCulture();
 
         }
+
     }
 }

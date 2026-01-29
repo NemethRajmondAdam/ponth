@@ -58,6 +58,9 @@
     <Compile Include="CocktailEditPageForm.Designer.cs">
       <DependentUpon>CocktailEditPageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CostumeControls\cButtons.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataBase.cs" />
     <Compile Include="DatabaseQuestions.cs" />
     <Compile Include="Desing.cs" />
@@ -105,6 +108,24 @@
     </Compile>
     <Compile Include="TableViewForm.Designer.cs">
       <DependentUpon>TableViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucBase.Designer.cs">
+      <DependentUpon>ucBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucLanguageSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucLanguageSelect.Designer.cs">
+      <DependentUpon>ucLanguageSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucOrderDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucOrderDetails.Designer.cs">
+      <DependentUpon>ucOrderDetails.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CocktailEditPageForm.resx">
       <DependentUpon>CocktailEditPageForm.cs</DependentUpon>
@@ -167,6 +188,12 @@
     <EmbeddedResource Include="TableViewForm.resx">
       <DependentUpon>TableViewForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucBase.resx">
+      <DependentUpon>ucBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucLanguageSelect.resx">
+      <DependentUpon>ucLanguageSelect.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -204,5 +231,6 @@
   <ItemGroup>
     <None Include="Resources\FR_Selected.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
