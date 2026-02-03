@@ -231,6 +231,17 @@
   <ItemGroup>
     <None Include="Resources\FR_Selected.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rsz_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rsz_menu-bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

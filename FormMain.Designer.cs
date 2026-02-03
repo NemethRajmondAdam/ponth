@@ -28,22 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.tablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tableManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tableDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.payingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelLanguageSelect = new System.Windows.Forms.Panel();
+            this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.sidebarButton = new System.Windows.Forms.PictureBox();
+            this.btn_Menu = new System.Windows.Forms.Button();
+            this.btn_Order = new System.Windows.Forms.Button();
+            this.btn_Paying = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.btn_ChangeLang = new ponth.CostumeControls.cButtons();
             this.panel1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.sidebar.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panelMenu.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sidebarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,70 +62,100 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.btn_ChangeLang);
-            this.panel1.Controls.Add(this.button2);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
-            // button2
+            // panelLanguageSelect
             // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            resources.ApplyResources(this.panelLanguageSelect, "panelLanguageSelect");
+            this.panelLanguageSelect.Name = "panelLanguageSelect";
             // 
-            // menuStrip1
+            // sidebar
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.menuStrip1, "menuStrip1");
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tablesToolStripMenuItem,
-            this.actionsToolStripMenuItem,
-            this.menuToolStripMenuItem});
-            this.menuStrip1.Name = "menuStrip1";
+            this.sidebar.BackColor = System.Drawing.Color.LightGray;
+            this.sidebar.Controls.Add(this.panel2);
+            this.sidebar.Controls.Add(this.panelMenu);
+            this.sidebar.Controls.Add(this.panel3);
+            this.sidebar.Controls.Add(this.panel4);
+            this.sidebar.Controls.Add(this.panel5);
+            resources.ApplyResources(this.sidebar, "sidebar");
+            this.sidebar.Name = "sidebar";
             // 
-            // tablesToolStripMenuItem
+            // panel2
             // 
-            this.tablesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tableManagementToolStripMenuItem,
-            this.tableDetailsToolStripMenuItem});
-            this.tablesToolStripMenuItem.Name = "tablesToolStripMenuItem";
-            resources.ApplyResources(this.tablesToolStripMenuItem, "tablesToolStripMenuItem");
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.sidebarButton);
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Name = "panel2";
             // 
-            // tableManagementToolStripMenuItem
+            // panelMenu
             // 
-            this.tableManagementToolStripMenuItem.Name = "tableManagementToolStripMenuItem";
-            resources.ApplyResources(this.tableManagementToolStripMenuItem, "tableManagementToolStripMenuItem");
+            resources.ApplyResources(this.panelMenu, "panelMenu");
+            this.panelMenu.Controls.Add(this.btn_Menu);
+            this.panelMenu.Name = "panelMenu";
             // 
-            // tableDetailsToolStripMenuItem
+            // panel3
             // 
-            this.tableDetailsToolStripMenuItem.Name = "tableDetailsToolStripMenuItem";
-            resources.ApplyResources(this.tableDetailsToolStripMenuItem, "tableDetailsToolStripMenuItem");
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.Controls.Add(this.btn_Order);
+            this.panel3.Name = "panel3";
             // 
-            // actionsToolStripMenuItem
+            // panel4
             // 
-            this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.orderToolStripMenuItem,
-            this.payingToolStripMenuItem});
-            this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
-            resources.ApplyResources(this.actionsToolStripMenuItem, "actionsToolStripMenuItem");
+            resources.ApplyResources(this.panel4, "panel4");
+            this.panel4.Controls.Add(this.btn_Paying);
+            this.panel4.Name = "panel4";
             // 
-            // orderToolStripMenuItem
+            // panel5
             // 
-            this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            resources.ApplyResources(this.orderToolStripMenuItem, "orderToolStripMenuItem");
-            this.orderToolStripMenuItem.Click += new System.EventHandler(this.orderToolStripMenuItem_Click);
+            resources.ApplyResources(this.panel5, "panel5");
+            this.panel5.Controls.Add(this.button4);
+            this.panel5.Name = "panel5";
             // 
-            // payingToolStripMenuItem
+            // sidebarButton
             // 
-            this.payingToolStripMenuItem.Name = "payingToolStripMenuItem";
-            resources.ApplyResources(this.payingToolStripMenuItem, "payingToolStripMenuItem");
-            this.payingToolStripMenuItem.Click += new System.EventHandler(this.PayingToolStripMenuItem_Click);
+            this.sidebarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sidebarButton.Image = global::ponth.Properties.Resources.menu__1_;
+            resources.ApplyResources(this.sidebarButton, "sidebarButton");
+            this.sidebarButton.Name = "sidebarButton";
+            this.sidebarButton.TabStop = false;
+            this.sidebarButton.Click += new System.EventHandler(this.sidebarButton_Click);
             // 
-            // menuToolStripMenuItem
+            // btn_Menu
             // 
-            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            resources.ApplyResources(this.menuToolStripMenuItem, "menuToolStripMenuItem");
-            this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
+            this.btn_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            resources.ApplyResources(this.btn_Menu, "btn_Menu");
+            this.btn_Menu.ForeColor = System.Drawing.Color.Black;
+            this.btn_Menu.Image = global::ponth.Properties.Resources.rsz_menu;
+            this.btn_Menu.Name = "btn_Menu";
+            this.btn_Menu.UseVisualStyleBackColor = false;
+            this.btn_Menu.Click += new System.EventHandler(this.btn_Menu_Click);
+            // 
+            // btn_Order
+            // 
+            this.btn_Order.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            resources.ApplyResources(this.btn_Order, "btn_Order");
+            this.btn_Order.Image = global::ponth.Properties.Resources.rsz_menu;
+            this.btn_Order.Name = "btn_Order";
+            this.btn_Order.UseVisualStyleBackColor = false;
+            this.btn_Order.Click += new System.EventHandler(this.btn_Order_Click);
+            // 
+            // btn_Paying
+            // 
+            this.btn_Paying.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            resources.ApplyResources(this.btn_Paying, "btn_Paying");
+            this.btn_Paying.Image = global::ponth.Properties.Resources.rsz_menu;
+            this.btn_Paying.Name = "btn_Paying";
+            this.btn_Paying.UseVisualStyleBackColor = false;
+            this.btn_Paying.Click += new System.EventHandler(this.btn_Paying_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            resources.ApplyResources(this.button4, "button4");
+            this.button4.Image = global::ponth.Properties.Resources.rsz_menu;
+            this.button4.Name = "button4";
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -122,10 +163,15 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
-            // panelLanguageSelect
+            // label1
             // 
-            resources.ApplyResources(this.panelLanguageSelect, "panelLanguageSelect");
-            this.panelLanguageSelect.Name = "panelLanguageSelect";
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // sidebarTimer
+            // 
+            this.sidebarTimer.Interval = 10;
+            this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
             // 
             // btn_ChangeLang
             // 
@@ -138,9 +184,9 @@
             this.btn_ChangeLang.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btn_ChangeLang.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_ChangeLang.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btn_ChangeLang.ForeColor = System.Drawing.Color.SpringGreen;
+            this.btn_ChangeLang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
             this.btn_ChangeLang.Name = "btn_ChangeLang";
-            this.btn_ChangeLang.TextColor = System.Drawing.Color.SpringGreen;
+            this.btn_ChangeLang.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
             this.btn_ChangeLang.UseVisualStyleBackColor = false;
             this.btn_ChangeLang.Click += new System.EventHandler(this.btn_ChangeLang_Click);
             // 
@@ -148,40 +194,48 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.sidebar);
             this.Controls.Add(this.panelLanguageSelect);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.panel1.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.sidebar.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panelMenu.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sidebarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem tablesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tableManagementToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tableDetailsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem actionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem orderToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem payingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelLanguageSelect;
         private CostumeControls.cButtons btn_ChangeLang;
+        private System.Windows.Forms.FlowLayoutPanel sidebar;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelMenu;
+        private System.Windows.Forms.Button btn_Menu;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btn_Order;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btn_Paying;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.PictureBox sidebarButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer sidebarTimer;
     }
 }
 

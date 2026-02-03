@@ -74,7 +74,6 @@ namespace ponth
 
         private void UpdateLanguageButton()
         {
-            btn_ChangeLang.ForeColor = Color.FromArgb(194, 159, 67);
             btn_ChangeLang.Text = $"-{LanguageManager.CurrentLanguageName}-";
             d.MakeRoundedBtn(btn_ChangeLang, 20);
             panelLanguageSelect.Visible = false;
@@ -82,11 +81,10 @@ namespace ponth
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            d.MakeRoundedBtn(btn_ChangeLang, 20);
-            btn_ChangeLang.ForeColor = Color.FromArgb(194, 159, 67);
             btn_ChangeLang.Text = $"-{LanguageManager.CurrentLanguageName}-";
-
+            sidebar.Height = this.Height;
             panelLanguageSelect.Visible = false;
+
         }
 
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,10 +93,54 @@ namespace ponth
             frm.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        bool sidebarExpand;
+
+        private void sidebarTimer_Tick(object sender, EventArgs e)
         {
+
+
+            if (sidebarExpand)
+            {
+                sidebar.Width -= 10;
+                if (sidebar.Width == sidebar.MinimumSize.Width)
+                {
+                    sidebarExpand = false;
+                    sidebarTimer.Stop();
+                }
+            }
+            else 
+            {
+                sidebar.Width += 10;
+                if (sidebar.Width == sidebar.MaximumSize.Width)
+                {
+                    sidebarExpand = true;
+                    sidebarTimer.Stop();
+                }
+            }
+        }
+
+        private void sidebarButton_Click(object sender, EventArgs e)
+        {
+            sidebarTimer.Start();
 
         }
 
+        private void btn_Menu_Click(object sender, EventArgs e)
+        {
+            OrderingForm frm = new OrderingForm();
+            frm.ShowDialog();
+        }
+
+        private void btn_Order_Click(object sender, EventArgs e)
+        {
+            OrderingForm frm = new OrderingForm();
+            frm.ShowDialog();
+        }
+
+        private void btn_Paying_Click(object sender, EventArgs e)
+        {
+            PayingMethodForm frm = new PayingMethodForm(); //elotte meg hogy jelenitsuk az opciot hogy melyik asztalnak szeretne fizetni (illetve tovabb fejlesztesnel hogy melyik szamlat fizetne)
+            frm.ShowDialog();
+        }
     }
 }
