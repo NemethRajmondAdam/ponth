@@ -23,18 +23,6 @@ namespace ponth
 
         private Desing d = new Desing();
 
-        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OrderDetailsForm frm = new OrderDetailsForm();
-            frm.ShowDialog();
-        }
-
-        private void PayingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PayingMethodForm frm = new PayingMethodForm(); //elotte meg hogy jelenitsuk az opciot hogy melyik asztalnak szeretne fizetni (illetve tovabb fejlesztesnel hogy melyik szamlat fizetne)
-            frm.ShowDialog();
-        }
-
         private void btn_ChangeLang_Click(object sender, EventArgs e)
         {
             this.MaximizeBox = true;
@@ -44,7 +32,6 @@ namespace ponth
             {
                 LanguageManager.ToggleLanguage(langIndex);
                 LanguageManager.ApplyCulture();
-
 
             };
 
@@ -65,6 +52,7 @@ namespace ponth
                 panelLanguageSelect.Visible = false;
             };
 
+            panelLanguageSelect.BringToFront();
             panelLanguageSelect.Controls.Clear();
             panelLanguageSelect.Controls.Add(uc);
             panelLanguageSelect.Size = new Size(816, 489);
@@ -78,6 +66,8 @@ namespace ponth
             //d.MakeRoundedBtn(btn_ChangeLang, 20);
             panelLanguageSelect.Visible = false;
             this.MaximizeBox = true;
+            //bele kell rakni hogy a switch olyan allapotba alljon ahogyan kell neki
+            panelResize();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -86,14 +76,13 @@ namespace ponth
             //sidebar.Height = this.Height;
             this.MaximizeBox = true;
             panelLanguageSelect.Visible = false;
+            sidebar.BringToFront();
+            tableViewSwitch.BringToFront();
+            ucMainPanel.Size = pictureBox1.Size;
+            ucMainPanel.Location = pictureBox1.Location;
+            panelResize();
             
 
-        }
-
-        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OrderingForm frm = new OrderingForm();
-            frm.ShowDialog();
         }
 
         bool sidebarExpand;
@@ -130,20 +119,85 @@ namespace ponth
 
         private void btn_Menu_Click(object sender, EventArgs e)
         {
-            OrderingForm frm = new OrderingForm();
-            frm.ShowDialog();
+            /*OrderingForm frm = new OrderingForm();
+            frm.ShowDialog();*/
+            systemView = true;
+            panelResize();
         }
 
         private void btn_Order_Click(object sender, EventArgs e)
         {
             OrderingForm frm = new OrderingForm();
             frm.ShowDialog();
+            systemView = true;
         }
 
         private void btn_Paying_Click(object sender, EventArgs e)
         {
             PayingMethodForm frm = new PayingMethodForm(); //elotte meg hogy jelenitsuk az opciot hogy melyik asztalnak szeretne fizetni (illetve tovabb fejlesztesnel hogy melyik szamlat fizetne)
             frm.ShowDialog();
+            systemView = true;
+        }
+
+        bool tableView = false;
+        bool systemView = false;
+
+        private void tableViewSwitch_CheckedChanged(object sender, EventArgs e)
+        {
+            tableView = !tableView;
+            panelResize();
+            
+        }
+
+        private void panelResize()
+        {
+            // ha semmi nem kell
+            if (!systemView && !tableView)
+            {
+                ucMainPanel.Visible = false;
+
+                return;
+            }
+
+            sidebar.BringToFront();
+            tableViewSwitch.BringToFront();
+
+            ucMainPanel.Size = pictureBox1.Size;
+            ucMainPanel.Location = pictureBox1.Location;
+
+            ucMainPanel.Visible = true;
+
+            int halfWidth = ucMainPanel.Width / 2;
+
+            if (systemView && tableView)
+            {
+                // 50–50, mindkettő látszik
+                ucMainPanel.Panel1Collapsed = false;
+                ucMainPanel.Panel2Collapsed = false;
+                ucMainPanel.SplitterDistance = halfWidth;
+            }
+            else if (systemView && !tableView)
+            {
+                // csak bal oldal
+                ucMainPanel.Panel1Collapsed = false;
+                ucMainPanel.Panel2Collapsed = true;
+            }
+            else if (!systemView && tableView)
+            {
+                // CSAK jobb oldal, max 50%
+                ucMainPanel.Panel1Collapsed = true;
+                ucMainPanel.Panel2Collapsed = false;
+
+                ucMainPanel.Size = new Size(pictureBox1.Height,ucMainPanel.Width / 2);
+                ucMainPanel.Location = new Point(pictureBox1.Location.X + halfWidth + 50, pictureBox1.Location.Y-2);
+
+            }
+        }
+
+        private void btn_Home_Click(object sender, EventArgs e)
+        {
+            systemView = false;
+            panelResize();
         }
     }
 }

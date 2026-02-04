@@ -42,11 +42,13 @@
             this.btn_Order = new System.Windows.Forms.Button();
             this.panelPaying = new System.Windows.Forms.Panel();
             this.btn_Paying = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.panelHome = new System.Windows.Forms.Panel();
+            this.btn_Home = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.btn_ChangeLang = new ponth.CostumeControls.cButtons();
+            this.tableViewSwitch = new ponth.CostumeControls.cToogleSwitch();
+            this.ucMainPanel = new System.Windows.Forms.SplitContainer();
             this.panel1.SuspendLayout();
             this.sidebar.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -54,8 +56,10 @@
             this.panelMenu.SuspendLayout();
             this.panelOrder.SuspendLayout();
             this.panelPaying.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.panelHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ucMainPanel)).BeginInit();
+            this.ucMainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,7 +81,7 @@
             this.sidebar.Controls.Add(this.panelMenu);
             this.sidebar.Controls.Add(this.panelOrder);
             this.sidebar.Controls.Add(this.panelPaying);
-            this.sidebar.Controls.Add(this.panel5);
+            this.sidebar.Controls.Add(this.panelHome);
             resources.ApplyResources(this.sidebar, "sidebar");
             this.sidebar.Name = "sidebar";
             // 
@@ -148,19 +152,20 @@
             this.btn_Paying.UseVisualStyleBackColor = false;
             this.btn_Paying.Click += new System.EventHandler(this.btn_Paying_Click);
             // 
-            // panel5
+            // panelHome
             // 
-            resources.ApplyResources(this.panel5, "panel5");
-            this.panel5.Controls.Add(this.button4);
-            this.panel5.Name = "panel5";
+            resources.ApplyResources(this.panelHome, "panelHome");
+            this.panelHome.Controls.Add(this.btn_Home);
+            this.panelHome.Name = "panelHome";
             // 
-            // button4
+            // btn_Home
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
-            resources.ApplyResources(this.button4, "button4");
-            this.button4.Image = global::ponth.Properties.Resources.rsz_menu;
-            this.button4.Name = "button4";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btn_Home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            resources.ApplyResources(this.btn_Home, "btn_Home");
+            this.btn_Home.Image = global::ponth.Properties.Resources.rsz_menu;
+            this.btn_Home.Name = "btn_Home";
+            this.btn_Home.UseVisualStyleBackColor = false;
+            this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
             // 
             // pictureBox1
             // 
@@ -190,10 +195,36 @@
             this.btn_ChangeLang.UseVisualStyleBackColor = false;
             this.btn_ChangeLang.Click += new System.EventHandler(this.btn_ChangeLang_Click);
             // 
+            // tableViewSwitch
+            // 
+            resources.ApplyResources(this.tableViewSwitch, "tableViewSwitch");
+            this.tableViewSwitch.Name = "tableViewSwitch";
+            this.tableViewSwitch.OffBackColor = System.Drawing.Color.Gray;
+            this.tableViewSwitch.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.tableViewSwitch.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            this.tableViewSwitch.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.tableViewSwitch.UseVisualStyleBackColor = true;
+            this.tableViewSwitch.CheckedChanged += new System.EventHandler(this.tableViewSwitch_CheckedChanged);
+            // 
+            // ucMainPanel
+            // 
+            resources.ApplyResources(this.ucMainPanel, "ucMainPanel");
+            this.ucMainPanel.Name = "ucMainPanel";
+            // 
+            // ucMainPanel.Panel1
+            // 
+            this.ucMainPanel.Panel1.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // ucMainPanel.Panel2
+            // 
+            this.ucMainPanel.Panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ucMainPanel);
+            this.Controls.Add(this.tableViewSwitch);
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.panelLanguageSelect);
             this.Controls.Add(this.pictureBox1);
@@ -211,9 +242,12 @@
             this.panelMenu.ResumeLayout(false);
             this.panelOrder.ResumeLayout(false);
             this.panelPaying.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
+            this.panelHome.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ucMainPanel)).EndInit();
+            this.ucMainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -231,11 +265,13 @@
         private System.Windows.Forms.Button btn_Order;
         private System.Windows.Forms.Panel panelPaying;
         private System.Windows.Forms.Button btn_Paying;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panelHome;
+        private System.Windows.Forms.Button btn_Home;
         private System.Windows.Forms.PictureBox sidebarButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer sidebarTimer;
+        private CostumeControls.cToogleSwitch tableViewSwitch;
+        private System.Windows.Forms.SplitContainer ucMainPanel;
     }
 }
 

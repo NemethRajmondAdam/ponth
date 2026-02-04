@@ -62,3 +62,33 @@ D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.exe.config
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.ucLanguageSelect.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.csproj.Up2Date
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.ucBase.resources
+D:\NémethRajmondÁdám\ponth\bin\Debug\de\ponth.resources.dll
+D:\NémethRajmondÁdám\ponth\bin\Debug\en\ponth.resources.dll
+D:\NémethRajmondÁdám\ponth\bin\Debug\es\ponth.resources.dll
+D:\NémethRajmondÁdám\ponth\bin\Debug\fr\ponth.resources.dll
+D:\NémethRajmondÁdám\ponth\bin\Debug\hu\ponth.resources.dll
+D:\NémethRajmondÁdám\ponth\bin\Debug\MySql.Data.dll
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.CocktailEditPageForm.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.FormBase.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.LanguageSelectForm.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.OrderingForm.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.OrderDetailsForm.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.PayingMethodForm.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.TableViewForm.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.ucBase.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.ucLanguageSelect.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.FormMain.de.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.FormMain.en.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.FormMain.es.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.FormMain.fr.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.FormMain.hu.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.OrderDetailsForm.de.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.OrderDetailsForm.en.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.OrderDetailsForm.es.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.OrderDetailsForm.fr.resources
+D:\NémethRajmondÁdám\ponth\obj\Debug\de\ponth.resources.dll
+D:\NémethRajmondÁdám\ponth\obj\Debug\en\ponth.resources.dll
+D:\NémethRajmondÁdám\ponth\obj\Debug\es\ponth.resources.dll
+D:\NémethRajmondÁdám\ponth\obj\Debug\fr\ponth.resources.dll
+D:\NémethRajmondÁdám\ponth\obj\Debug\hu\ponth.resources.dll
+D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.csproj.CopyComplete
