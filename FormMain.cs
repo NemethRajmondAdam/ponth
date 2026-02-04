@@ -37,7 +37,7 @@ namespace ponth
 
         private void btn_ChangeLang_Click(object sender, EventArgs e)
         {
-
+            this.MaximizeBox = true;
             var uc = new ucLanguageSelect();
 
             uc.OnLanguageSelected += (langIndex) =>
@@ -75,15 +75,18 @@ namespace ponth
         private void UpdateLanguageButton()
         {
             btn_ChangeLang.Text = $"-{LanguageManager.CurrentLanguageName}-";
-            d.MakeRoundedBtn(btn_ChangeLang, 20);
+            //d.MakeRoundedBtn(btn_ChangeLang, 20);
             panelLanguageSelect.Visible = false;
+            this.MaximizeBox = true;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
             btn_ChangeLang.Text = $"-{LanguageManager.CurrentLanguageName}-";
-            sidebar.Height = this.Height;
+            //sidebar.Height = this.Height;
+            this.MaximizeBox = true;
             panelLanguageSelect.Visible = false;
+            
 
         }
 

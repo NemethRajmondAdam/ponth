@@ -34,27 +34,27 @@
             this.panelLanguageSelect = new System.Windows.Forms.Panel();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.sidebarButton = new System.Windows.Forms.PictureBox();
+            this.panelMenu = new System.Windows.Forms.Panel();
             this.btn_Menu = new System.Windows.Forms.Button();
+            this.panelOrder = new System.Windows.Forms.Panel();
             this.btn_Order = new System.Windows.Forms.Button();
+            this.panelPaying = new System.Windows.Forms.Panel();
             this.btn_Paying = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.btn_ChangeLang = new ponth.CostumeControls.cButtons();
             this.panel1.SuspendLayout();
             this.sidebar.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panelMenu.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sidebarButton)).BeginInit();
+            this.panelMenu.SuspendLayout();
+            this.panelOrder.SuspendLayout();
+            this.panelPaying.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,8 +75,8 @@
             this.sidebar.BackColor = System.Drawing.Color.LightGray;
             this.sidebar.Controls.Add(this.panel2);
             this.sidebar.Controls.Add(this.panelMenu);
-            this.sidebar.Controls.Add(this.panel3);
-            this.sidebar.Controls.Add(this.panel4);
+            this.sidebar.Controls.Add(this.panelOrder);
+            this.sidebar.Controls.Add(this.panelPaying);
             this.sidebar.Controls.Add(this.panel5);
             resources.ApplyResources(this.sidebar, "sidebar");
             this.sidebar.Name = "sidebar";
@@ -88,29 +88,10 @@
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
-            // panelMenu
+            // label1
             // 
-            resources.ApplyResources(this.panelMenu, "panelMenu");
-            this.panelMenu.Controls.Add(this.btn_Menu);
-            this.panelMenu.Name = "panelMenu";
-            // 
-            // panel3
-            // 
-            resources.ApplyResources(this.panel3, "panel3");
-            this.panel3.Controls.Add(this.btn_Order);
-            this.panel3.Name = "panel3";
-            // 
-            // panel4
-            // 
-            resources.ApplyResources(this.panel4, "panel4");
-            this.panel4.Controls.Add(this.btn_Paying);
-            this.panel4.Name = "panel4";
-            // 
-            // panel5
-            // 
-            resources.ApplyResources(this.panel5, "panel5");
-            this.panel5.Controls.Add(this.button4);
-            this.panel5.Name = "panel5";
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // sidebarButton
             // 
@@ -120,6 +101,12 @@
             this.sidebarButton.Name = "sidebarButton";
             this.sidebarButton.TabStop = false;
             this.sidebarButton.Click += new System.EventHandler(this.sidebarButton_Click);
+            // 
+            // panelMenu
+            // 
+            resources.ApplyResources(this.panelMenu, "panelMenu");
+            this.panelMenu.Controls.Add(this.btn_Menu);
+            this.panelMenu.Name = "panelMenu";
             // 
             // btn_Menu
             // 
@@ -131,6 +118,12 @@
             this.btn_Menu.UseVisualStyleBackColor = false;
             this.btn_Menu.Click += new System.EventHandler(this.btn_Menu_Click);
             // 
+            // panelOrder
+            // 
+            resources.ApplyResources(this.panelOrder, "panelOrder");
+            this.panelOrder.Controls.Add(this.btn_Order);
+            this.panelOrder.Name = "panelOrder";
+            // 
             // btn_Order
             // 
             this.btn_Order.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
@@ -140,6 +133,12 @@
             this.btn_Order.UseVisualStyleBackColor = false;
             this.btn_Order.Click += new System.EventHandler(this.btn_Order_Click);
             // 
+            // panelPaying
+            // 
+            resources.ApplyResources(this.panelPaying, "panelPaying");
+            this.panelPaying.Controls.Add(this.btn_Paying);
+            this.panelPaying.Name = "panelPaying";
+            // 
             // btn_Paying
             // 
             this.btn_Paying.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
@@ -148,6 +147,12 @@
             this.btn_Paying.Name = "btn_Paying";
             this.btn_Paying.UseVisualStyleBackColor = false;
             this.btn_Paying.Click += new System.EventHandler(this.btn_Paying_Click);
+            // 
+            // panel5
+            // 
+            resources.ApplyResources(this.panel5, "panel5");
+            this.panel5.Controls.Add(this.button4);
+            this.panel5.Name = "panel5";
             // 
             // button4
             // 
@@ -162,11 +167,6 @@
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
             // 
             // sidebarTimer
             // 
@@ -207,11 +207,11 @@
             this.sidebar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panelMenu.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sidebarButton)).EndInit();
+            this.panelMenu.ResumeLayout(false);
+            this.panelOrder.ResumeLayout(false);
+            this.panelPaying.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -227,9 +227,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Button btn_Menu;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelOrder;
         private System.Windows.Forms.Button btn_Order;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panelPaying;
         private System.Windows.Forms.Button btn_Paying;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button4;

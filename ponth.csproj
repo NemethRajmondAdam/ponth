@@ -61,6 +61,7 @@
     <Compile Include="CostumeControls\cButtons.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CostumeControls\cToogleSwitch.cs" />
     <Compile Include="DataBase.cs" />
     <Compile Include="DatabaseQuestions.cs" />
     <Compile Include="Desing.cs" />
