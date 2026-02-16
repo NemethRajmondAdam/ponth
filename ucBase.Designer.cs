@@ -39,15 +39,15 @@
             this.panel1.Controls.Add(this.btn_Ok);
             this.panel1.Controls.Add(this.btn_Cancel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 371);
+            this.panel1.Location = new System.Drawing.Point(0, 215);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(952, 72);
+            this.panel1.Size = new System.Drawing.Size(575, 72);
             this.panel1.TabIndex = 1;
             // 
             // btn_Ok
             // 
-            this.btn_Ok.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_Ok.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btn_Ok.BackColor = System.Drawing.Color.GhostWhite;
             this.btn_Ok.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.btn_Ok.BorderColor = System.Drawing.Color.LimeGreen;
@@ -60,7 +60,7 @@
             this.btn_Ok.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
             this.btn_Ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Ok.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btn_Ok.Location = new System.Drawing.Point(711, 17);
+            this.btn_Ok.Location = new System.Drawing.Point(334, 17);
             this.btn_Ok.Name = "btn_Ok";
             this.btn_Ok.Size = new System.Drawing.Size(109, 40);
             this.btn_Ok.TabIndex = 10;
@@ -71,7 +71,7 @@
             // 
             // btn_Cancel
             // 
-            this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btn_Cancel.BackColor = System.Drawing.Color.GhostWhite;
             this.btn_Cancel.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.btn_Cancel.BorderColor = System.Drawing.Color.Crimson;
@@ -84,7 +84,7 @@
             this.btn_Cancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
             this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Cancel.ForeColor = System.Drawing.Color.Red;
-            this.btn_Cancel.Location = new System.Drawing.Point(836, 17);
+            this.btn_Cancel.Location = new System.Drawing.Point(459, 17);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(109, 40);
             this.btn_Cancel.TabIndex = 9;
@@ -98,7 +98,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Name = "ucBase";
-            this.Size = new System.Drawing.Size(952, 443);
+            this.Size = new System.Drawing.Size(575, 287);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

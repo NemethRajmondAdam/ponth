@@ -85,6 +85,7 @@ namespace ponth
 
         }
 
+
         bool sidebarExpand;
 
         private void sidebarTimer_Tick(object sender, EventArgs e)
@@ -125,12 +126,7 @@ namespace ponth
             panelResize();
         }
 
-        private void btn_Order_Click(object sender, EventArgs e)
-        {
-            OrderingForm frm = new OrderingForm();
-            frm.ShowDialog();
-            systemView = true;
-        }
+
 
         private void btn_Paying_Click(object sender, EventArgs e)
         {
@@ -139,11 +135,14 @@ namespace ponth
             systemView = true;
         }
 
+        //VIEWS
+
         bool tableView = false;
         bool systemView = false;
 
         private void tableViewSwitch_CheckedChanged(object sender, EventArgs e)
         {
+            ucMainPanel.Panel2.Controls.Clear();
             tableView = !tableView;
             panelResize();
             
@@ -197,7 +196,31 @@ namespace ponth
         private void btn_Home_Click(object sender, EventArgs e)
         {
             systemView = false;
+            ucMainPanel.Panel1.Controls.Clear();
             panelResize();
         }
+
+        //RENDELES
+        private void btn_Order_Click(object sender, EventArgs e)
+        {
+            ucMainPanel.Panel1.Controls.Clear();
+
+            ucOrderDetails uc = new ucOrderDetails();
+            uc.Dock = DockStyle.Fill;
+
+            uc.OrderingConfirmed += Uc_OrderingConfirmed;
+
+            ucMainPanel.Panel1.Controls.Add(uc);
+            systemView = true;
+            panelResize();
+        }
+
+        private void Uc_OrderingConfirmed(int tableId)
+        {
+            OrderingForm frm = new OrderingForm();
+            frm.ShowDialog();
+        }
+
+
     }
 }
