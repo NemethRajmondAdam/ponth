@@ -93,3 +93,4 @@ D:\NémethRajmondÁdám\ponth\obj\Debug\fr\ponth.resources.dll
 D:\NémethRajmondÁdám\ponth\obj\Debug\hu\ponth.resources.dll
 D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.csproj.CopyComplete
 D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.ucOrderDetails.resources
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.ucOrderDetails.resources

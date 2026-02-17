@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.panelMain = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.txtBox_AccountHolder = new System.Windows.Forms.TextBox();
             this.chckBox_Account = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.numUpDown_TableID = new System.Windows.Forms.NumericUpDown();
             this.chckBox_OrderingToTable = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btn_Ok = new ponth.CostumeControls.cButtons();
             this.btn_Cancel = new ponth.CostumeControls.cButtons();
             this.panelMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_TableID)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_TableID)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMain
@@ -57,6 +57,17 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(680, 264);
             this.panelMain.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btn_Ok);
+            this.panel1.Controls.Add(this.btn_Cancel);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 198);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(680, 66);
+            this.panel1.TabIndex = 6;
             // 
             // txtBox_AccountHolder
             // 
@@ -80,6 +91,7 @@
             this.chckBox_Account.TabIndex = 4;
             this.chckBox_Account.Text = "Szamlat nyit?";
             this.chckBox_Account.UseVisualStyleBackColor = true;
+            this.chckBox_Account.CheckedChanged += new System.EventHandler(this.chckBox_Account_CheckedChanged);
             // 
             // label2
             // 
@@ -114,6 +126,7 @@
             this.chckBox_OrderingToTable.TabIndex = 1;
             this.chckBox_OrderingToTable.Text = "Asztalhoz rendeli?";
             this.chckBox_OrderingToTable.UseVisualStyleBackColor = true;
+            this.chckBox_OrderingToTable.CheckedChanged += new System.EventHandler(this.chckBox_OrderingToTable_CheckedChanged);
             // 
             // label1
             // 
@@ -123,17 +136,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btn_Ok);
-            this.panel1.Controls.Add(this.btn_Cancel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 198);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(680, 66);
-            this.panel1.TabIndex = 6;
             // 
             // btn_Ok
             // 
@@ -157,6 +159,7 @@
             this.btn_Ok.Text = "Mentés";
             this.btn_Ok.TextColor = System.Drawing.Color.LimeGreen;
             this.btn_Ok.UseVisualStyleBackColor = false;
+            this.btn_Ok.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btn_Cancel
             // 
@@ -191,8 +194,8 @@
             this.Load += new System.EventHandler(this.ucOrderDetails_Load);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_TableID)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_TableID)).EndInit();
             this.ResumeLayout(false);
 
         }

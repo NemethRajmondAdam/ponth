@@ -5,7 +5,7 @@ namespace ponth
 {
     public partial class ucOrderDetails : UserControl
     {
-        // ✅ int paraméteres event
+        //int paraméteres event
         public event Action<int> OrderingConfirmed;
 
         public ucOrderDetails()
@@ -29,6 +29,7 @@ namespace ponth
                 numUpDown_TableID.Enabled = true;
                 txtBox_AccountHolder.Enabled = false;
                 chckBox_Account.Enabled = false;
+
             }
             else
             {
@@ -42,7 +43,7 @@ namespace ponth
             txtBox_AccountHolder.Enabled = chckBox_Account.Checked;
         }
 
-        // ✅ OK gomb
+        // OK gomb
         private void btnOk_Click(object sender, EventArgs e)
         {
             int tableId = 0;
@@ -62,7 +63,7 @@ namespace ponth
                 tableId = (int)numUpDown_TableID.Value;
             }
 
-            // ✅ int paraméter átadása
+            // int paraméter átadása
             OrderingConfirmed?.Invoke(tableId);
         }
     }

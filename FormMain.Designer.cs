@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_ChangeLang = new ponth.CostumeControls.cButtons();
             this.panelLanguageSelect = new System.Windows.Forms.Panel();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -46,7 +47,6 @@
             this.btn_Home = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
-            this.btn_ChangeLang = new ponth.CostumeControls.cButtons();
             this.tableViewSwitch = new ponth.CostumeControls.cToogleSwitch();
             this.ucMainPanel = new System.Windows.Forms.SplitContainer();
             this.panel1.SuspendLayout();
@@ -68,6 +68,23 @@
             this.panel1.Controls.Add(this.btn_ChangeLang);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
+            // 
+            // btn_ChangeLang
+            // 
+            resources.ApplyResources(this.btn_ChangeLang, "btn_ChangeLang");
+            this.btn_ChangeLang.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_ChangeLang.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_ChangeLang.BorderColor = System.Drawing.Color.Black;
+            this.btn_ChangeLang.BorderRadius = 20;
+            this.btn_ChangeLang.BorderSize = 1;
+            this.btn_ChangeLang.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_ChangeLang.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_ChangeLang.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btn_ChangeLang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            this.btn_ChangeLang.Name = "btn_ChangeLang";
+            this.btn_ChangeLang.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            this.btn_ChangeLang.UseVisualStyleBackColor = false;
+            this.btn_ChangeLang.Click += new System.EventHandler(this.btn_ChangeLang_Click);
             // 
             // panelLanguageSelect
             // 
@@ -177,23 +194,6 @@
             // 
             this.sidebarTimer.Interval = 10;
             this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
-            // 
-            // btn_ChangeLang
-            // 
-            resources.ApplyResources(this.btn_ChangeLang, "btn_ChangeLang");
-            this.btn_ChangeLang.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_ChangeLang.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_ChangeLang.BorderColor = System.Drawing.Color.Black;
-            this.btn_ChangeLang.BorderRadius = 20;
-            this.btn_ChangeLang.BorderSize = 1;
-            this.btn_ChangeLang.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_ChangeLang.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_ChangeLang.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btn_ChangeLang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
-            this.btn_ChangeLang.Name = "btn_ChangeLang";
-            this.btn_ChangeLang.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
-            this.btn_ChangeLang.UseVisualStyleBackColor = false;
-            this.btn_ChangeLang.Click += new System.EventHandler(this.btn_ChangeLang_Click);
             // 
             // tableViewSwitch
             // 

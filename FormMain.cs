@@ -174,6 +174,7 @@ namespace ponth
                 ucMainPanel.Panel1Collapsed = false;
                 ucMainPanel.Panel2Collapsed = false;
                 ucMainPanel.SplitterDistance = halfWidth;
+
             }
             else if (systemView && !tableView)
             {
@@ -189,8 +190,9 @@ namespace ponth
 
                 ucMainPanel.Size = new Size(pictureBox1.Height,ucMainPanel.Width / 2);
                 ucMainPanel.Location = new Point(pictureBox1.Location.X + halfWidth + 50, pictureBox1.Location.Y-2);
-
             }
+
+            popUp.Location = new Point((ucMainPanel.Panel1.Width - popUp.Width) / 2,(ucMainPanel.Panel1.Height - popUp.Height) / 2);
         }
 
         private void btn_Home_Click(object sender, EventArgs e)
@@ -201,16 +203,33 @@ namespace ponth
         }
 
         //RENDELES
+
+        Panel popUp;
+
         private void btn_Order_Click(object sender, EventArgs e)
         {
+
             ucMainPanel.Panel1.Controls.Clear();
 
+            popUp = new Panel();
+            popUp.Name = "panelPopUp";
+            popUp.Size = new Size(644, 288);
+            popUp.BackColor = Color.White;
+            popUp.BorderStyle = BorderStyle.FixedSingle;
+
+            ucMainPanel.Panel1.Controls.Add(popUp);
+
+            popUp.Location = new Point(
+                (ucMainPanel.Panel1.ClientSize.Width - popUp.Width) / 2,
+                (ucMainPanel.Panel1.ClientSize.Height - popUp.Height) / 2
+            );
+ 
             ucOrderDetails uc = new ucOrderDetails();
             uc.Dock = DockStyle.Fill;
-
             uc.OrderingConfirmed += Uc_OrderingConfirmed;
 
-            ucMainPanel.Panel1.Controls.Add(uc);
+            popUp.Controls.Add(uc);
+
             systemView = true;
             panelResize();
         }
