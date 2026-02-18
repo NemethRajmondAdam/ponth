@@ -8,6 +8,10 @@ namespace ponth
         //int paraméteres event
         public event Action<int> OrderingConfirmed;
 
+        //bezarasi metodus
+        public event Action CancelRequested;
+
+
         public ucOrderDetails()
         {
             InitializeComponent();
@@ -65,6 +69,11 @@ namespace ponth
 
             // int paraméter átadása
             OrderingConfirmed?.Invoke(tableId);
+        }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            CancelRequested?.Invoke();
         }
     }
 }

@@ -19,6 +19,7 @@ namespace ponth
         {
 
             InitializeComponent();
+
         }
 
         private Desing d = new Desing();
@@ -40,10 +41,11 @@ namespace ponth
                 LanguageManager.ToggleLanguage(langIndex);
                 LanguageManager.ApplyCulture();
 
-                // Az aktuális form újratöltése
-                this.Controls.Clear();
-                this.InitializeComponent();
+                LanguageManager.ToggleLanguage(langIndex);
+                LanguageManager.ApplyCulture();
+                ApplyResourcesToControl(this);
                 UpdateLanguageButton();
+
             };
 
             uc.OnCancel += () =>
@@ -60,14 +62,28 @@ namespace ponth
             panelLanguageSelect.Visible = true;
         }
 
+        private void ApplyResourcesToControl(Control control)
+        {
+            var resources = new ComponentResourceManager(typeof(FormMain));
+            resources.ApplyResources(control, control.Name);
+
+            foreach (Control child in control.Controls)
+            {
+                ApplyResourcesToControl(child);
+            }
+        }
+
+
         private void UpdateLanguageButton()
         {
             btn_ChangeLang.Text = $"-{LanguageManager.CurrentLanguageName}-";
             //d.MakeRoundedBtn(btn_ChangeLang, 20);
             panelLanguageSelect.Visible = false;
             this.MaximizeBox = true;
+            this.WindowState = FormWindowState.Maximized;
             //bele kell rakni hogy a switch olyan allapotba alljon ahogyan kell neki
             panelResize();
+
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -76,6 +92,7 @@ namespace ponth
             //sidebar.Height = this.Height;
             this.MaximizeBox = true;
             panelLanguageSelect.Visible = false;
+            panel1.BringToFront();
             sidebar.BringToFront();
             tableViewSwitch.BringToFront();
             ucMainPanel.Size = pictureBox1.Size;
@@ -86,35 +103,50 @@ namespace ponth
         }
 
 
-        bool sidebarExpand;
+        private bool sidebarExpanded = true;
+        private bool sidebarAnimating = false;
 
-        private void sidebarTimer_Tick(object sender, EventArgs e)
+        private async void ToggleSidebar()
         {
+            if (sidebarAnimating) return;
 
+            sidebarAnimating = true;
 
-            if (sidebarExpand)
+            int startWidth = sidebar.Width;
+            int targetWidth = sidebarExpanded ? sidebar.MinimumSize.Width : sidebar.MaximumSize.Width;
+
+            int animationDuration = 200; // ms
+            int frameTime = 10;
+            int steps = animationDuration / frameTime;
+
+            for (int i = 0; i <= steps; i++)
             {
-                sidebar.Width -= 10;
-                if (sidebar.Width == sidebar.MinimumSize.Width)
-                {
-                    sidebarExpand = false;
-                    sidebarTimer.Stop();
-                }
+                double progress = (double)i / steps;
+
+                // Smooth easing (easeInOut)
+                double eased = progress < 0.5
+                    ? 2 * progress * progress
+                    : 1 - Math.Pow(-2 * progress + 2, 2) / 2;
+
+                int newWidth = (int)(startWidth + (targetWidth - startWidth) * eased);
+
+                this.SuspendLayout();
+                sidebar.Width = newWidth;
+                this.ResumeLayout();
+
+                await Task.Delay(frameTime);
             }
-            else 
-            {
-                sidebar.Width += 10;
-                if (sidebar.Width == sidebar.MaximumSize.Width)
-                {
-                    sidebarExpand = true;
-                    sidebarTimer.Stop();
-                }
-            }
+
+            sidebar.Width = targetWidth;
+
+            sidebarExpanded = !sidebarExpanded;
+            sidebarAnimating = false;
         }
+
 
         private void sidebarButton_Click(object sender, EventArgs e)
         {
-            sidebarTimer.Start();
+            ToggleSidebar();
 
         }
 
@@ -181,6 +213,7 @@ namespace ponth
                 // csak bal oldal
                 ucMainPanel.Panel1Collapsed = false;
                 ucMainPanel.Panel2Collapsed = true;
+                
             }
             else if (!systemView && tableView)
             {
@@ -190,9 +223,15 @@ namespace ponth
 
                 ucMainPanel.Size = new Size(pictureBox1.Height,ucMainPanel.Width / 2);
                 ucMainPanel.Location = new Point(pictureBox1.Location.X + halfWidth + 50, pictureBox1.Location.Y-2);
+                
             }
 
-            popUp.Location = new Point((ucMainPanel.Panel1.Width - popUp.Width) / 2,(ucMainPanel.Panel1.Height - popUp.Height) / 2);
+            if (popUpNeeded)
+            {
+                popUp.Location = new Point((ucMainPanel.Panel1.Width - popUp.Width) / 2, (ucMainPanel.Panel1.Height - popUp.Height) / 2);
+            }
+
+
         }
 
         private void btn_Home_Click(object sender, EventArgs e)
@@ -205,6 +244,7 @@ namespace ponth
         //RENDELES
 
         Panel popUp;
+        bool popUpNeeded = false;
 
         private void btn_Order_Click(object sender, EventArgs e)
         {
@@ -223,10 +263,23 @@ namespace ponth
                 (ucMainPanel.Panel1.ClientSize.Width - popUp.Width) / 2,
                 (ucMainPanel.Panel1.ClientSize.Height - popUp.Height) / 2
             );
+
+            popUpNeeded = true;
  
             ucOrderDetails uc = new ucOrderDetails();
             uc.Dock = DockStyle.Fill;
             uc.OrderingConfirmed += Uc_OrderingConfirmed;
+
+            uc.CancelRequested += () =>
+            {
+                if (popUp != null && popUp.Parent != null)
+                {
+                    ucMainPanel.Panel1.Controls.Remove(popUp);
+                    popUp.Dispose();
+                    popUp = null;
+                    popUpNeeded=false;
+                }
+            };
 
             popUp.Controls.Add(uc);
 
@@ -236,8 +289,22 @@ namespace ponth
 
         private void Uc_OrderingConfirmed(int tableId)
         {
-            OrderingForm frm = new OrderingForm();
-            frm.ShowDialog();
+            popUpNeeded = false;
+            ucMainPanel.Panel1.Controls.Clear();
+
+            // UC létrehozása
+            ucOrdering uc = new ucOrdering(tableId);
+            uc.Dock = DockStyle.Fill;
+
+            // Esemény kezelése
+            uc.OrderingConfirmed += (id) =>
+            {
+                MessageBox.Show($"Rendelés leadva az {id} asztalra!");
+                // Ha akarod, eltávolíthatod a UC-t
+                ucMainPanel.Panel1.Controls.Clear();
+            };
+
+            ucMainPanel.Panel1.Controls.Add(uc);
         }
 
 

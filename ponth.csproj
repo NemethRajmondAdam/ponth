@@ -130,6 +130,12 @@
     <Compile Include="ucOrderDetails.Designer.cs">
       <DependentUpon>ucOrderDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucOrdering.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucOrdering.Designer.cs">
+      <DependentUpon>ucOrdering.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CocktailEditPageForm.resx">
       <DependentUpon>CocktailEditPageForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucOrderDetails.resx">
       <DependentUpon>ucOrderDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucOrdering.resx">
+      <DependentUpon>ucOrdering.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

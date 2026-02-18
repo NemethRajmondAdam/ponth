@@ -64973,9 +64973,6 @@
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <metadata name="sidebarTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>132, 17</value>
-  </metadata>
   <data name="tableViewSwitch.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -71919,12 +71916,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Főoldal</value>
-  </data>
-  <data name="&gt;&gt;sidebarTimer.Name" xml:space="preserve">
-    <value>sidebarTimer</value>
-  </data>
-  <data name="&gt;&gt;sidebarTimer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormMain</value>

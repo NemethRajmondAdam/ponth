@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_ChangeLang = new ponth.CostumeControls.cButtons();
@@ -46,7 +45,6 @@
             this.panelHome = new System.Windows.Forms.Panel();
             this.btn_Home = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.tableViewSwitch = new ponth.CostumeControls.cToogleSwitch();
             this.ucMainPanel = new System.Windows.Forms.SplitContainer();
             this.panel1.SuspendLayout();
@@ -190,11 +188,6 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
-            // sidebarTimer
-            // 
-            this.sidebarTimer.Interval = 10;
-            this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
-            // 
             // tableViewSwitch
             // 
             resources.ApplyResources(this.tableViewSwitch, "tableViewSwitch");
@@ -269,7 +262,6 @@
         private System.Windows.Forms.Button btn_Home;
         private System.Windows.Forms.PictureBox sidebarButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Timer sidebarTimer;
         private CostumeControls.cToogleSwitch tableViewSwitch;
         private System.Windows.Forms.SplitContainer ucMainPanel;
     }

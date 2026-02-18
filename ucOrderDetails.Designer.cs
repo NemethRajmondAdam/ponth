@@ -30,14 +30,14 @@
         {
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_Ok = new ponth.CostumeControls.cButtons();
+            this.btn_Cancel = new ponth.CostumeControls.cButtons();
             this.txtBox_AccountHolder = new System.Windows.Forms.TextBox();
             this.chckBox_Account = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.numUpDown_TableID = new System.Windows.Forms.NumericUpDown();
             this.chckBox_OrderingToTable = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_Ok = new ponth.CostumeControls.cButtons();
-            this.btn_Cancel = new ponth.CostumeControls.cButtons();
             this.panelMain.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_TableID)).BeginInit();
@@ -68,6 +68,54 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(680, 66);
             this.panel1.TabIndex = 6;
+            // 
+            // btn_Ok
+            // 
+            this.btn_Ok.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_Ok.BackColor = System.Drawing.Color.GhostWhite;
+            this.btn_Ok.BackgroundColor = System.Drawing.Color.GhostWhite;
+            this.btn_Ok.BorderColor = System.Drawing.Color.LimeGreen;
+            this.btn_Ok.BorderRadius = 20;
+            this.btn_Ok.BorderSize = 1;
+            this.btn_Ok.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btn_Ok.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_Ok.FlatAppearance.BorderSize = 0;
+            this.btn_Ok.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
+            this.btn_Ok.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
+            this.btn_Ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Ok.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btn_Ok.Location = new System.Drawing.Point(439, 14);
+            this.btn_Ok.Name = "btn_Ok";
+            this.btn_Ok.Size = new System.Drawing.Size(109, 40);
+            this.btn_Ok.TabIndex = 10;
+            this.btn_Ok.Text = "Mentés";
+            this.btn_Ok.TextColor = System.Drawing.Color.LimeGreen;
+            this.btn_Ok.UseVisualStyleBackColor = false;
+            this.btn_Ok.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // btn_Cancel
+            // 
+            this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_Cancel.BackColor = System.Drawing.Color.GhostWhite;
+            this.btn_Cancel.BackgroundColor = System.Drawing.Color.GhostWhite;
+            this.btn_Cancel.BorderColor = System.Drawing.Color.Crimson;
+            this.btn_Cancel.BorderRadius = 20;
+            this.btn_Cancel.BorderSize = 1;
+            this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_Cancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Cancel.FlatAppearance.BorderSize = 0;
+            this.btn_Cancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
+            this.btn_Cancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
+            this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancel.ForeColor = System.Drawing.Color.Red;
+            this.btn_Cancel.Location = new System.Drawing.Point(564, 14);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(109, 40);
+            this.btn_Cancel.TabIndex = 9;
+            this.btn_Cancel.Text = "Mégse";
+            this.btn_Cancel.TextColor = System.Drawing.Color.Red;
+            this.btn_Cancel.UseVisualStyleBackColor = false;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // txtBox_AccountHolder
             // 
@@ -136,53 +184,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 0;
-            // 
-            // btn_Ok
-            // 
-            this.btn_Ok.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btn_Ok.BackColor = System.Drawing.Color.GhostWhite;
-            this.btn_Ok.BackgroundColor = System.Drawing.Color.GhostWhite;
-            this.btn_Ok.BorderColor = System.Drawing.Color.LimeGreen;
-            this.btn_Ok.BorderRadius = 20;
-            this.btn_Ok.BorderSize = 1;
-            this.btn_Ok.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btn_Ok.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btn_Ok.FlatAppearance.BorderSize = 0;
-            this.btn_Ok.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
-            this.btn_Ok.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
-            this.btn_Ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Ok.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btn_Ok.Location = new System.Drawing.Point(439, 14);
-            this.btn_Ok.Name = "btn_Ok";
-            this.btn_Ok.Size = new System.Drawing.Size(109, 40);
-            this.btn_Ok.TabIndex = 10;
-            this.btn_Ok.Text = "Mentés";
-            this.btn_Ok.TextColor = System.Drawing.Color.LimeGreen;
-            this.btn_Ok.UseVisualStyleBackColor = false;
-            this.btn_Ok.Click += new System.EventHandler(this.btnOk_Click);
-            // 
-            // btn_Cancel
-            // 
-            this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btn_Cancel.BackColor = System.Drawing.Color.GhostWhite;
-            this.btn_Cancel.BackgroundColor = System.Drawing.Color.GhostWhite;
-            this.btn_Cancel.BorderColor = System.Drawing.Color.Crimson;
-            this.btn_Cancel.BorderRadius = 20;
-            this.btn_Cancel.BorderSize = 1;
-            this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_Cancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btn_Cancel.FlatAppearance.BorderSize = 0;
-            this.btn_Cancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Honeydew;
-            this.btn_Cancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
-            this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Cancel.ForeColor = System.Drawing.Color.Red;
-            this.btn_Cancel.Location = new System.Drawing.Point(564, 14);
-            this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(109, 40);
-            this.btn_Cancel.TabIndex = 9;
-            this.btn_Cancel.Text = "Mégse";
-            this.btn_Cancel.TextColor = System.Drawing.Color.Red;
-            this.btn_Cancel.UseVisualStyleBackColor = false;
             // 
             // ucOrderDetails
             // 
