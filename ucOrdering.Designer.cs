@@ -72,6 +72,7 @@
             // 
             // CartPanel
             // 
+            this.CartPanel.AutoScroll = true;
             this.CartPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CartPanel.Location = new System.Drawing.Point(92, 3);
             this.CartPanel.Name = "CartPanel";

@@ -1,8 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 public static class DatabaseHelper
 {
@@ -55,4 +56,24 @@ public static class DatabaseHelper
         }
         return result;
     }
+
+    public static void ExecuteUpdate(string query)
+    {
+        try
+        {
+            using (MySqlConnection conn = new MySqlConnection(GetConnectionString()))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Hiba történt az UPDATE végrehajtása közben: {ex.Message}");
+        }
+    }
+
 }

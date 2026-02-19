@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ponth.CostumeControls;
+using System;
 using System.Data;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace ponth
@@ -8,8 +10,10 @@ namespace ponth
     public partial class ucOrdering : UserControl
     {
         public event Action<int> OrderingConfirmed;
+        public event Action CanceledOrder;
 
         private int currentTableId = 0;
+
         Cart cart = new Cart();
 
         public ucOrdering(int tableId)
@@ -24,23 +28,22 @@ namespace ponth
             DrinksPanel.Dock = DockStyle.Fill;
             DrinksPanel.AutoScroll = true;
 
-            // FONTOS JAVÍTÁS
             DrinksPanel.FlowDirection = FlowDirection.TopDown;
             DrinksPanel.WrapContents = false;
+            DrinksPanel.Margin = new Padding(50, 0, 0, 0);
+
 
             LoadDrinks();
             RefreshCart();
         }
 
-        // ===============================
-        // ITALOK BETÖLTÉSE
-        // ===============================
+        // ITALOK BETÖLTÉSE ADATBÁZISBÓL
         private void LoadDrinks()
         {
             DrinksPanel.Controls.Clear();
 
             DataTable dt = DatabaseHelper.GetData(
-                "SELECT * FROM drinks ORDER BY type, name");
+                "SELECT * FROM drinks WHERE id <> '1' ORDER BY type,name");
 
             if (dt == null || dt.Rows.Count == 0)
             {
@@ -91,6 +94,8 @@ namespace ponth
                     categoryPanel.Controls.Add(CreateDrinkCard(id, name, price, type));
             }
         }
+
+        // VIEW FELÉPÍTÉSE (KÁRTYÁK & FEJLÉCEK)
 
         private Panel CreateHeader(string type)
         {
@@ -148,7 +153,7 @@ namespace ponth
                 AutoSize = true
             };
 
-            Button btnOrder = new Button()
+            cButtons btnOrder = new cButtons()
             {
                 Text = "Rendelés",
                 Location = new Point(10, 115),
@@ -189,9 +194,8 @@ namespace ponth
             return card;
         }
 
-        // ===============================
         // KOSÁR
-        // ===============================
+
         private void AddToCart(int id, string name, int price, string type)
         {
             cart.AddItem(id, name, price, type);
@@ -211,13 +215,13 @@ namespace ponth
             Panel bottomPanel = new Panel()
             {
                 Dock = DockStyle.Bottom,
-                Height = 80
+                Height = 150  // Megnöveltük a panel magasságát, hogy a gomboknak több helye legyen
             };
 
             CartPanel.Controls.Add(itemsPanel);
             CartPanel.Controls.Add(bottomPanel);
 
-            int y = 20;
+            int y = 40;
 
             foreach (var item in cart.Items)
             {
@@ -227,36 +231,109 @@ namespace ponth
                     Location = new Point(10, y),
                     AutoSize = true
                 };
+                Button btnRemoveOne = new Button()
+                {
+                    Text = "-",
+                    Tag = item.Id,
+                    Size = new Size(35, 25),
+                    Location = new Point(itemsPanel.ClientSize.Width - 80, y - 3)
+                };
+                btnRemoveOne.Click += (s, e) =>
+                {
+                    int id = (int)((Button)s).Tag;
+                    cart.RemoveOne(id);
+                    RefreshCart();
+                };
+                itemsPanel.Controls.Add(btnRemoveOne);
+
+                Button btnRemoveAll = new Button()
+                {
+                    Text = "X",
+                    Tag = item.Id,
+                    Size = new Size(35, 25),
+                    Location = new Point(itemsPanel.ClientSize.Width - 40, y - 3)
+                };
+                btnRemoveAll.Click += (s, e) =>
+                {
+                    int id = (int)((Button)s).Tag;
+                    cart.RemoveItem(id);
+                    RefreshCart();
+                };
+                itemsPanel.Controls.Add(btnRemoveAll);
 
                 itemsPanel.Controls.Add(lbl);
+                itemsPanel.Controls.Add(btnRemoveOne);
+                itemsPanel.Controls.Add(btnRemoveAll);
                 y += 30;
             }
 
             Label totalLabel = new Label()
             {
                 Text = $"Összesen: {cart.TotalPrice()} Ft",
-                Location = new Point(10, 10),
+                Location = new Point(10, 10),  // A végösszeg felirat feljebb helyezése
                 AutoSize = true,
                 Font = new Font("Segoe UI", 11, FontStyle.Bold)
             };
 
-            Button btnOrder = new Button()
+            cButtons btnOrder = new cButtons()
             {
                 Text = "Rendelés",
                 Width = 120,
                 Height = 35,
-                Location = new Point(10, 40)
+                Location = new Point(10, 40)  // A rendelés gomb feljebb helyezése
             };
 
             btnOrder.Click += (s, e) =>
             {
-                MessageBox.Show("Rendelés leadva!");
+                // Az OrderingConfirmed esemény meghívása
+                //OrderingConfirmed?.Invoke(currentTableId);
+
+                //MessageBox.Show("Rendelés leadva!");
+                //cart.Clear();
+                //RefreshCart();
+
+                Order();
+            };
+
+            //btnOrder.Click += (s, e) =>
+            //{
+            //    MessageBox.Show("Rendelés leadva!");
+            //    cart.Clear();
+            //    RefreshCart();
+            //};
+
+            cButtons btnClear = new cButtons()
+            {
+                Text = "Kosár törlése",
+                Width = 120,
+                Height = 35,
+                Location = new Point(140, 40)
+            };
+
+            btnClear.Click += (s, e) =>
+            {
                 cart.Clear();
                 RefreshCart();
             };
 
+            Button btnCancelCart = new Button()
+            {
+                Text = "Mégse",
+                Width = 120,
+                Height = 35,
+                Location = new Point(270, 40),
+                DialogResult = DialogResult.Cancel,
+            };
+
+            btnCancelCart.Click += (s, e) =>
+            {
+                CanceledOrder?.Invoke();
+            };
+
             bottomPanel.Controls.Add(totalLabel);
             bottomPanel.Controls.Add(btnOrder);
+            bottomPanel.Controls.Add(btnClear);
+            bottomPanel.Controls.Add(btnCancelCart);
         }
 
         public static DataTable ingridients;
@@ -294,6 +371,60 @@ namespace ponth
 
             CocktailEditPageForm frm = new CocktailEditPageForm(ingridients, drinks);
             frm.ShowDialog();
+        }
+
+
+
+        private int CurrentSUM() 
+        {
+            string sql = $"SELECT totalSum FROM boxes WHERE box_id = {currentTableId}";
+            if (DatabaseQuestions.IsDataExists(sql))
+            {
+                DataTable dt = DatabaseHelper.GetData(sql);
+                return Convert.ToInt32(dt.Rows[0]["totalSum"]);
+            }
+            else 
+            {
+                string createNewRecord = $"INSERT INTO boxes (box_id,totalSum) VALUES ({currentTableId},0)";
+                return 0;
+            }
+            
+        }
+
+        private void Order() 
+        {
+            int boxSum = CurrentSUM(); // Az aktuális összeg lekérése az adatbázisból
+
+            // Az összes rendelt termék részletei
+            foreach (var item in cart.Items)
+            {
+                int itemId = item.Id;               //Id
+                string itemName = item.Name;        // Termék neve
+                int itemQuantity = item.Quantity;   // Mennyiség
+                int itemPrice = item.Price;         // Egy darab ára
+                int totalItemPrice = itemPrice * itemQuantity;  // Az adott tétel ára összesen
+
+                string sql = $"INSERT INTO orders (box_detail_id,item_id,quantity,subtotal) VALUES ({currentTableId},{itemId},{itemQuantity},{totalItemPrice})";
+                DatabaseHelper.ExecuteNonQuery(sql);
+            }
+
+            // Összesített ár kiszámítása
+            int totalPrice = cart.TotalPrice(); // Az összes rendelési tétel teljes ára
+
+            boxSum += totalPrice;
+            string updateQuery = $"UPDATE boxes_details SET totalSum = {boxSum} WHERE box_id = {currentTableId}";
+            DatabaseHelper.ExecuteUpdate(updateQuery);
+
+            // Az OrderingConfirmed esemény meghívása, ha szükséges
+            OrderingConfirmed?.Invoke(currentTableId);
+
+            // Információ a felhasználónak
+            MessageBox.Show($"A rendelés összértéke: {totalPrice} Ft\nAz aktuális összeg: {boxSum} Ft");
+
+            // Kosár ürítése és frissítés
+            cart.Clear();
+            RefreshCart();
+
         }
     }
 }

@@ -234,11 +234,16 @@ namespace ponth
 
         }
 
-        private void btn_Home_Click(object sender, EventArgs e)
+        private void homePage()
         {
             systemView = false;
             ucMainPanel.Panel1.Controls.Clear();
             panelResize();
+        }
+
+        private void btn_Home_Click(object sender, EventArgs e)
+        {
+            homePage();
         }
 
         //RENDELES
@@ -278,6 +283,7 @@ namespace ponth
                     popUp.Dispose();
                     popUp = null;
                     popUpNeeded=false;
+                    homePage();
                 }
             };
 
@@ -300,8 +306,15 @@ namespace ponth
             uc.OrderingConfirmed += (id) =>
             {
                 MessageBox.Show($"Rendelés leadva az {id} asztalra!");
-                // Ha akarod, eltávolíthatod a UC-t
                 ucMainPanel.Panel1.Controls.Clear();
+                homePage();
+            };
+
+            uc.CanceledOrder += () =>
+            {
+
+                homePage();
+
             };
 
             ucMainPanel.Panel1.Controls.Add(uc);
