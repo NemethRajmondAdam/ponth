@@ -61,6 +61,9 @@
     <Compile Include="CostumeControls\cButtons.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CostumeControls\cDropDown.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CostumeControls\cToogleSwitch.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -136,6 +139,12 @@
     <Compile Include="ucOrdering.Designer.cs">
       <DependentUpon>ucOrdering.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucPaying.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPaying.Designer.cs">
+      <DependentUpon>ucPaying.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CocktailEditPageForm.resx">
       <DependentUpon>CocktailEditPageForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucOrdering.resx">
       <DependentUpon>ucOrdering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPaying.resx">
+      <DependentUpon>ucPaying.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

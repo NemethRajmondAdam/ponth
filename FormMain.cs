@@ -160,12 +160,13 @@ namespace ponth
 
 
 
-        private void btn_Paying_Click(object sender, EventArgs e)
-        {
-            PayingMethodForm frm = new PayingMethodForm(); //elotte meg hogy jelenitsuk az opciot hogy melyik asztalnak szeretne fizetni (illetve tovabb fejlesztesnel hogy melyik szamlat fizetne)
-            frm.ShowDialog();
-            systemView = true;
-        }
+        //private void btn_Paying_Click(object sender, EventArgs e)
+        //{
+        //    PayingMethodForm frm = new PayingMethodForm(); //elotte meg hogy jelenitsuk az opciot hogy melyik asztalnak szeretne fizetni (illetve tovabb fejlesztesnel hogy melyik szamlat fizetne)
+        //    frm.ShowDialog();
+        //    systemView = true;
+        //}
+
 
         //VIEWS
 
@@ -320,6 +321,25 @@ namespace ponth
             ucMainPanel.Panel1.Controls.Add(uc);
         }
 
+        //fizetes
+        //1253; 700
+
+        private void btn_Paying_Click(object sender, EventArgs e)
+        {
+            ucPaying uc = new ucPaying();
+            uc.BackColor = Color.White;
+            uc.BorderStyle = BorderStyle.FixedSingle;
+            uc.Location = new Point(100, 100);
+            uc.Size = new Size(1253, 700);
+
+            ucMainPanel.Panel1.Controls.Add(uc);
+
+            systemView = true;
+            panelResize();
+        }
+
 
     }
+
+
 }

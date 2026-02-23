@@ -342,7 +342,6 @@ namespace ponth
         //ITALOK EGYEDIVE ALAKITASA
         private void editCocktailIngredients(object sender, EventArgs e, int drinkId)
         {
-            // 🔹 1️⃣ Koktél ID lekérése
             DataTable cocktailTable = DatabaseHelper.GetData(
                 "SELECT id FROM cocktails WHERE drink_id=" + drinkId);
 
@@ -351,15 +350,10 @@ namespace ponth
 
             int cocktailId = Convert.ToInt32(cocktailTable.Rows[0]["id"]);
 
-            // 🔹 2️⃣ Koktélhoz tartozó száraz hozzávalók
-            DataTable ingredientsInCocktail =
-                DatabaseHelper.GetData("SELECT * FROM cocktail_ingredients WHERE cocktail_id=" + cocktailId);
+            DataTable ingredientsInCocktail = DatabaseHelper.GetData("SELECT * FROM cocktail_ingredients WHERE cocktail_id=" + cocktailId);
 
-            // 🔹 3️⃣ Koktélhoz tartozó italok
-            DataTable drinksInCocktail =
-                DatabaseHelper.GetData("SELECT * FROM cocktail_drinks WHERE cocktail_id=" + cocktailId);
+            DataTable drinksInCocktail = DatabaseHelper.GetData("SELECT * FROM cocktail_drinks WHERE cocktail_id=" + cocktailId);
 
-            // 🔹 4️⃣ Táblák előkészítése
             ingridients = new DataTable();
             drinks = new DataTable();
 
@@ -375,7 +369,6 @@ namespace ponth
             drinks.Columns.Add("quantity_type", typeof(string));
             drinks.Columns.Add("price", typeof(int));
 
-            // 🔹 5️⃣ Koktél száraz hozzávalók hozzáadása ELŐL
             foreach (DataRow row in ingredientsInCocktail.Rows)
             {
                 DataTable ingredientDetails =
@@ -393,7 +386,6 @@ namespace ponth
 
             }
 
-            // 🔹 6️⃣ Koktél italok hozzáadása ELŐL
             foreach (DataRow row in drinksInCocktail.Rows)
             {
                 DataTable drinkDetails =
@@ -407,13 +399,11 @@ namespace ponth
                     drinkDetails.Rows[0]["name"],
                     row["quantity"],
                     "", // NINCS quantity_type oszlop → üres string
-                    drinkDetails.Rows[0]["price"]);
+                    drinkDetails.Rows[0]["mixing_price"]);
 
             }
 
-            // 🔹 7️⃣ Összes száraz hozzávaló hozzáadása, ha még nincs benne
-            DataTable allIngredients =
-                DatabaseHelper.GetData("SELECT * FROM ingredients");
+            DataTable allIngredients = DatabaseHelper.GetData("SELECT * FROM ingredients");
 
             foreach (DataRow row in allIngredients.Rows)
             {
@@ -441,9 +431,7 @@ namespace ponth
                 }
             }
 
-            // 🔹 8️⃣ Összes ital hozzáadása, ha még nincs benne
-            DataTable allDrinks =
-                DatabaseHelper.GetData("SELECT * FROM drinks");
+            DataTable allDrinks = DatabaseHelper.GetData("SELECT * FROM drinks");
 
             foreach (DataRow row in allDrinks.Rows)
             {
@@ -466,12 +454,11 @@ namespace ponth
                         row["name"],
                         0,
                         "", // quantity_type nincs → üres
-                        row["price"]);
+                        row["mixing_price"]);
 
                 }
             }
 
-            // 🔹 9️⃣ Form megnyitása
             CocktailEditPageForm frm = new CocktailEditPageForm(ingridients, drinks);
             frm.ShowDialog();
         }
