@@ -339,11 +339,27 @@ namespace ponth
         public static DataTable ingridients;
         public static DataTable drinks;
 
+        //ITALOK EGYEDIVE ALAKITASA
         private void editCocktailIngredients(object sender, EventArgs e, int drinkId)
         {
-            DataTable ingridientsInCocktails =
-                DatabaseHelper.GetData("SELECT * FROM cocktail_ingredients WHERE cocktail_id=(SELECT id FROM cocktails WHERE drink_id=" + drinkId + ")");
+            // 🔹 1️⃣ Koktél ID lekérése
+            DataTable cocktailTable = DatabaseHelper.GetData(
+                "SELECT id FROM cocktails WHERE drink_id=" + drinkId);
 
+            if (cocktailTable.Rows.Count == 0)
+                return;
+
+            int cocktailId = Convert.ToInt32(cocktailTable.Rows[0]["id"]);
+
+            // 🔹 2️⃣ Koktélhoz tartozó száraz hozzávalók
+            DataTable ingredientsInCocktail =
+                DatabaseHelper.GetData("SELECT * FROM cocktail_ingredients WHERE cocktail_id=" + cocktailId);
+
+            // 🔹 3️⃣ Koktélhoz tartozó italok
+            DataTable drinksInCocktail =
+                DatabaseHelper.GetData("SELECT * FROM cocktail_drinks WHERE cocktail_id=" + cocktailId);
+
+            // 🔹 4️⃣ Táblák előkészítése
             ingridients = new DataTable();
             drinks = new DataTable();
 
@@ -353,69 +369,171 @@ namespace ponth
             ingridients.Columns.Add("quantity_type", typeof(string));
             ingridients.Columns.Add("price", typeof(int));
 
-            foreach (DataRow row in ingridientsInCocktails.Rows)
+            drinks.Columns.Add("ID", typeof(int));
+            drinks.Columns.Add("name", typeof(string));
+            drinks.Columns.Add("quantity", typeof(int));
+            drinks.Columns.Add("quantity_type", typeof(string));
+            drinks.Columns.Add("price", typeof(int));
+
+            // 🔹 5️⃣ Koktél száraz hozzávalók hozzáadása ELŐL
+            foreach (DataRow row in ingredientsInCocktail.Rows)
             {
-                DataTable ingridientDetails =
+                DataTable ingredientDetails =
                     DatabaseHelper.GetData("SELECT * FROM ingredients WHERE id=" + row["ingredient_id"]);
 
-                if (ingridientDetails.Rows.Count == 0)
+                if (ingredientDetails.Rows.Count == 0)
                     continue;
 
                 ingridients.Rows.Add(
-                    ingridientDetails.Rows[0]["id"],
-                    ingridientDetails.Rows[0]["name"],
+                    ingredientDetails.Rows[0]["id"],
+                    ingredientDetails.Rows[0]["name"],
                     row["quantity"],
-                    "",
-                    ingridientDetails.Rows[0]["price"]);
+                    "", // NINCS quantity_type oszlop → üres string
+                    ingredientDetails.Rows[0]["price"]);
+
             }
 
+            // 🔹 6️⃣ Koktél italok hozzáadása ELŐL
+            foreach (DataRow row in drinksInCocktail.Rows)
+            {
+                DataTable drinkDetails =
+                    DatabaseHelper.GetData("SELECT * FROM drinks WHERE id=" + row["drink_id"]);
+
+                if (drinkDetails.Rows.Count == 0)
+                    continue;
+
+                drinks.Rows.Add(
+                    drinkDetails.Rows[0]["id"],
+                    drinkDetails.Rows[0]["name"],
+                    row["quantity"],
+                    "", // NINCS quantity_type oszlop → üres string
+                    drinkDetails.Rows[0]["price"]);
+
+            }
+
+            // 🔹 7️⃣ Összes száraz hozzávaló hozzáadása, ha még nincs benne
+            DataTable allIngredients =
+                DatabaseHelper.GetData("SELECT * FROM ingredients");
+
+            foreach (DataRow row in allIngredients.Rows)
+            {
+                int id = Convert.ToInt32(row["id"]);
+                bool exists = false;
+
+                foreach (DataRow existing in ingridients.Rows)
+                {
+                    if (Convert.ToInt32(existing["ID"]) == id)
+                    {
+                        exists = true;
+                        break;
+                    }
+                }
+
+                if (!exists)
+                {
+                    ingridients.Rows.Add(
+                        row["id"],
+                        row["name"],
+                        0,
+                        "", // quantity_type nincs → üres
+                        row["price"]);
+
+                }
+            }
+
+            // 🔹 8️⃣ Összes ital hozzáadása, ha még nincs benne
+            DataTable allDrinks =
+                DatabaseHelper.GetData("SELECT * FROM drinks");
+
+            foreach (DataRow row in allDrinks.Rows)
+            {
+                int id = Convert.ToInt32(row["id"]);
+                bool exists = false;
+
+                foreach (DataRow existing in drinks.Rows)
+                {
+                    if (Convert.ToInt32(existing["ID"]) == id)
+                    {
+                        exists = true;
+                        break;
+                    }
+                }
+
+                if (!exists)
+                {
+                    drinks.Rows.Add(
+                        row["id"],
+                        row["name"],
+                        0,
+                        "", // quantity_type nincs → üres
+                        row["price"]);
+
+                }
+            }
+
+            // 🔹 9️⃣ Form megnyitása
             CocktailEditPageForm frm = new CocktailEditPageForm(ingridients, drinks);
             frm.ShowDialog();
         }
 
 
+        //(EXTRA NELKULI) RENDELES FELTOLTESE ADATBAZISBA
 
-        private int CurrentSUM() 
+        private int CurrentSUM(int boxDetailId)
         {
-            string sql = $"SELECT totalSum FROM boxes WHERE box_id = {currentTableId}";
+            string sql = $"SELECT totalSum FROM boxes_details WHERE id = {boxDetailId}";
+            DataTable dt = DatabaseHelper.GetData(sql);
+
+            if (dt.Rows.Count > 0)
+            {
+                return Convert.ToInt32(dt.Rows[0]["totalSum"]);
+            }
+
+            return 0;
+        }
+
+        private int GetOrCreateBoxDetailId()
+        {
+            string sql = $"SELECT id FROM boxes_details WHERE box_id = {currentTableId}";
+
             if (DatabaseQuestions.IsDataExists(sql))
             {
                 DataTable dt = DatabaseHelper.GetData(sql);
-                return Convert.ToInt32(dt.Rows[0]["totalSum"]);
+                return Convert.ToInt32(dt.Rows[0]["id"]);
             }
-            else 
+            else
             {
-                string createNewRecord = $"INSERT INTO boxes (box_id,totalSum) VALUES ({currentTableId},0)";
-                return 0;
+                string insert = $"INSERT INTO boxes_details (box_id,totalSum) VALUES ({currentTableId},0)";
+                DatabaseHelper.ExecuteNonQuery(insert);
+
+                string getId = $"SELECT id FROM boxes_details WHERE box_id = {currentTableId}";
+                DataTable dt = DatabaseHelper.GetData(getId);
+                return Convert.ToInt32(dt.Rows[0]["id"]);
             }
-            
         }
 
         private void Order() 
         {
-            int boxSum = CurrentSUM(); // Az aktuális összeg lekérése az adatbázisból
+            int boxDetailId = GetOrCreateBoxDetailId();
+            int boxSum = CurrentSUM(boxDetailId);
 
-            // Az összes rendelt termék részletei
             foreach (var item in cart.Items)
             {
-                int itemId = item.Id;               //Id
-                string itemName = item.Name;        // Termék neve
-                int itemQuantity = item.Quantity;   // Mennyiség
-                int itemPrice = item.Price;         // Egy darab ára
-                int totalItemPrice = itemPrice * itemQuantity;  // Az adott tétel ára összesen
+                int totalItemPrice = item.Price * item.Quantity;
 
-                string sql = $"INSERT INTO orders (box_detail_id,item_id,quantity,subtotal) VALUES ({currentTableId},{itemId},{itemQuantity},{totalItemPrice})";
+                string sql = $"INSERT INTO orders (box_detail_id,item_id,quantity,subtotal) " +
+                             $"VALUES ({boxDetailId},{item.Id},{item.Quantity},{totalItemPrice})";
+
                 DatabaseHelper.ExecuteNonQuery(sql);
             }
 
-            // Összesített ár kiszámítása
-            int totalPrice = cart.TotalPrice(); // Az összes rendelési tétel teljes ára
-
+            int totalPrice = cart.TotalPrice();
             boxSum += totalPrice;
-            string updateQuery = $"UPDATE boxes_details SET totalSum = {boxSum} WHERE box_id = {currentTableId}";
+
+            string updateQuery = $"UPDATE boxes_details SET totalSum = {boxSum} WHERE id = {boxDetailId}";
             DatabaseHelper.ExecuteUpdate(updateQuery);
 
-            // Az OrderingConfirmed esemény meghívása, ha szükséges
+
             OrderingConfirmed?.Invoke(currentTableId);
 
             // Információ a felhasználónak

@@ -137,6 +137,32 @@ namespace ponth
         {
             flowLayoutPanelIngridients.Controls.Clear();
 
+            // 🔹 1️⃣ Tartalmazza header 
+            Panel containsHeader = CreateHeader("Tartalmazza");
+            flowLayoutPanelIngridients.Controls.Add(containsHeader);
+            // 🔹 2️⃣ Tartalmazott italok 
+            foreach (DataRow row in drinks.Rows)
+            {
+                int quantity = row["quantity"] != DBNull.Value ? Convert.ToInt32(row["quantity"]) : 0;
+                if (quantity <= 0) continue; // csak a tartalmazottak 
+                int price = Convert.ToInt32(row["price"]);
+                string name = row["name"].ToString();
+                string quantityType = row["quantity_type"].ToString();
+                int id = Convert.ToInt32(row["ID"]);
+                Panel drinkCard = CreateItemCard(id, name, price, quantity, quantityType, true);
+                flowLayoutPanelIngridients.Controls.Add(drinkCard);
+            }
+            // 🔹 3️⃣ Tartalmazott összetevők 
+            foreach (DataRow row in ingridients.Rows)
+            {
+                int quantity = row["quantity"] != DBNull.Value ? Convert.ToInt32(row["quantity"]) : 0;
+                if (quantity <= 0) continue; int price = Convert.ToInt32(row["price"]);
+                string name = row["name"].ToString(); string quantityType = row["quantity_type"].ToString();
+                int id = Convert.ToInt32(row["ID"]);
+                Panel ingredientCard = CreateItemCard(id, name, price, quantity, quantityType, false);
+                flowLayoutPanelIngridients.Controls.Add(ingredientCard);
+            }
+
             Panel drinkHeader = CreateHeader("Italok");
             flowLayoutPanelIngridients.Controls.Add(drinkHeader);
 
