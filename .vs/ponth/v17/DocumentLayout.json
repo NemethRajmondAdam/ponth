@@ -3,48 +3,28 @@
   "WorkspaceRootPath": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\ucordering.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|solutionrelative:ucordering.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|d:\\n\u00E9meth rajmond \u00E1d\u00E1m 13.i\\ponth\\ucpaying.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|solutionrelative:ucpaying.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|d:\\n\u00E9meth rajmond \u00E1d\u00E1m 13.i\\ponth\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|d:\\n\u00E9meth rajmond \u00E1d\u00E1m 13.i\\ponth\\costumecontrols\\cdropdown.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|solutionrelative:costumecontrols\\cdropdown.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|d:\\n\u00E9meth rajmond \u00E1d\u00E1m 13.i\\ponth\\ucpaying.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|solutionrelative:ucpaying.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|solutionrelative:database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|d:\\n\u00E9meth rajmond \u00E1d\u00E1m 13.i\\ponth\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|solutionrelative:cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|d:\\n\u00E9meth rajmond \u00E1d\u00E1m 13.i\\ponth\\databasequestions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\databasequestions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|solutionrelative:databasequestions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\costumecontrols\\cbuttons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|solutionrelative:costumecontrols\\cbuttons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|d:\\n\u00E9meth rajmond \u00E1d\u00E1m 13.i\\ponth\\formmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\formmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|solutionrelative:formmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\ucorderdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|solutionrelative:ucorderdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\orderingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|solutionrelative:orderingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\ucordering.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|solutionrelative:ucordering.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\ucorderdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|solutionrelative:ucorderdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\costumecontrols\\cbuttons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|solutionrelative:costumecontrols\\cbuttons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A525BA8-EA55-45A1-A722-9C4DE4A894A8}|ponth.csproj|D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\formmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -58,24 +38,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Cart.cs",
-              "DocumentMoniker": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\Cart.cs",
-              "RelativeDocumentMoniker": "Cart.cs",
-              "ToolTip": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\Cart.cs",
-              "RelativeToolTip": "Cart.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "cDropDown.cs",
+              "DocumentMoniker": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\CostumeControls\\cDropDown.cs",
+              "RelativeDocumentMoniker": "CostumeControls\\cDropDown.cs",
+              "ToolTip": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\CostumeControls\\cDropDown.cs",
+              "RelativeToolTip": "CostumeControls\\cDropDown.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T09:26:56.868Z",
+              "WhenOpened": "2026-02-25T10:40:00.167Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "ucPaying.cs",
+              "DocumentMoniker": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\ucPaying.cs",
+              "RelativeDocumentMoniker": "ucPaying.cs",
+              "ToolTip": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\ucPaying.cs",
+              "RelativeToolTip": "ucPaying.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAswEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T10:23:24.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ucPaying.cs [Design]",
+              "DocumentMoniker": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\ucPaying.cs",
+              "RelativeDocumentMoniker": "ucPaying.cs",
+              "ToolTip": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\ucPaying.cs [Design]",
+              "RelativeToolTip": "ucPaying.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T10:23:15.407Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "DatabaseQuestions.cs",
               "DocumentMoniker": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\DatabaseQuestions.cs",
               "RelativeDocumentMoniker": "DatabaseQuestions.cs",
@@ -83,12 +88,11 @@
               "RelativeToolTip": "DatabaseQuestions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T09:05:44.657Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-19T09:05:44.657Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "DataBase.cs",
               "DocumentMoniker": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\DataBase.cs",
               "RelativeDocumentMoniker": "DataBase.cs",
@@ -96,69 +100,7 @@
               "RelativeToolTip": "DataBase.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAowDsAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T08:18:57.432Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "cButtons.cs",
-              "DocumentMoniker": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\CostumeControls\\cButtons.cs",
-              "RelativeDocumentMoniker": "CostumeControls\\cButtons.cs",
-              "ToolTip": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\CostumeControls\\cButtons.cs",
-              "RelativeToolTip": "CostumeControls\\cButtons.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAmwKAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-18T10:27:33.479Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "cButtons.cs [Design]",
-              "DocumentMoniker": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\CostumeControls\\cButtons.cs",
-              "RelativeDocumentMoniker": "CostumeControls\\cButtons.cs",
-              "ToolTip": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\CostumeControls\\cButtons.cs [Design]",
-              "RelativeToolTip": "CostumeControls\\cButtons.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-18T10:27:26.539Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ucOrdering.cs",
-              "DocumentMoniker": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\ucOrdering.cs",
-              "RelativeDocumentMoniker": "ucOrdering.cs",
-              "ToolTip": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\ucOrdering.cs",
-              "RelativeToolTip": "ucOrdering.cs",
-              "ViewState": "AgIAAIMBAAAAAAAAAAAgwJcBAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-18T10:24:31.948Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ucOrdering.cs [Design]",
-              "DocumentMoniker": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\ucOrdering.cs",
-              "RelativeDocumentMoniker": "ucOrdering.cs",
-              "ToolTip": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\ucOrdering.cs [Design]",
-              "RelativeToolTip": "ucOrdering.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-18T10:23:54.669Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "OrderingForm.cs [Design]",
-              "DocumentMoniker": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\OrderingForm.cs",
-              "RelativeDocumentMoniker": "OrderingForm.cs",
-              "ToolTip": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\OrderingForm.cs [Design]",
-              "RelativeToolTip": "OrderingForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-18T10:23:26.138Z"
+              "WhenOpened": "2026-02-19T08:18:57.432Z"
             },
             {
               "$type": "Document",
@@ -170,35 +112,11 @@
               "RelativeToolTip": "FormMain.cs",
               "ViewState": "AgIAACMBAAAAAAAAAAAgwB0BAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-17T11:37:00.579Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-17T11:37:00.579Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "ucOrderDetails.cs",
-              "DocumentMoniker": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\ucOrderDetails.cs",
-              "RelativeDocumentMoniker": "ucOrderDetails.cs",
-              "ToolTip": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\ucOrderDetails.cs",
-              "RelativeToolTip": "ucOrderDetails.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAcwEsAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-17T11:19:50.489Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ucOrderDetails.cs [Design]",
-              "DocumentMoniker": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\ucOrderDetails.cs",
-              "RelativeDocumentMoniker": "ucOrderDetails.cs",
-              "ToolTip": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\ucOrderDetails.cs [Design]",
-              "RelativeToolTip": "ucOrderDetails.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-17T11:18:40.787Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
               "Title": "FormMain.cs [Design]",
               "DocumentMoniker": "D:\\N\u00E9meth Rajmond \u00C1d\u00E1m 13.i\\ponth\\FormMain.cs",
               "RelativeDocumentMoniker": "FormMain.cs",

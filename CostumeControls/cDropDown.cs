@@ -5,14 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
 
 namespace ponth.CostumeControls
 {
     public class cDropDown : Form
     {
-        public event Action<string> ItemSelected;
+        // Mindkét értéket visszaadjuk
+        public event Action<int, int> ItemSelected;
 
-        public cDropDown(List<string> items)
+        public cDropDown(DataTable tables)
         {
             FormBorderStyle = FormBorderStyle.None;
             StartPosition = FormStartPosition.Manual;
@@ -21,21 +23,26 @@ namespace ponth.CostumeControls
 
             FlowLayoutPanel panel = new FlowLayoutPanel();
             panel.FlowDirection = FlowDirection.LeftToRight;
-            panel.WrapContents = true;         
+            panel.WrapContents = true;
             panel.AutoSize = true;
             panel.MaximumSize = new Size(400, 0);
             panel.Padding = new Padding(5);
 
-            foreach (var item in items)
+            foreach (DataRow row in tables.Rows)
             {
+                int tableNumber = Convert.ToInt32(row["tableNumber"]);
+                int total = Convert.ToInt32(row["total"]);
+
                 cButtons btn = new cButtons();
-                btn.Text = item;
+                btn.Text = tableNumber.ToString();   // Gomb neve az asztalszám
+                btn.Tag = total;                     // Tag-ben a total
                 btn.Size = new Size(100, 100);
                 btn.ForeColor = Color.White;
                 btn.Margin = new Padding(5);
+
                 btn.Click += (s, e) =>
                 {
-                    ItemSelected?.Invoke(item);
+                    ItemSelected?.Invoke(tableNumber, total);
                     this.Close();
                 };
 
@@ -45,5 +52,4 @@ namespace ponth.CostumeControls
             Controls.Add(panel);
         }
     }
-
 }

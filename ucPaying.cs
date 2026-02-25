@@ -23,28 +23,51 @@ namespace ponth
         private void GetTables()
         {
             
+            tables = new DataTable();
+            tables.Columns.Add("tableNumber",typeof(int));
+            tables.Columns.Add("total",typeof(int));
+
+            string sql = "SELECT * FROM boxes_details ORDER BY box_id";
+            DataTable openBills = DatabaseHelper.GetData(sql);
+
+            if (openBills != null && openBills.Rows.Count != 0)
+            {
+                foreach (DataRow billDetails in openBills.Rows)
+                {
+                    tables.Rows.Add(
+                        Convert.ToInt32(billDetails["box_id"]),
+                        Convert.ToInt32(billDetails["totalSum"])
+                    );
+                }
+            }
+            else
+            {
+                btnDropdown.Text = "Nincs fizetendő számla";
+                btnDropdown.Enabled = false;
+                return;
+            }
+
         }
+
+
 
         private void btnDropdown_Click(object sender, EventArgs e)
         {
-            List<string> items = new List<string>()
-            {
-                "Vodka", "Rum", "Tequila", "Gin", "Whiskey","asd","sddsd","valami"
-            };
+            GetTables();
 
-            cDropDown popup = new cDropDown(items);
+            cDropDown popup = new cDropDown(tables);
 
-            // A gomb alá pozicionáljuk
             var location = btnDropdown.PointToScreen(new Point(0, btnDropdown.Height));
             popup.Location = location;
 
-            popup.ItemSelected += (value) =>
+            popup.ItemSelected += (tableNumber, total) =>
             {
-                btnDropdown.Text = value;
+                btnDropdown.Text = tableNumber.ToString();
+                btnDropdown.Tag = total;
             };
 
             popup.Show();
-        }
 
+        }
     }
 }
