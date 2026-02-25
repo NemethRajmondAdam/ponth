@@ -13,6 +13,10 @@ namespace ponth
 {
     public partial class ucPaying : UserControl
     {
+
+        public event Action CancelRequested;
+        public event Action PaymentDone;
+
         public ucPaying()
         {
             InitializeComponent();
@@ -49,8 +53,6 @@ namespace ponth
 
         }
 
-
-
         private void btnDropdown_Click(object sender, EventArgs e)
         {
             GetTables();
@@ -68,6 +70,82 @@ namespace ponth
 
             popup.Show();
 
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            CancelRequested?.Invoke();
+        }
+
+        private bool realNumer()
+        {
+            if (tables == null || tables.Rows.Count == 0)
+                return false;
+
+            int selectedTable;
+
+            if (!int.TryParse(btnDropdown.Text, out selectedTable))
+                return false;
+
+            foreach (DataRow row in tables.Rows)
+            {
+                if ((int)row["tableNumber"] == selectedTable)
+                    return true;
+            }
+
+            return false;
+        }
+
+        private void billClosing()
+        {
+            string sql = $"DELETE FROM boxes_details WHERE box_id = {btnDropdown.Text}";
+            DatabaseHelper.ExecuteNonQuery(sql);
+        }
+
+        private void Payment()
+        {
+            if (realNumer())
+            {
+                billClosing();
+                MessageBox.Show($"fizetve {btnDropdown.Tag} FT ..., a(z) {btnDropdown.Text} asztalnal");
+                PaymentDone?.Invoke();
+            }
+            else
+            {
+                MessageBox.Show($"valaszon asztalt");
+            }
+        }
+
+        private void btnCard_Click(object sender, EventArgs e)
+        {
+            //Payment()
+
+            if (realNumer())
+            {
+                billClosing();
+                MessageBox.Show($"fizetve {btnDropdown.Tag} FT kartyaval, a(z) {btnDropdown.Text} asztalnal");
+                PaymentDone?.Invoke();
+            }
+            else
+            {
+                MessageBox.Show($"valaszon asztalt");
+            }
+        }
+
+        private void btnCash_Click(object sender, EventArgs e)
+        {
+            //Payment()
+
+            if (realNumer())
+            {
+                billClosing();
+                MessageBox.Show($"fizetve {btnDropdown.Tag} FT keszpenzzel, a(z) {btnDropdown.Text} asztalnal");
+                PaymentDone?.Invoke();
+            }
+            else
+            {
+                MessageBox.Show($"valaszon asztalt");
+            }
         }
     }
 }

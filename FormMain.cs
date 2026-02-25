@@ -334,6 +334,21 @@ namespace ponth
 
             ucMainPanel.Panel1.Controls.Add(uc);
 
+
+            uc.CancelRequested += () =>
+            {
+                ucMainPanel.Panel1.Controls.Remove(uc);
+                uc.Dispose();
+                homePage();
+            };
+
+            uc.PaymentDone += () =>
+            {
+                ucMainPanel.Panel1.Controls.Remove(uc);
+                uc.Dispose();
+                homePage();
+            };
+
             systemView = true;
             panelResize();
         }

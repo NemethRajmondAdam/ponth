@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelMain = new System.Windows.Forms.Panel();
+            this.btnCancel = new ponth.CostumeControls.cButtons();
             this.btnDropdown = new ponth.CostumeControls.cButtons();
             this.btnCash = new ponth.CostumeControls.cButtons();
             this.btnCard = new ponth.CostumeControls.cButtons();
@@ -39,6 +40,7 @@
             // 
             this.panelMain.BackgroundImage = global::ponth.Properties.Resources.ponth_background;
             this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelMain.Controls.Add(this.btnCancel);
             this.panelMain.Controls.Add(this.btnDropdown);
             this.panelMain.Controls.Add(this.btnCash);
             this.panelMain.Controls.Add(this.btnCard);
@@ -47,6 +49,27 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1253, 700);
             this.panelMain.TabIndex = 0;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnCancel.BorderColor = System.Drawing.Color.OrangeRed;
+            this.btnCancel.BorderRadius = 20;
+            this.btnCancel.BorderSize = 2;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.ForeColor = System.Drawing.Color.OrangeRed;
+            this.btnCancel.Location = new System.Drawing.Point(551, 648);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(150, 40);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "Mégse";
+            this.btnCancel.TextColor = System.Drawing.Color.OrangeRed;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnDropdown
             // 
@@ -89,6 +112,7 @@
             this.btnCash.Text = "Készpénz";
             this.btnCash.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
             this.btnCash.UseVisualStyleBackColor = false;
+            this.btnCash.Click += new System.EventHandler(this.btnCash_Click);
             // 
             // btnCard
             // 
@@ -108,6 +132,7 @@
             this.btnCard.Text = "Kártya";
             this.btnCard.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
             this.btnCard.UseVisualStyleBackColor = false;
+            this.btnCard.Click += new System.EventHandler(this.btnCard_Click);
             // 
             // ucPaying
             // 
@@ -127,5 +152,6 @@
         private CostumeControls.cButtons btnCash;
         private CostumeControls.cButtons btnCard;
         private CostumeControls.cButtons btnDropdown;
+        private CostumeControls.cButtons btnCancel;
     }
 }
