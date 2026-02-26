@@ -351,9 +351,6 @@ namespace ponth
             panelResize();
         }
 
-
-
-    }
-
+    } 
 
 }
