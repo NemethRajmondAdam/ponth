@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Jan 29. 12:52
+-- Létrehozás ideje: 2026. Feb 26. 09:37
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -24,6 +24,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Tábla szerkezet ehhez a táblához `bills`
+--
+
+CREATE TABLE `bills` (
+  `id` int(11) NOT NULL,
+  `box_id` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `paid_at` datetime NOT NULL,
+  `paid_with` enum('Card','Cash','','') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `bills`
+--
+
+INSERT INTO `bills` (`id`, `box_id`, `total`, `paid_at`, `paid_with`) VALUES
+(1, 5, 11100, '0000-00-00 00:00:00', 'Card'),
+(2, 4, 3550, '0000-00-00 00:00:00', 'Cash'),
+(3, 4, 16800, '2026-02-26 09:14:08', 'Card'),
+(4, 2, 2600, '2026-02-26 09:14:12', 'Cash');
+
+-- --------------------------------------------------------
+
+--
 -- Tábla szerkezet ehhez a táblához `boxes`
 --
 
@@ -34,17 +58,16 @@ CREATE TABLE `boxes` (
   `online` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Tábla szerkezet ehhez a táblához `boxes_details`
+-- A tábla adatainak kiíratása `boxes`
 --
 
-CREATE TABLE `boxes_details` (
-  `id` int(11) NOT NULL,
-  `box_id` int(11) DEFAULT NULL,
-  `sum` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `boxes` (`id`, `number`, `seats`, `online`) VALUES
+(1, 1, 4, 1),
+(2, 2, 4, 1),
+(3, 3, 2, 1),
+(4, 4, 5, 1),
+(5, 5, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -324,16 +347,66 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tábla szerkezet ehhez a táblához `open_bills`
+--
+
+CREATE TABLE `open_bills` (
+  `id` int(11) NOT NULL,
+  `box_id` int(11) DEFAULT NULL,
+  `totalSum` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `open_bills`
+--
+
+INSERT INTO `open_bills` (`id`, `box_id`, `totalSum`) VALUES
+(4, 1, 3550);
+
+-- --------------------------------------------------------
+
+--
 -- Tábla szerkezet ehhez a táblához `orders`
 --
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
-  `box_detail_id` int(11) DEFAULT NULL,
+  `box_id` int(11) DEFAULT NULL,
   `item_id` int(11) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
   `subtotal` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `orders`
+--
+
+INSERT INTO `orders` (`id`, `box_id`, `item_id`, `quantity`, `subtotal`) VALUES
+(2, 3, 13, 1, 2600),
+(3, 3, 15, 1, 2500),
+(4, 3, 12, 1, 2400),
+(5, 3, 14, 1, 2700),
+(6, 4, 3, 1, 950),
+(7, 5, 12, 9, 21600),
+(8, 5, 13, 9, 23400),
+(9, 5, 15, 4, 10000),
+(10, 5, 14, 2, 5400),
+(11, 5, 2, 10, 8500),
+(12, 5, 13, 12, 31200),
+(13, 5, 13, 1, 2600),
+(14, 5, 12, 2, 4800),
+(15, 5, 2, 1, 850),
+(17, 4, 13, 1, 2600),
+(21, 4, 13, 1, 2600),
+(22, 5, 15, 3, 7500),
+(23, 5, 14, 1, 2700),
+(24, 5, 4, 1, 900),
+(25, 2, 13, 1, 2600),
+(26, 4, 13, 1, 2600),
+(27, 4, 12, 1, 2400),
+(28, 4, 13, 1, 2600),
+(29, 4, 3, 1, 950),
+(30, 4, 12, 7, 16800);
 
 -- --------------------------------------------------------
 
@@ -479,17 +552,17 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 --
 
 --
+-- A tábla indexei `bills`
+--
+ALTER TABLE `bills`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `box_id` (`box_id`);
+
+--
 -- A tábla indexei `boxes`
 --
 ALTER TABLE `boxes`
   ADD PRIMARY KEY (`id`);
-
---
--- A tábla indexei `boxes_details`
---
-ALTER TABLE `boxes_details`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `box_id` (`box_id`);
 
 --
 -- A tábla indexei `cache`
@@ -593,12 +666,20 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- A tábla indexei `open_bills`
+--
+ALTER TABLE `open_bills`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `box_id` (`box_id`);
+
+--
 -- A tábla indexei `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `boxes_deatils_id` (`box_detail_id`),
-  ADD KEY `item_id` (`item_id`);
+  ADD KEY `boxes_deatils_id` (`box_id`),
+  ADD KEY `item_id` (`item_id`),
+  ADD KEY `box_id` (`box_id`);
 
 --
 -- A tábla indexei `orders_extra`
@@ -660,16 +741,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT a táblához `bills`
+--
+ALTER TABLE `bills`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT a táblához `boxes`
 --
 ALTER TABLE `boxes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT a táblához `boxes_details`
---
-ALTER TABLE `boxes_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT a táblához `cocktails`
@@ -738,10 +819,16 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT a táblához `open_bills`
+--
+ALTER TABLE `open_bills`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT a táblához `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT a táblához `orders_extra`
@@ -778,10 +865,10 @@ ALTER TABLE `users`
 --
 
 --
--- Megkötések a táblához `boxes_details`
+-- Megkötések a táblához `bills`
 --
-ALTER TABLE `boxes_details`
-  ADD CONSTRAINT `boxes_details_ibfk_1` FOREIGN KEY (`box_id`) REFERENCES `boxes` (`id`);
+ALTER TABLE `bills`
+  ADD CONSTRAINT `bills_ibfk_1` FOREIGN KEY (`box_id`) REFERENCES `boxes` (`id`);
 
 --
 -- Megkötések a táblához `cocktails`
@@ -838,18 +925,24 @@ ALTER TABLE `ingredients`
   ADD CONSTRAINT `ingredients_ibfk_1` FOREIGN KEY (`quantity_id`) REFERENCES `quantities` (`id`);
 
 --
+-- Megkötések a táblához `open_bills`
+--
+ALTER TABLE `open_bills`
+  ADD CONSTRAINT `open_bills_ibfk_1` FOREIGN KEY (`box_id`) REFERENCES `boxes` (`id`);
+
+--
 -- Megkötések a táblához `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`box_detail_id`) REFERENCES `boxes_details` (`id`),
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `drinks` (`id`);
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `drinks` (`id`),
+  ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`box_id`) REFERENCES `boxes` (`id`);
 
 --
 -- Megkötések a táblához `orders_extra`
 --
 ALTER TABLE `orders_extra`
-  ADD CONSTRAINT `orders_extra_ibfk_1` FOREIGN KEY (`box_detail_id`) REFERENCES `boxes_details` (`id`),
-  ADD CONSTRAINT `orders_extra_ibfk_3` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
+  ADD CONSTRAINT `orders_extra_ibfk_3` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
+  ADD CONSTRAINT `orders_extra_ibfk_4` FOREIGN KEY (`box_detail_id`) REFERENCES `boxes` (`id`);
 
 --
 -- Megkötések a táblához `reservations`
