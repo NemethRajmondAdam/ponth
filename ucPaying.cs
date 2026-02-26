@@ -31,7 +31,7 @@ namespace ponth
             tables.Columns.Add("tableNumber",typeof(int));
             tables.Columns.Add("total",typeof(int));
 
-            string sql = "SELECT * FROM boxes_details ORDER BY box_id";
+            string sql = "SELECT * FROM open_bills ORDER BY box_id";
             DataTable openBills = DatabaseHelper.GetData(sql);
 
             if (openBills != null && openBills.Rows.Count != 0)
@@ -96,17 +96,20 @@ namespace ponth
             return false;
         }
 
-        private void billClosing()
+        private void billClosing(string payMethod)
         {
-            string sql = $"DELETE FROM boxes_details WHERE box_id = {btnDropdown.Text}";
+            string sql = $"DELETE FROM open_bills WHERE box_id = {btnDropdown.Text}";
+            DatabaseHelper.ExecuteNonQuery(sql);
+
+            sql = $"INSERT INTO bills (box_id,total,paid_at,paid_with) VALUES ({btnDropdown.Text},{btnDropdown.Tag},'{DateTime.Now:yyyy-MM-dd HH:mm:ss}','{payMethod}')";
             DatabaseHelper.ExecuteNonQuery(sql);
         }
 
-        private void Payment()
+        private void Payment(string payMethod)
         {
             if (realNumer())
             {
-                billClosing();
+                billClosing(payMethod);
                 MessageBox.Show($"fizetve {btnDropdown.Tag} FT ..., a(z) {btnDropdown.Text} asztalnal");
                 PaymentDone?.Invoke();
             }
@@ -118,34 +121,12 @@ namespace ponth
 
         private void btnCard_Click(object sender, EventArgs e)
         {
-            //Payment()
-
-            if (realNumer())
-            {
-                billClosing();
-                MessageBox.Show($"fizetve {btnDropdown.Tag} FT kartyaval, a(z) {btnDropdown.Text} asztalnal");
-                PaymentDone?.Invoke();
-            }
-            else
-            {
-                MessageBox.Show($"valaszon asztalt");
-            }
+            Payment("Card");
         }
 
         private void btnCash_Click(object sender, EventArgs e)
         {
-            //Payment()
-
-            if (realNumer())
-            {
-                billClosing();
-                MessageBox.Show($"fizetve {btnDropdown.Tag} FT keszpenzzel, a(z) {btnDropdown.Text} asztalnal");
-                PaymentDone?.Invoke();
-            }
-            else
-            {
-                MessageBox.Show($"valaszon asztalt");
-            }
+            Payment("Cash");
         }
     }
 }

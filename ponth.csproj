@@ -109,12 +109,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TableViewForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TableViewForm.Designer.cs">
-      <DependentUpon>TableViewForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ucBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -203,9 +197,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TableViewForm.resx">
-      <DependentUpon>TableViewForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ucBase.resx">
       <DependentUpon>ucBase.cs</DependentUpon>
     </EmbeddedResource>

@@ -36,8 +36,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.sidebarButton = new System.Windows.Forms.PictureBox();
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.btn_Menu = new System.Windows.Forms.Button();
             this.panelOrder = new System.Windows.Forms.Panel();
             this.btn_Order = new System.Windows.Forms.Button();
             this.panelPaying = new System.Windows.Forms.Panel();
@@ -51,7 +49,6 @@
             this.sidebar.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sidebarButton)).BeginInit();
-            this.panelMenu.SuspendLayout();
             this.panelOrder.SuspendLayout();
             this.panelPaying.SuspendLayout();
             this.panelHome.SuspendLayout();
@@ -93,7 +90,6 @@
             // 
             this.sidebar.BackColor = System.Drawing.Color.LightGray;
             this.sidebar.Controls.Add(this.panel2);
-            this.sidebar.Controls.Add(this.panelMenu);
             this.sidebar.Controls.Add(this.panelOrder);
             this.sidebar.Controls.Add(this.panelPaying);
             this.sidebar.Controls.Add(this.panelHome);
@@ -120,22 +116,6 @@
             this.sidebarButton.Name = "sidebarButton";
             this.sidebarButton.TabStop = false;
             this.sidebarButton.Click += new System.EventHandler(this.sidebarButton_Click);
-            // 
-            // panelMenu
-            // 
-            resources.ApplyResources(this.panelMenu, "panelMenu");
-            this.panelMenu.Controls.Add(this.btn_Menu);
-            this.panelMenu.Name = "panelMenu";
-            // 
-            // btn_Menu
-            // 
-            this.btn_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
-            resources.ApplyResources(this.btn_Menu, "btn_Menu");
-            this.btn_Menu.ForeColor = System.Drawing.Color.Black;
-            this.btn_Menu.Image = global::ponth.Properties.Resources.rsz_menu;
-            this.btn_Menu.Name = "btn_Menu";
-            this.btn_Menu.UseVisualStyleBackColor = false;
-            this.btn_Menu.Click += new System.EventHandler(this.btn_Menu_Click);
             // 
             // panelOrder
             // 
@@ -232,7 +212,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sidebarButton)).EndInit();
-            this.panelMenu.ResumeLayout(false);
             this.panelOrder.ResumeLayout(false);
             this.panelPaying.ResumeLayout(false);
             this.panelHome.ResumeLayout(false);
@@ -252,8 +231,6 @@
         private CostumeControls.cButtons btn_ChangeLang;
         private System.Windows.Forms.FlowLayoutPanel sidebar;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button btn_Menu;
         private System.Windows.Forms.Panel panelOrder;
         private System.Windows.Forms.Button btn_Order;
         private System.Windows.Forms.Panel panelPaying;

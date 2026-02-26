@@ -57,7 +57,6 @@ D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\fr\ponth.resources.dll
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.CocktailEditPageForm.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.OrderingForm.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.LanguageSelectForm.resources
-D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.TableViewForm.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.ucLanguageSelect.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.ucBase.resources
 D:\NémethRajmondÁdám\ponth\bin\Debug\de\ponth.resources.dll
@@ -94,5 +93,5 @@ D:\NémethRajmondÁdám\ponth\obj\Debug\ponth.ucOrderDetails.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.ucOrderDetails.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.ucOrdering.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.ucPaying.resources
-D:\Németh Rajmond Ádám 13.i\ponth\bin\Debug\MySql.Data.dll
-D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.csproj.CopyComplete
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.exe.config
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.csproj.Up2Date

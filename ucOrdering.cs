@@ -466,9 +466,9 @@ namespace ponth
 
         //(EXTRA NELKULI) RENDELES FELTOLTESE ADATBAZISBA
 
-        private int CurrentSUM(int boxDetailId)
+        private int CurrentSUM(int openBillId)
         {
-            string sql = $"SELECT totalSum FROM boxes_details WHERE id = {boxDetailId}";
+            string sql = $"SELECT totalSum FROM open_bills WHERE id = {openBillId}";
             DataTable dt = DatabaseHelper.GetData(sql);
 
             if (dt.Rows.Count > 0)
@@ -479,9 +479,9 @@ namespace ponth
             return 0;
         }
 
-        private int GetOrCreateBoxDetailId()
+        private int GetOrCreateOpenBillId()
         {
-            string sql = $"SELECT id FROM boxes_details WHERE box_id = {currentTableId}";
+            string sql = $"SELECT id FROM open_bills WHERE box_id = {currentTableId}";
 
             if (DatabaseQuestions.IsDataExists(sql))
             {
@@ -490,10 +490,10 @@ namespace ponth
             }
             else
             {
-                string insert = $"INSERT INTO boxes_details (box_id,totalSum) VALUES ({currentTableId},0)";
+                string insert = $"INSERT INTO open_bills (box_id,totalSum) VALUES ({currentTableId},0)";
                 DatabaseHelper.ExecuteNonQuery(insert);
 
-                string getId = $"SELECT id FROM boxes_details WHERE box_id = {currentTableId}";
+                string getId = $"SELECT id FROM open_bills WHERE box_id = {currentTableId}";
                 DataTable dt = DatabaseHelper.GetData(getId);
                 return Convert.ToInt32(dt.Rows[0]["id"]);
             }
@@ -501,15 +501,15 @@ namespace ponth
 
         private void Order() 
         {
-            int boxDetailId = GetOrCreateBoxDetailId();
-            int boxSum = CurrentSUM(boxDetailId);
+            int openBillId = GetOrCreateOpenBillId();
+            int boxSum = CurrentSUM(openBillId);
 
             foreach (var item in cart.Items)
             {
                 int totalItemPrice = item.Price * item.Quantity;
 
-                string sql = $"INSERT INTO orders (box_detail_id,item_id,quantity,subtotal) " +
-                             $"VALUES ({boxDetailId},{item.Id},{item.Quantity},{totalItemPrice})";
+                string sql = $"INSERT INTO orders (box_id,item_id,quantity,subtotal) " +
+                             $"VALUES ({currentTableId},{item.Id},{item.Quantity},{totalItemPrice})";
 
                 DatabaseHelper.ExecuteNonQuery(sql);
             }
@@ -517,7 +517,7 @@ namespace ponth
             int totalPrice = cart.TotalPrice();
             boxSum += totalPrice;
 
-            string updateQuery = $"UPDATE boxes_details SET totalSum = {boxSum} WHERE id = {boxDetailId}";
+            string updateQuery = $"UPDATE open_bills SET totalSum = {boxSum} WHERE id = {openBillId}";
             DatabaseHelper.ExecuteUpdate(updateQuery);
 
 

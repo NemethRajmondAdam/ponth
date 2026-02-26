@@ -24,6 +24,7 @@ namespace ponth
 
         private Desing d = new Desing();
 
+        //NYELVVÁLTÁS
         private void btn_ChangeLang_Click(object sender, EventArgs e)
         {
             this.MaximizeBox = true;
@@ -86,6 +87,7 @@ namespace ponth
 
         }
 
+        //MAINFORM
         private void FormMain_Load(object sender, EventArgs e)
         {
             btn_ChangeLang.Text = $"-{LanguageManager.CurrentLanguageName}-";
@@ -102,6 +104,7 @@ namespace ponth
 
         }
 
+        //SIDEBAR
 
         private bool sidebarExpanded = true;
         private bool sidebarAnimating = false;
@@ -150,13 +153,7 @@ namespace ponth
 
         }
 
-        private void btn_Menu_Click(object sender, EventArgs e)
-        {
-            /*OrderingForm frm = new OrderingForm();
-            frm.ShowDialog();*/
-            systemView = true;
-            panelResize();
-        }
+
 
 
 
@@ -227,6 +224,7 @@ namespace ponth
                 
             }
 
+            //POP UP (Ha szukseges)
             if (popUpNeeded)
             {
                 popUp.Location = new Point((ucMainPanel.Panel1.Width - popUp.Width) / 2, (ucMainPanel.Panel1.Height - popUp.Height) / 2);
@@ -352,6 +350,7 @@ namespace ponth
             systemView = true;
             panelResize();
         }
+
 
 
     }
