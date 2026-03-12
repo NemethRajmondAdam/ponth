@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Feb 26. 09:37
+-- Létrehozás ideje: 2026. Már 09. 11:56
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -460,7 +460,8 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
-(2, 'App\\Models\\User', 1, 'access', '2dd697a45bad1013923806a52445e2858d522670915119c7b04ecb5e767db08c', '[\"*\"]', NULL, NULL, '2026-01-29 07:22:19', '2026-01-29 07:22:19');
+(14, 'App\\Models\\User', 1, 'access', 'a1ab931070fc268608840863dd2308c637cee3b37a66295437495423220b64d6', '[\"*\"]', '2026-03-04 14:18:33', NULL, '2026-03-04 14:17:54', '2026-03-04 14:18:33'),
+(15, 'App\\Models\\User', 4, 'access', '6fc34b99c53cea06937751a180d5e41c7096c75be6421a294f8f19a7c2329095', '[\"*\"]', '2026-03-09 09:52:30', NULL, '2026-03-04 14:18:48', '2026-03-09 09:52:30');
 
 -- --------------------------------------------------------
 
@@ -497,9 +498,19 @@ CREATE TABLE `reservations` (
   `duration_minutes` int(11) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
+  `user_id` bigint(10) UNSIGNED DEFAULT NULL,
   `status` varchar(20) NOT NULL COMMENT 'pl.: -foglalva,-lemondva,-megerositve'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `reservations`
+--
+
+INSERT INTO `reservations` (`id`, `boxes_id`, `reservation_date`, `reservation_time`, `reserved_at`, `duration_minutes`, `name`, `phone`, `user_id`, `status`) VALUES
+(1, 3, '2026-03-14', '17:00:00', '2026-03-04 10:55:28', 60, 'Vivike', '+36305137847', NULL, 'lemondva'),
+(2, 2, '2026-03-06', '19:30:00', '2026-03-04 15:17:38', 60, 'Vivike', '+36305137847', NULL, 'lemondva'),
+(3, 5, '2026-03-04', '16:00:00', '2026-03-04 15:18:31', 60, 'test', '+3630513784', NULL, 'lemondva'),
+(4, 5, '2026-03-05', '23:30:00', '2026-03-04 16:09:16', 60, 'Vivike', '+36305137847', NULL, 'foglalva');
 
 -- --------------------------------------------------------
 
@@ -537,15 +548,17 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- A tábla adatainak kiíratása `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'test', 'test@gmail.com', '2026-01-26 11:07:24', '$2y$12$fJb/cx.bwR7FWFfjbJ4px.V5Uy2SG6zxZWAM97hKTkUH0ebconoVW', 'hTx0aAyW9Q', '2026-01-26 11:07:25', '2026-01-26 11:07:25');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `is_admin`) VALUES
+(1, 'test', 'test@gmail.com', '2026-01-26 11:07:24', '$2y$12$fJb/cx.bwR7FWFfjbJ4px.V5Uy2SG6zxZWAM97hKTkUH0ebconoVW', 'hTx0aAyW9Q', '2026-01-26 11:07:25', '2026-01-26 11:07:25', 1),
+(4, 'Vivike', 'vivike@gmail.com', NULL, '$2y$12$Bmgxml/Lhh3DCn2Gjn1RXONskBKstH282XBI6UrglkEBLAfl.1m1S', NULL, '2026-03-04 08:59:52', '2026-03-04 09:01:37', 0);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -719,7 +732,8 @@ ALTER TABLE `quantities`
 --
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `boxes_id` (`boxes_id`);
+  ADD KEY `boxes_id` (`boxes_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- A tábla indexei `sessions`
@@ -840,7 +854,7 @@ ALTER TABLE `orders_extra`
 -- AUTO_INCREMENT a táblához `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT a táblához `quantities`
@@ -852,13 +866,13 @@ ALTER TABLE `quantities`
 -- AUTO_INCREMENT a táblához `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Megkötések a kiírt táblákhoz
@@ -948,7 +962,8 @@ ALTER TABLE `orders_extra`
 -- Megkötések a táblához `reservations`
 --
 ALTER TABLE `reservations`
-  ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`boxes_id`) REFERENCES `boxes` (`id`);
+  ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`boxes_id`) REFERENCES `boxes` (`id`),
+  ADD CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
