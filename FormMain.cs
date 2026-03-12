@@ -91,17 +91,28 @@ namespace ponth
         private void FormMain_Load(object sender, EventArgs e)
         {
             btn_ChangeLang.Text = $"-{LanguageManager.CurrentLanguageName}-";
-            //sidebar.Height = this.Height;
+
             this.MaximizeBox = true;
             panelLanguageSelect.Visible = false;
+
             panel1.BringToFront();
             sidebar.BringToFront();
             tableViewSwitch.BringToFront();
+
             ucMainPanel.Size = pictureBox1.Size;
             ucMainPanel.Location = pictureBox1.Location;
-            panelResize();
-            
 
+            panelResize();
+
+            btn_ChangeLang.Enabled = false;
+
+            // aktuális legnagyobb ID lekérése
+            object result = DatabaseHelper.ExecuteScalar("SELECT IFNULL(MAX(id),0) FROM orders");
+            lastOrderId = Convert.ToInt32(result);
+
+            orderTimer.Interval = 5000;
+            orderTimer.Tick += OrderTimer_Tick;
+            orderTimer.Start();
         }
 
         //SIDEBAR
@@ -172,10 +183,18 @@ namespace ponth
 
         private void tableViewSwitch_CheckedChanged(object sender, EventArgs e)
         {
-            ucMainPanel.Panel2.Controls.Clear();
-            tableView = !tableView;
+            tableView = tableViewSwitch.Checked;
+
+            if (tableView)
+            {
+                OpenTableView();
+            }
+            else
+            {
+                ucMainPanel.Panel2.Controls.Clear();
+            }
+
             panelResize();
-            
         }
 
         private void panelResize()
@@ -351,6 +370,56 @@ namespace ponth
             panelResize();
         }
 
+        //TableManagement
+
+        private ucTables ucTables = new ucTables();
+
+        System.Windows.Forms.Timer orderTimer = new System.Windows.Forms.Timer();
+        int lastOrderId = 0;
+
+        private void OrderTimer_Tick(object sender, EventArgs e)
+        {
+            string query = "SELECT IFNULL(MAX(id),0) FROM orders";
+            object result = DatabaseHelper.ExecuteScalar(query);
+
+            if (result == null) return;
+
+            int latestId = Convert.ToInt32(result);
+
+            if (latestId > lastOrderId)
+            {
+                lastOrderId = latestId;
+
+                if (tableView)
+                {
+                    ucTables.UpdateTableStatus(); // frissítjük a gombokat
+                }
+                else
+                {
+                    ShowNewOrderNotification();
+                }
+            }
+        }
+
+        private void ShowNewOrderNotification()
+        {
+            lb_orderAlert.BringToFront();
+            lb_orderAlert.Text = "!";
+            lb_orderAlert.BackColor = Color.Red;
+            lb_orderAlert.Visible = true;
+        }
+
+        private void OpenTableView()
+        {
+            tableView = true;
+            lb_orderAlert.Visible = false;
+
+            ucMainPanel.Panel2.Controls.Clear();
+            ucTables.Dock = DockStyle.Fill;
+            ucMainPanel.Panel2.Controls.Add(ucTables);
+
+            ucTables.LoadTables();
+        }
     } 
 
 }

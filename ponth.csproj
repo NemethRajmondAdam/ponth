@@ -82,6 +82,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOrderDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrderDetails.Designer.cs">
+      <DependentUpon>frmOrderDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="LanguageManager.cs" />
     <Compile Include="LanguageSelectForm.cs">
       <SubType>Form</SubType>
@@ -94,12 +100,6 @@
     </Compile>
     <Compile Include="OrderingForm.Designer.cs">
       <DependentUpon>OrderingForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OrderDetailsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OrderDetailsForm.Designer.cs">
-      <DependentUpon>OrderDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PayingMethodForm.cs">
       <SubType>Form</SubType>
@@ -139,6 +139,12 @@
     <Compile Include="ucPaying.Designer.cs">
       <DependentUpon>ucPaying.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucTables.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucTables.Designer.cs">
+      <DependentUpon>ucTables.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CocktailEditPageForm.resx">
       <DependentUpon>CocktailEditPageForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,26 +169,14 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmOrderDetails.resx">
+      <DependentUpon>frmOrderDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LanguageSelectForm.resx">
       <DependentUpon>LanguageSelectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OrderingForm.resx">
       <DependentUpon>OrderingForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OrderDetailsForm.de.resx">
-      <DependentUpon>OrderDetailsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OrderDetailsForm.en.resx">
-      <DependentUpon>OrderDetailsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OrderDetailsForm.es.resx">
-      <DependentUpon>OrderDetailsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OrderDetailsForm.fr.resx">
-      <DependentUpon>OrderDetailsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OrderDetailsForm.resx">
-      <DependentUpon>OrderDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PayingMethodForm.resx">
       <DependentUpon>PayingMethodForm.cs</DependentUpon>
@@ -211,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucPaying.resx">
       <DependentUpon>ucPaying.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucTables.resx">
+      <DependentUpon>ucTables.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
+            this.ucMainPanel = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_ChangeLang = new ponth.CostumeControls.cButtons();
             this.panelLanguageSelect = new System.Windows.Forms.Panel();
@@ -44,7 +45,9 @@
             this.btn_Home = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableViewSwitch = new ponth.CostumeControls.cToogleSwitch();
-            this.ucMainPanel = new System.Windows.Forms.SplitContainer();
+            this.lb_orderAlert = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.ucMainPanel)).BeginInit();
+            this.ucMainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.sidebar.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -53,9 +56,20 @@
             this.panelPaying.SuspendLayout();
             this.panelHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ucMainPanel)).BeginInit();
-            this.ucMainPanel.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // ucMainPanel
+            // 
+            resources.ApplyResources(this.ucMainPanel, "ucMainPanel");
+            this.ucMainPanel.Name = "ucMainPanel";
+            // 
+            // ucMainPanel.Panel1
+            // 
+            this.ucMainPanel.Panel1.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // ucMainPanel.Panel2
+            // 
+            this.ucMainPanel.Panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
             // panel1
             // 
@@ -179,23 +193,16 @@
             this.tableViewSwitch.UseVisualStyleBackColor = true;
             this.tableViewSwitch.CheckedChanged += new System.EventHandler(this.tableViewSwitch_CheckedChanged);
             // 
-            // ucMainPanel
+            // lb_orderAlert
             // 
-            resources.ApplyResources(this.ucMainPanel, "ucMainPanel");
-            this.ucMainPanel.Name = "ucMainPanel";
-            // 
-            // ucMainPanel.Panel1
-            // 
-            this.ucMainPanel.Panel1.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // ucMainPanel.Panel2
-            // 
-            this.ucMainPanel.Panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            resources.ApplyResources(this.lb_orderAlert, "lb_orderAlert");
+            this.lb_orderAlert.Name = "lb_orderAlert";
             // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lb_orderAlert);
             this.Controls.Add(this.ucMainPanel);
             this.Controls.Add(this.tableViewSwitch);
             this.Controls.Add(this.sidebar);
@@ -207,6 +214,8 @@
             this.Name = "FormMain";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormMain_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ucMainPanel)).EndInit();
+            this.ucMainPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.sidebar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -216,8 +225,6 @@
             this.panelPaying.ResumeLayout(false);
             this.panelHome.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ucMainPanel)).EndInit();
-            this.ucMainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,6 +248,7 @@
         private System.Windows.Forms.Label label1;
         private CostumeControls.cToogleSwitch tableViewSwitch;
         private System.Windows.Forms.SplitContainer ucMainPanel;
+        private System.Windows.Forms.Label lb_orderAlert;
     }
 }
 

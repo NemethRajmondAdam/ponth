@@ -71336,40 +71336,4 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Main page</value>
   </data>
-  <data name="tableManagementToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>320, 42</value>
-  </data>
-  <data name="tableManagementToolStripMenuItem.Text" xml:space="preserve">
-    <value>Table management</value>
-  </data>
-  <data name="tableDetailsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>320, 42</value>
-  </data>
-  <data name="tableDetailsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Table information</value>
-  </data>
-  <data name="tablesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 41</value>
-  </data>
-  <data name="tablesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Tables</value>
-  </data>
-  <data name="orderToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 42</value>
-  </data>
-  <data name="orderToolStripMenuItem.Text" xml:space="preserve">
-    <value>Order</value>
-  </data>
-  <data name="payingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 42</value>
-  </data>
-  <data name="payingToolStripMenuItem.Text" xml:space="preserve">
-    <value>Payment</value>
-  </data>
-  <data name="actionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 41</value>
-  </data>
-  <data name="actionsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Actions</value>
-  </data>
 </root>

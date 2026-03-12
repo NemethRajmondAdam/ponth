@@ -66,6 +66,7 @@ namespace ponth
             {
                 btnDropdown.Text = tableNumber.ToString();
                 btnDropdown.Tag = total;
+                lb_Total.Text = total.ToString()+" FT";
             };
 
             popup.Show();
