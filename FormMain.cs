@@ -404,7 +404,7 @@ namespace ponth
         private void ShowNewOrderNotification()
         {
             lb_orderAlert.BringToFront();
-            lb_orderAlert.Text = "!";
+            lb_orderAlert.Text = "";
             lb_orderAlert.BackColor = Color.Red;
             lb_orderAlert.Visible = true;
         }

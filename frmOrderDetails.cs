@@ -6,8 +6,11 @@ using System.Windows.Forms;
 
 namespace ponth
 {
+
     public partial class frmOrderDetails : Form
     {
+        public event Action<int> TableStatusChanged;
+
         private int tableId;
         private Panel panelContainer;
         private Button btnServeAll;
@@ -133,6 +136,8 @@ namespace ponth
             orderPanel.BackColor = GetStatusColor(newStatus);
             lbl.Text = lbl.Text.Split(new string[] { "Status:" }, StringSplitOptions.None)[0] + $"Status: {newStatus}";
 
+            TableStatusChanged?.Invoke(tableId);
+
         }
 
         //FELSZOLGAL
@@ -147,6 +152,8 @@ namespace ponth
                 if (lbl != null)
                     lbl.Text = lbl.Text.Split(new string[] { "Status:" }, StringSplitOptions.None)[0] + "Status: served";
             }
+
+            TableStatusChanged?.Invoke(tableId);
 
             this.Close();
 

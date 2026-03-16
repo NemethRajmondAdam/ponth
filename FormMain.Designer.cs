@@ -36,25 +36,25 @@
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.sidebarButton = new System.Windows.Forms.PictureBox();
             this.panelOrder = new System.Windows.Forms.Panel();
-            this.btn_Order = new System.Windows.Forms.Button();
             this.panelPaying = new System.Windows.Forms.Panel();
-            this.btn_Paying = new System.Windows.Forms.Button();
             this.panelHome = new System.Windows.Forms.Panel();
-            this.btn_Home = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableViewSwitch = new ponth.CostumeControls.cToogleSwitch();
             this.lb_orderAlert = new System.Windows.Forms.Label();
+            this.sidebarButton = new System.Windows.Forms.PictureBox();
+            this.btn_Order = new System.Windows.Forms.Button();
+            this.btn_Paying = new System.Windows.Forms.Button();
+            this.btn_Home = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ucMainPanel)).BeginInit();
             this.ucMainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.sidebar.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sidebarButton)).BeginInit();
             this.panelOrder.SuspendLayout();
             this.panelPaying.SuspendLayout();
             this.panelHome.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sidebarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,29 +122,11 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
-            // sidebarButton
-            // 
-            this.sidebarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sidebarButton.Image = global::ponth.Properties.Resources.menu__1_;
-            resources.ApplyResources(this.sidebarButton, "sidebarButton");
-            this.sidebarButton.Name = "sidebarButton";
-            this.sidebarButton.TabStop = false;
-            this.sidebarButton.Click += new System.EventHandler(this.sidebarButton_Click);
-            // 
             // panelOrder
             // 
             resources.ApplyResources(this.panelOrder, "panelOrder");
             this.panelOrder.Controls.Add(this.btn_Order);
             this.panelOrder.Name = "panelOrder";
-            // 
-            // btn_Order
-            // 
-            this.btn_Order.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
-            resources.ApplyResources(this.btn_Order, "btn_Order");
-            this.btn_Order.Image = global::ponth.Properties.Resources.rsz_menu;
-            this.btn_Order.Name = "btn_Order";
-            this.btn_Order.UseVisualStyleBackColor = false;
-            this.btn_Order.Click += new System.EventHandler(this.btn_Order_Click);
             // 
             // panelPaying
             // 
@@ -152,35 +134,11 @@
             this.panelPaying.Controls.Add(this.btn_Paying);
             this.panelPaying.Name = "panelPaying";
             // 
-            // btn_Paying
-            // 
-            this.btn_Paying.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
-            resources.ApplyResources(this.btn_Paying, "btn_Paying");
-            this.btn_Paying.Image = global::ponth.Properties.Resources.rsz_menu;
-            this.btn_Paying.Name = "btn_Paying";
-            this.btn_Paying.UseVisualStyleBackColor = false;
-            this.btn_Paying.Click += new System.EventHandler(this.btn_Paying_Click);
-            // 
             // panelHome
             // 
             resources.ApplyResources(this.panelHome, "panelHome");
             this.panelHome.Controls.Add(this.btn_Home);
             this.panelHome.Name = "panelHome";
-            // 
-            // btn_Home
-            // 
-            this.btn_Home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
-            resources.ApplyResources(this.btn_Home, "btn_Home");
-            this.btn_Home.Image = global::ponth.Properties.Resources.rsz_menu;
-            this.btn_Home.Name = "btn_Home";
-            this.btn_Home.UseVisualStyleBackColor = false;
-            this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
-            // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
             // 
             // tableViewSwitch
             // 
@@ -196,7 +154,50 @@
             // lb_orderAlert
             // 
             resources.ApplyResources(this.lb_orderAlert, "lb_orderAlert");
+            this.lb_orderAlert.Image = global::ponth.Properties.Resources._new;
             this.lb_orderAlert.Name = "lb_orderAlert";
+            // 
+            // sidebarButton
+            // 
+            this.sidebarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sidebarButton.Image = global::ponth.Properties.Resources.menu__1_;
+            resources.ApplyResources(this.sidebarButton, "sidebarButton");
+            this.sidebarButton.Name = "sidebarButton";
+            this.sidebarButton.TabStop = false;
+            this.sidebarButton.Click += new System.EventHandler(this.sidebarButton_Click);
+            // 
+            // btn_Order
+            // 
+            this.btn_Order.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            resources.ApplyResources(this.btn_Order, "btn_Order");
+            this.btn_Order.Image = global::ponth.Properties.Resources.menu1;
+            this.btn_Order.Name = "btn_Order";
+            this.btn_Order.UseVisualStyleBackColor = false;
+            this.btn_Order.Click += new System.EventHandler(this.btn_Order_Click);
+            // 
+            // btn_Paying
+            // 
+            this.btn_Paying.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            resources.ApplyResources(this.btn_Paying, "btn_Paying");
+            this.btn_Paying.Image = global::ponth.Properties.Resources.payments;
+            this.btn_Paying.Name = "btn_Paying";
+            this.btn_Paying.UseVisualStyleBackColor = false;
+            this.btn_Paying.Click += new System.EventHandler(this.btn_Paying_Click);
+            // 
+            // btn_Home
+            // 
+            this.btn_Home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            resources.ApplyResources(this.btn_Home, "btn_Home");
+            this.btn_Home.Image = global::ponth.Properties.Resources.home;
+            this.btn_Home.Name = "btn_Home";
+            this.btn_Home.UseVisualStyleBackColor = false;
+            this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
             // 
             // FormMain
             // 
@@ -220,10 +221,10 @@
             this.sidebar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sidebarButton)).EndInit();
             this.panelOrder.ResumeLayout(false);
             this.panelPaying.ResumeLayout(false);
             this.panelHome.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sidebarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

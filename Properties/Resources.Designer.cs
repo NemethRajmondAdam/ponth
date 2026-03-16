@@ -63,6 +63,16 @@ namespace ponth.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _new {
+            get {
+                object obj = ResourceManager.GetObject("new", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DE_Selected {
             get {
                 object obj = ResourceManager.GetObject("DE_Selected", resourceCulture);
@@ -103,6 +113,16 @@ namespace ponth.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap home {
+            get {
+                object obj = ResourceManager.GetObject("home", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HU_Selected {
             get {
                 object obj = ResourceManager.GetObject("HU_Selected", resourceCulture);
@@ -136,6 +156,26 @@ namespace ponth.Properties {
         internal static System.Drawing.Bitmap menu__1_ {
             get {
                 object obj = ResourceManager.GetObject("menu (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menu1 {
+            get {
+                object obj = ResourceManager.GetObject("menu1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap payments {
+            get {
+                object obj = ResourceManager.GetObject("payments", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

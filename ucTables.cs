@@ -62,6 +62,13 @@ namespace ponth
         private void TableClicked(int tableId)
         {
             frmOrderDetails orderForm = new frmOrderDetails(tableId);
+
+            orderForm.TableStatusChanged += (id) =>
+            {
+                RefreshTableStatus(id);
+            };
+
+
             orderForm.Show();
 
         }
@@ -102,6 +109,33 @@ namespace ponth
                     }
                 }
             }
+        }
+
+        public void RefreshTableStatus(int tableId)
+        {
+            string query = $"SELECT status FROM orders WHERE box_id={tableId}";
+
+            DataTable dt = DatabaseHelper.GetData(query);
+
+            bool hasNew = false;
+            bool hasPreparing = false;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string status = row["status"].ToString();
+
+                if (status == "new") hasNew = true;
+                if (status == "preparing") hasPreparing = true;
+            }
+
+            Button tableButton = tableButtons[tableId-1];
+
+            if (hasNew)
+                tableButton.BackColor = Color.Red;
+            else if (hasPreparing)
+                tableButton.BackColor = Color.Yellow;
+            else
+                tableButton.BackColor = Color.Green;
         }
     }
 }
