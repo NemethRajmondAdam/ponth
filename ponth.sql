@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Már 09. 11:56
--- Kiszolgáló verziója: 10.4.32-MariaDB
--- PHP verzió: 8.2.12
+-- Létrehozás ideje: 2026. Már 16. 12:25
+-- Kiszolgáló verziója: 10.4.28-MariaDB
+-- PHP verzió: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -361,7 +361,7 @@ CREATE TABLE `open_bills` (
 --
 
 INSERT INTO `open_bills` (`id`, `box_id`, `totalSum`) VALUES
-(4, 1, 3550);
+(4, 1, 5950);
 
 -- --------------------------------------------------------
 
@@ -374,39 +374,41 @@ CREATE TABLE `orders` (
   `box_id` int(11) DEFAULT NULL,
   `item_id` int(11) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
-  `subtotal` int(11) DEFAULT NULL
+  `subtotal` int(11) DEFAULT NULL,
+  `status` varchar(20) NOT NULL DEFAULT 'new'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `orders`
 --
 
-INSERT INTO `orders` (`id`, `box_id`, `item_id`, `quantity`, `subtotal`) VALUES
-(2, 3, 13, 1, 2600),
-(3, 3, 15, 1, 2500),
-(4, 3, 12, 1, 2400),
-(5, 3, 14, 1, 2700),
-(6, 4, 3, 1, 950),
-(7, 5, 12, 9, 21600),
-(8, 5, 13, 9, 23400),
-(9, 5, 15, 4, 10000),
-(10, 5, 14, 2, 5400),
-(11, 5, 2, 10, 8500),
-(12, 5, 13, 12, 31200),
-(13, 5, 13, 1, 2600),
-(14, 5, 12, 2, 4800),
-(15, 5, 2, 1, 850),
-(17, 4, 13, 1, 2600),
-(21, 4, 13, 1, 2600),
-(22, 5, 15, 3, 7500),
-(23, 5, 14, 1, 2700),
-(24, 5, 4, 1, 900),
-(25, 2, 13, 1, 2600),
-(26, 4, 13, 1, 2600),
-(27, 4, 12, 1, 2400),
-(28, 4, 13, 1, 2600),
-(29, 4, 3, 1, 950),
-(30, 4, 12, 7, 16800);
+INSERT INTO `orders` (`id`, `box_id`, `item_id`, `quantity`, `subtotal`, `status`) VALUES
+(2, 3, 13, 1, 2600, 'served'),
+(3, 3, 15, 1, 2500, 'served'),
+(4, 3, 12, 1, 2400, 'served'),
+(5, 3, 14, 1, 2700, 'served'),
+(6, 4, 3, 1, 950, 'served'),
+(7, 5, 12, 9, 21600, 'served'),
+(8, 5, 13, 9, 23400, 'served'),
+(9, 5, 15, 4, 10000, 'served'),
+(10, 5, 14, 2, 5400, 'served'),
+(11, 5, 2, 10, 8500, 'served'),
+(12, 5, 13, 12, 31200, 'served'),
+(13, 5, 13, 1, 2600, 'served'),
+(14, 5, 12, 2, 4800, 'served'),
+(15, 5, 2, 1, 850, 'served'),
+(17, 4, 13, 1, 2600, 'served'),
+(21, 4, 13, 1, 2600, 'served'),
+(22, 5, 15, 3, 7500, 'served'),
+(23, 5, 14, 1, 2700, 'served'),
+(24, 5, 4, 1, 900, 'served'),
+(25, 2, 13, 1, 2600, 'served'),
+(26, 4, 13, 1, 2600, 'served'),
+(27, 4, 12, 1, 2400, 'served'),
+(28, 4, 13, 1, 2600, 'served'),
+(29, 4, 3, 1, 950, 'served'),
+(30, 4, 12, 7, 16800, 'served'),
+(31, 1, 12, 1, 2400, 'served');
 
 -- --------------------------------------------------------
 
@@ -842,7 +844,7 @@ ALTER TABLE `open_bills`
 -- AUTO_INCREMENT a táblához `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT a táblához `orders_extra`
