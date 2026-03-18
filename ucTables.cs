@@ -76,7 +76,11 @@ namespace ponth
         //ASZTALOK SZINEZESE
         public void UpdateTableStatus()
         {
-            string query = "SELECT box_id, status FROM orders WHERE status IN ('new','preparing')";
+            string query = @"
+                            SELECT ob.box_id, o.status 
+                            FROM orders o
+                            JOIN open_bills ob ON o.bills_id = ob.id
+                            WHERE o.status IN ('new','preparing')";
             DataTable dt = DatabaseHelper.GetData(query);
 
             //ZOLD MINDEGYIK
@@ -113,7 +117,11 @@ namespace ponth
 
         public void RefreshTableStatus(int tableId)
         {
-            string query = $"SELECT status FROM orders WHERE box_id={tableId}";
+            string query = $@"
+                SELECT o.status 
+                FROM orders o
+                JOIN open_bills ob ON o.bills_id = ob.id
+                WHERE ob.box_id = {tableId}";
 
             DataTable dt = DatabaseHelper.GetData(query);
 

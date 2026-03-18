@@ -499,7 +499,7 @@ namespace ponth
             }
         }
 
-        private void Order() 
+        private void Order()
         {
             int openBillId = GetOrCreateOpenBillId();
             int boxSum = CurrentSUM(openBillId);
@@ -508,8 +508,8 @@ namespace ponth
             {
                 int totalItemPrice = item.Price * item.Quantity;
 
-                string sql = $"INSERT INTO orders (box_id,item_id,quantity,subtotal) " +
-                             $"VALUES ({currentTableId},{item.Id},{item.Quantity},{totalItemPrice})";
+                string sql = $"INSERT INTO orders (bills_id, item_id, quantity, subtotal) " +
+                             $"VALUES ({openBillId}, {item.Id}, {item.Quantity}, {totalItemPrice})";
 
                 DatabaseHelper.ExecuteNonQuery(sql);
             }
@@ -520,16 +520,12 @@ namespace ponth
             string updateQuery = $"UPDATE open_bills SET totalSum = {boxSum} WHERE id = {openBillId}";
             DatabaseHelper.ExecuteUpdate(updateQuery);
 
-
             OrderingConfirmed?.Invoke(currentTableId);
 
-            // Információ a felhasználónak
             MessageBox.Show($"A rendelés összértéke: {totalPrice} Ft\nAz aktuális összeg: {boxSum} Ft");
 
-            // Kosár ürítése és frissítés
             cart.Clear();
             RefreshCart();
-
         }
     }
 }

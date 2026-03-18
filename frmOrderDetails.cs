@@ -6,7 +6,6 @@ using System.Windows.Forms;
 
 namespace ponth
 {
-
     public partial class frmOrderDetails : Form
     {
         public event Action<int> TableStatusChanged;
@@ -50,11 +49,12 @@ namespace ponth
             panelContainer.Controls.Clear();
 
             string query = $@"
-                SELECT orders.id, orders.box_id AS tableNumber, drinks.name AS productName, orders.quantity, orders.status
-                FROM orders
-                INNER JOIN drinks ON orders.item_id = drinks.id
-                WHERE orders.box_id = {tableId} AND status <> 'served'
-                ORDER BY orders.id DESC;
+                SELECT o.id, ob.box_id AS tableNumber, d.name AS productName, o.quantity, o.status
+                FROM orders o
+                INNER JOIN drinks d ON o.item_id = d.id
+                INNER JOIN open_bills ob ON o.bills_id = ob.id
+                WHERE ob.box_id = {tableId} AND o.status <> 'served'
+                ORDER BY o.id DESC;
             ";
 
             DataTable dt = DatabaseHelper.GetData(query);
@@ -143,7 +143,12 @@ namespace ponth
         //FELSZOLGAL
         private void BtnServeAll_Click(object sender, EventArgs e)
         {
-            DatabaseHelper.ExecuteNonQuery($"UPDATE orders SET status='served' WHERE box_id={tableId}");
+            DatabaseHelper.ExecuteNonQuery($@"
+                UPDATE orders 
+                SET status='served' 
+                WHERE bills_id IN (
+                    SELECT id FROM open_bills WHERE box_id = {tableId}
+                )");
 
             foreach (Panel panel in panelContainer.Controls.OfType<Panel>())
             {
