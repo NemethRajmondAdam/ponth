@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.ucMainPanel = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_ChangeLang = new ponth.CostumeControls.cButtons();
             this.panelLanguageSelect = new System.Windows.Forms.Panel();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -39,13 +38,16 @@
             this.panelOrder = new System.Windows.Forms.Panel();
             this.panelPaying = new System.Windows.Forms.Panel();
             this.panelHome = new System.Windows.Forms.Panel();
-            this.tableViewSwitch = new ponth.CostumeControls.cToogleSwitch();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.lb_orderAlert = new System.Windows.Forms.Label();
             this.sidebarButton = new System.Windows.Forms.PictureBox();
             this.btn_Order = new System.Windows.Forms.Button();
             this.btn_Paying = new System.Windows.Forms.Button();
+            this.btn_Reservation = new System.Windows.Forms.Button();
             this.btn_Home = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tableViewSwitch = new ponth.CostumeControls.cToogleSwitch();
+            this.btn_ChangeLang = new ponth.CostumeControls.cButtons();
             ((System.ComponentModel.ISupportInitialize)(this.ucMainPanel)).BeginInit();
             this.ucMainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -54,6 +56,7 @@
             this.panelOrder.SuspendLayout();
             this.panelPaying.SuspendLayout();
             this.panelHome.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sidebarButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -78,23 +81,6 @@
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
-            // btn_ChangeLang
-            // 
-            resources.ApplyResources(this.btn_ChangeLang, "btn_ChangeLang");
-            this.btn_ChangeLang.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_ChangeLang.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_ChangeLang.BorderColor = System.Drawing.Color.Black;
-            this.btn_ChangeLang.BorderRadius = 20;
-            this.btn_ChangeLang.BorderSize = 1;
-            this.btn_ChangeLang.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_ChangeLang.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_ChangeLang.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btn_ChangeLang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
-            this.btn_ChangeLang.Name = "btn_ChangeLang";
-            this.btn_ChangeLang.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
-            this.btn_ChangeLang.UseVisualStyleBackColor = false;
-            this.btn_ChangeLang.Click += new System.EventHandler(this.btn_ChangeLang_Click);
-            // 
             // panelLanguageSelect
             // 
             resources.ApplyResources(this.panelLanguageSelect, "panelLanguageSelect");
@@ -107,6 +93,7 @@
             this.sidebar.Controls.Add(this.panelOrder);
             this.sidebar.Controls.Add(this.panelPaying);
             this.sidebar.Controls.Add(this.panelHome);
+            this.sidebar.Controls.Add(this.panel3);
             resources.ApplyResources(this.sidebar, "sidebar");
             this.sidebar.Name = "sidebar";
             // 
@@ -137,19 +124,14 @@
             // panelHome
             // 
             resources.ApplyResources(this.panelHome, "panelHome");
-            this.panelHome.Controls.Add(this.btn_Home);
+            this.panelHome.Controls.Add(this.btn_Reservation);
             this.panelHome.Name = "panelHome";
             // 
-            // tableViewSwitch
+            // panel3
             // 
-            resources.ApplyResources(this.tableViewSwitch, "tableViewSwitch");
-            this.tableViewSwitch.Name = "tableViewSwitch";
-            this.tableViewSwitch.OffBackColor = System.Drawing.Color.Gray;
-            this.tableViewSwitch.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.tableViewSwitch.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
-            this.tableViewSwitch.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.tableViewSwitch.UseVisualStyleBackColor = true;
-            this.tableViewSwitch.CheckedChanged += new System.EventHandler(this.tableViewSwitch_CheckedChanged);
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.Controls.Add(this.btn_Home);
+            this.panel3.Name = "panel3";
             // 
             // lb_orderAlert
             // 
@@ -184,6 +166,14 @@
             this.btn_Paying.UseVisualStyleBackColor = false;
             this.btn_Paying.Click += new System.EventHandler(this.btn_Paying_Click);
             // 
+            // btn_Reservation
+            // 
+            this.btn_Reservation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            resources.ApplyResources(this.btn_Reservation, "btn_Reservation");
+            this.btn_Reservation.Image = global::ponth.Properties.Resources.res1;
+            this.btn_Reservation.Name = "btn_Reservation";
+            this.btn_Reservation.UseVisualStyleBackColor = false;
+            // 
             // btn_Home
             // 
             this.btn_Home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
@@ -198,6 +188,34 @@
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
+            // 
+            // tableViewSwitch
+            // 
+            resources.ApplyResources(this.tableViewSwitch, "tableViewSwitch");
+            this.tableViewSwitch.Name = "tableViewSwitch";
+            this.tableViewSwitch.OffBackColor = System.Drawing.Color.Gray;
+            this.tableViewSwitch.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.tableViewSwitch.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            this.tableViewSwitch.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.tableViewSwitch.UseVisualStyleBackColor = true;
+            this.tableViewSwitch.CheckedChanged += new System.EventHandler(this.tableViewSwitch_CheckedChanged);
+            // 
+            // btn_ChangeLang
+            // 
+            resources.ApplyResources(this.btn_ChangeLang, "btn_ChangeLang");
+            this.btn_ChangeLang.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_ChangeLang.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_ChangeLang.BorderColor = System.Drawing.Color.Black;
+            this.btn_ChangeLang.BorderRadius = 20;
+            this.btn_ChangeLang.BorderSize = 1;
+            this.btn_ChangeLang.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_ChangeLang.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_ChangeLang.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btn_ChangeLang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            this.btn_ChangeLang.Name = "btn_ChangeLang";
+            this.btn_ChangeLang.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            this.btn_ChangeLang.UseVisualStyleBackColor = false;
+            this.btn_ChangeLang.Click += new System.EventHandler(this.btn_ChangeLang_Click);
             // 
             // FormMain
             // 
@@ -224,6 +242,7 @@
             this.panelOrder.ResumeLayout(false);
             this.panelPaying.ResumeLayout(false);
             this.panelHome.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sidebarButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -244,12 +263,14 @@
         private System.Windows.Forms.Panel panelPaying;
         private System.Windows.Forms.Button btn_Paying;
         private System.Windows.Forms.Panel panelHome;
-        private System.Windows.Forms.Button btn_Home;
+        private System.Windows.Forms.Button btn_Reservation;
         private System.Windows.Forms.PictureBox sidebarButton;
         private System.Windows.Forms.Label label1;
         private CostumeControls.cToogleSwitch tableViewSwitch;
         private System.Windows.Forms.SplitContainer ucMainPanel;
         private System.Windows.Forms.Label lb_orderAlert;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btn_Home;
     }
 }
 

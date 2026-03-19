@@ -65,6 +65,7 @@ namespace ponth
             popup.ItemSelected += (tableNumber, total) =>
             {
                 btnDropdown.Text = tableNumber.ToString();
+
                 btnDropdown.Tag = total;
                 lb_Total.Text = total.ToString()+" FT";
             };
