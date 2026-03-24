@@ -139,6 +139,12 @@
     <Compile Include="ucPaying.Designer.cs">
       <DependentUpon>ucPaying.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucReservations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucReservations.Designer.cs">
+      <DependentUpon>ucReservations.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucTables.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucPaying.resx">
       <DependentUpon>ucPaying.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucReservations.resx">
+      <DependentUpon>ucReservations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucTables.resx">
       <DependentUpon>ucTables.cs</DependentUpon>
