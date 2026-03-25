@@ -137,7 +137,6 @@ namespace ponth
             {
                 double progress = (double)i / steps;
 
-                // Smooth easing (easeInOut)
                 double eased = progress < 0.5
                     ? 2 * progress * progress
                     : 1 - Math.Pow(-2 * progress + 2, 2) / 2;
@@ -305,14 +304,12 @@ namespace ponth
             popUpNeeded = false;
             ucMainPanel.Panel1.Controls.Clear();
 
-            // UC létrehozása
             ucOrdering uc = new ucOrdering(tableId);
             uc.Dock = DockStyle.Fill;
 
-            // Esemény kezelése
             uc.OrderingConfirmed += (id) =>
             {
-                MessageBox.Show($"Rendelés leadva az {id} asztalra!");
+                //MessageBox.Show($"Rendelés leadva az {id} asztalra!");
                 ucMainPanel.Panel1.Controls.Clear();
                 homePage();
             };
@@ -381,7 +378,7 @@ namespace ponth
 
                 if (tableView)
                 {
-                    ucTables.UpdateTableStatus(); // frissítjük a gombokat
+                    ucTables.UpdateTableStatus(); // ASztal frissul
                 }
                 else
                 {

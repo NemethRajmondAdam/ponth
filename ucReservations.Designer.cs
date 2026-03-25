@@ -31,8 +31,8 @@
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelSearch = new System.Windows.Forms.Panel();
-            this.btn_Search = new ponth.CostumeControls.cButtons();
             this.txtBox_SearchBar = new System.Windows.Forms.TextBox();
+            this.btn_Search = new ponth.CostumeControls.cButtons();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panelSearch.SuspendLayout();
             this.SuspendLayout();
@@ -76,10 +76,18 @@
             this.panelSearch.Size = new System.Drawing.Size(758, 100);
             this.panelSearch.TabIndex = 1;
             // 
+            // txtBox_SearchBar
+            // 
+            this.txtBox_SearchBar.Location = new System.Drawing.Point(75, 21);
+            this.txtBox_SearchBar.Name = "txtBox_SearchBar";
+            this.txtBox_SearchBar.Size = new System.Drawing.Size(468, 20);
+            this.txtBox_SearchBar.TabIndex = 1;
+            this.txtBox_SearchBar.TextChanged += new System.EventHandler(this.txtBox_SearchBar_TextChanged);
+            // 
             // btn_Search
             // 
-            this.btn_Search.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btn_Search.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btn_Search.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_Search.BackgroundColor = System.Drawing.Color.SeaGreen;
             this.btn_Search.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btn_Search.BorderRadius = 20;
             this.btn_Search.BorderSize = 0;
@@ -94,15 +102,6 @@
             this.btn_Search.Text = "Keresés";
             this.btn_Search.TextColor = System.Drawing.Color.White;
             this.btn_Search.UseVisualStyleBackColor = false;
-            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
-            // 
-            // txtBox_SearchBar
-            // 
-            this.txtBox_SearchBar.Location = new System.Drawing.Point(75, 21);
-            this.txtBox_SearchBar.Name = "txtBox_SearchBar";
-            this.txtBox_SearchBar.Size = new System.Drawing.Size(468, 20);
-            this.txtBox_SearchBar.TabIndex = 1;
-            this.txtBox_SearchBar.TextChanged += new System.EventHandler(this.txtBox_SearchBar_TextChanged);
             // 
             // ucReservations
             // 

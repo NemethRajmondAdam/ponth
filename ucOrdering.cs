@@ -316,7 +316,7 @@ namespace ponth
                 RefreshCart();
             };
 
-            Button btnCancelCart = new Button()
+            cButtons btnCancelCart = new cButtons()
             {
                 Text = "Mégse",
                 Width = 120,
@@ -381,7 +381,7 @@ namespace ponth
                     ingredientDetails.Rows[0]["id"],
                     ingredientDetails.Rows[0]["name"],
                     row["quantity"],
-                    "", // NINCS quantity_type oszlop → üres string
+                    "", // NINCS quantity_type oszlop -> üres string
                     ingredientDetails.Rows[0]["price"]);
 
             }
@@ -398,7 +398,7 @@ namespace ponth
                     drinkDetails.Rows[0]["id"],
                     drinkDetails.Rows[0]["name"],
                     row["quantity"],
-                    "", // NINCS quantity_type oszlop → üres string
+                    "", // NINCS quantity_type oszlop -> üres string
                     drinkDetails.Rows[0]["mixing_price"]);
 
             }
@@ -425,7 +425,7 @@ namespace ponth
                         row["id"],
                         row["name"],
                         0,
-                        "", // quantity_type nincs → üres
+                        "", // quantity_type nincs -> üres
                         row["price"]);
 
                 }
@@ -453,7 +453,7 @@ namespace ponth
                         row["id"],
                         row["name"],
                         0,
-                        "", // quantity_type nincs → üres
+                        "", // quantity_type nincs -> üres
                         row["mixing_price"]);
 
                 }
@@ -522,7 +522,7 @@ namespace ponth
 
             OrderingConfirmed?.Invoke(currentTableId);
 
-            MessageBox.Show($"A rendelés összértéke: {totalPrice} Ft\nAz aktuális összeg: {boxSum} Ft");
+            //MessageBox.Show($"A rendelés összértéke: {totalPrice} Ft\nAz aktuális összeg: {boxSum} Ft");
 
             cart.Clear();
             RefreshCart();
