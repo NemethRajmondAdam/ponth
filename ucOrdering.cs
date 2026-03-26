@@ -350,9 +350,11 @@ namespace ponth
 
             int cocktailId = Convert.ToInt32(cocktailTable.Rows[0]["id"]);
 
-            DataTable ingredientsInCocktail = DatabaseHelper.GetData("SELECT * FROM cocktail_ingredients WHERE cocktail_id=" + cocktailId);
+            DataTable ingredientsInCocktail = DatabaseHelper.GetData(
+                "SELECT * FROM cocktail_ingredients WHERE cocktail_id=" + cocktailId);
 
-            DataTable drinksInCocktail = DatabaseHelper.GetData("SELECT * FROM cocktail_drinks WHERE cocktail_id=" + cocktailId);
+            DataTable drinksInCocktail = DatabaseHelper.GetData(
+                "SELECT * FROM cocktail_drinks WHERE cocktail_id=" + cocktailId);
 
             ingridients = new DataTable();
             drinks = new DataTable();
@@ -369,10 +371,15 @@ namespace ponth
             drinks.Columns.Add("quantity_type", typeof(string));
             drinks.Columns.Add("price", typeof(int));
 
+            //INGREDIENTS A KOKTÉLBAN
             foreach (DataRow row in ingredientsInCocktail.Rows)
             {
                 DataTable ingredientDetails =
-                    DatabaseHelper.GetData("SELECT * FROM ingredients WHERE id=" + row["ingredient_id"]);
+                    DatabaseHelper.GetData(
+                        "SELECT i.*, q.quantity AS quantity_type " +
+                        "FROM ingredients i " +
+                        "LEFT JOIN quantities q ON i.quantity_id = q.id " +
+                        "WHERE i.id=" + row["ingredient_id"]);
 
                 if (ingredientDetails.Rows.Count == 0)
                     continue;
@@ -381,15 +388,19 @@ namespace ponth
                     ingredientDetails.Rows[0]["id"],
                     ingredientDetails.Rows[0]["name"],
                     row["quantity"],
-                    "", // NINCS quantity_type oszlop -> üres string
+                    ingredientDetails.Rows[0]["quantity_type"],
                     ingredientDetails.Rows[0]["price"]);
-
             }
 
+            //DRINKS A KOKTÉLBAN
             foreach (DataRow row in drinksInCocktail.Rows)
             {
                 DataTable drinkDetails =
-                    DatabaseHelper.GetData("SELECT * FROM drinks WHERE id=" + row["drink_id"]);
+                    DatabaseHelper.GetData(
+                        "SELECT d.*, q.quantity AS quantity_type " +
+                        "FROM drinks d " +
+                        "LEFT JOIN quantities q ON d.quantity_id = q.id " +
+                        "WHERE d.id=" + row["drink_id"]);
 
                 if (drinkDetails.Rows.Count == 0)
                     continue;
@@ -398,12 +409,15 @@ namespace ponth
                     drinkDetails.Rows[0]["id"],
                     drinkDetails.Rows[0]["name"],
                     row["quantity"],
-                    "", // NINCS quantity_type oszlop -> üres string
+                    drinkDetails.Rows[0]["quantity_type"],
                     drinkDetails.Rows[0]["mixing_price"]);
-
             }
 
-            DataTable allIngredients = DatabaseHelper.GetData("SELECT * FROM ingredients");
+            //ÖSSZES INGREDIENT
+            DataTable allIngredients = DatabaseHelper.GetData(
+                "SELECT i.*, q.quantity AS quantity_type " +
+                "FROM ingredients i " +
+                "LEFT JOIN quantities q ON i.quantity_id = q.id");
 
             foreach (DataRow row in allIngredients.Rows)
             {
@@ -425,13 +439,16 @@ namespace ponth
                         row["id"],
                         row["name"],
                         0,
-                        "", // quantity_type nincs -> üres
+                        row["quantity_type"],
                         row["price"]);
-
                 }
             }
 
-            DataTable allDrinks = DatabaseHelper.GetData("SELECT * FROM drinks");
+            //ÖSSZES DRINK
+            DataTable allDrinks = DatabaseHelper.GetData(
+                "SELECT d.*, q.quantity AS quantity_type " +
+                "FROM drinks d " +
+                "LEFT JOIN quantities q ON d.quantity_id = q.id");
 
             foreach (DataRow row in allDrinks.Rows)
             {
@@ -453,9 +470,8 @@ namespace ponth
                         row["id"],
                         row["name"],
                         0,
-                        "", // quantity_type nincs -> üres
+                        row["quantity_type"],
                         row["mixing_price"]);
-
                 }
             }
 

@@ -91,5 +91,5 @@ D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.ucPaying.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.ucTables.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.frmOrderDetails.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.ucReservations.resources
-D:\Németh Rajmond Ádám 13.i\ponth\bin\Debug\MySql.Data.dll
-D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.csproj.CopyComplete
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.exe.config
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.csproj.Up2Date

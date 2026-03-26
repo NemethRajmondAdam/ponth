@@ -93,7 +93,15 @@ namespace ponth
             {
                 Button btn = s as Button;
                 int itemId = (int)btn.Tag;
-                UpdateQuantity(itemId, quantity, lblQuantity, lblPrice, price, isDrink);
+                if (quantity != 0)
+                {
+                    UpdateQuantity(itemId, quantity, lblQuantity, lblPrice, price, isDrink);
+                }
+                else 
+                {
+                    UpdateQuantity(itemId, 1, lblQuantity, lblPrice, price, isDrink);
+                }
+                
             };
 
             Button btnDecrease = new Button()
@@ -108,7 +116,11 @@ namespace ponth
             {
                 Button btn = s as Button;
                 int itemId = (int)btn.Tag;
-                UpdateQuantity(itemId, -quantity, lblQuantity, lblPrice, price, isDrink);
+                if (quantity != 0)
+                {
+                    UpdateQuantity(itemId, -quantity, lblQuantity, lblPrice, price, isDrink);
+                }
+                
             };
 
             card.Controls.Add(lblName);
@@ -137,14 +149,14 @@ namespace ponth
         {
             flowLayoutPanelIngridients.Controls.Clear();
 
-            // 🔹 1️⃣ Tartalmazza header 
+            
             Panel containsHeader = CreateHeader("Tartalmazza");
             flowLayoutPanelIngridients.Controls.Add(containsHeader);
-            // 🔹 2️⃣ Tartalmazott italok 
+            
             foreach (DataRow row in drinks.Rows)
             {
                 int quantity = row["quantity"] != DBNull.Value ? Convert.ToInt32(row["quantity"]) : 0;
-                if (quantity <= 0) continue; // csak a tartalmazottak 
+                if (quantity <= 0) continue;
                 int price = Convert.ToInt32(row["price"]);
                 string name = row["name"].ToString();
                 string quantityType = row["quantity_type"].ToString();
@@ -152,7 +164,7 @@ namespace ponth
                 Panel drinkCard = CreateItemCard(id, name, price, quantity, quantityType, true);
                 flowLayoutPanelIngridients.Controls.Add(drinkCard);
             }
-            // 🔹 3️⃣ Tartalmazott összetevők 
+            
             foreach (DataRow row in ingridients.Rows)
             {
                 int quantity = row["quantity"] != DBNull.Value ? Convert.ToInt32(row["quantity"]) : 0;
@@ -195,16 +207,6 @@ namespace ponth
                 flowLayoutPanelIngridients.Controls.Add(ingredientCard);
             }
         }
-
-
-
-
-
-
-
-
-
-
 
     }
 }

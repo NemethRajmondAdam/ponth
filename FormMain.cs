@@ -197,6 +197,7 @@ namespace ponth
 
             sidebar.BringToFront();
             tableViewSwitch.BringToFront();
+            lb_orderAlert.BringToFront();
 
             ucMainPanel.Size = pictureBox1.Size;
             ucMainPanel.Location = pictureBox1.Location;
