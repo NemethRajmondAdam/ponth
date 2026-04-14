@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Ápr 14. 13:27
+-- Létrehozás ideje: 2026. Ápr 14. 13:34
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -510,7 +510,7 @@ CREATE TABLE `reservations` (
   `name` varchar(50) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `user_id` bigint(10) UNSIGNED DEFAULT NULL,
-  `status` varchar(20) NOT NULL COMMENT 'pl.: -foglalva,-lemondva,-megerositve'
+  `status` enum('Reserved','Cancelled','Confirmed','') NOT NULL COMMENT 'pl.: -foglalva,-lemondva,-megerositve'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
