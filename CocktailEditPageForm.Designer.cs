@@ -37,21 +37,21 @@
             this.flowLayoutPanelIngridients.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelIngridients.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelIngridients.Name = "flowLayoutPanelIngridients";
-            this.flowLayoutPanelIngridients.Size = new System.Drawing.Size(933, 404);
+            this.flowLayoutPanelIngridients.Size = new System.Drawing.Size(800, 450);
             this.flowLayoutPanelIngridients.TabIndex = 1;
             // 
             // CocktailEditPageForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 519);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.flowLayoutPanelIngridients);
-            this.Location = new System.Drawing.Point(0, 0);
-            this.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "CocktailEditPageForm";
             this.Text = "CocktailEditPageForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CocktailEditPageForm_Load);
-            this.Controls.SetChildIndex(this.flowLayoutPanelIngridients, 0);
             this.ResumeLayout(false);
 
         }

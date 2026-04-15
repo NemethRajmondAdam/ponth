@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace ponth
@@ -47,6 +48,16 @@ namespace ponth
             txtBox_AccountHolder.Enabled = chckBox_Account.Checked;
         }
 
+
+        private int numberOfTable()
+        {
+            string sql = "SELECT id FROM boxes ORDER BY id";
+            DataTable dt = DatabaseHelper.GetData(sql);
+
+            return dt.Rows.Count;
+        }
+
+
         // OK gomb
         private void btnOk_Click(object sender, EventArgs e)
         {
@@ -54,7 +65,7 @@ namespace ponth
 
             if (chckBox_OrderingToTable.Checked)
             {
-                if (numUpDown_TableID.Value == 0)
+                if (numUpDown_TableID.Value == 0 || numUpDown_TableID.Value > numberOfTable())
                 {
                     numUpDown_TableID.Focus();
                     MessageBox.Show("Nem letezo asztal",

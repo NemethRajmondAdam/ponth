@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ponth
 {
-    public partial class CocktailEditPageForm : FormBase
+    public partial class CocktailEditPageForm : Form
     {
         private DataTable ingridients;
         private DataTable drinks;
