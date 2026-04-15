@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,25 +50,33 @@ namespace ponth
 
             foreach (var item in cart.Items)
             {
+                int cartKey = cart.GetKey(item);
+
+                // Main item label — show extras count if any
+                string mainText = $"{item.Name} ({item.Quantity}x) - {item.TotalItemPrice} Ft";
+                if (item.Extras.Count > 0)
+                    mainText += $"  (+{item.Extras.Count} extra)";
+
                 Label lbl = new Label()
                 {
-                    Text = $"{item.Name} ({item.Quantity}x) - {item.Price * item.Quantity} Ft",
+                    Text = mainText,
                     Location = new Point(10, y),
-                    AutoSize = true
+                    AutoSize = true,
+                    Font = new Font("Segoe UI", 9, FontStyle.Bold)
                 };
                 itemsPanel.Controls.Add(lbl);
 
                 Button btnRemoveOne = new Button()
                 {
                     Text = "-",
-                    Tag = item.Id,
+                    Tag = cartKey,
                     Size = new Size(35, 25),
                     Location = new Point(itemsPanel.ClientSize.Width - 80, y - 3)
                 };
                 btnRemoveOne.Click += (s, e) =>
                 {
-                    int id = (int)((Button)s).Tag;
-                    cart.RemoveOne(id);
+                    int key = (int)((Button)s).Tag;
+                    cart.RemoveOne(key);
                     RefreshCart();
                 };
                 itemsPanel.Controls.Add(btnRemoveOne);
@@ -76,19 +84,34 @@ namespace ponth
                 Button btnRemoveAll = new Button()
                 {
                     Text = "X",
-                    Tag = item.Id,
+                    Tag = cartKey,
                     Size = new Size(35, 25),
                     Location = new Point(itemsPanel.ClientSize.Width - 40, y - 3)
                 };
                 btnRemoveAll.Click += (s, e) =>
                 {
-                    int id = (int)((Button)s).Tag;
-                    cart.RemoveItem(id);
+                    int key = (int)((Button)s).Tag;
+                    cart.RemoveItem(key);
                     RefreshCart();
                 };
                 itemsPanel.Controls.Add(btnRemoveAll);
 
                 y += 30;
+
+                // Show extras as indented sub-items
+                foreach (var extra in item.Extras)
+                {
+                    Label lblExtra = new Label()
+                    {
+                        Text = $"  + {extra.Name} ({extra.Quantity}x, {extra.Type}) - {extra.Price * extra.Quantity} Ft",
+                        Location = new Point(25, y),
+                        AutoSize = true,
+                        ForeColor = Color.DarkGreen,
+                        Font = new Font("Segoe UI", 8, FontStyle.Italic)
+                    };
+                    itemsPanel.Controls.Add(lblExtra);
+                    y += 22;
+                }
             }
 
             //gombospanel
@@ -119,7 +142,7 @@ namespace ponth
             {
                 MessageBox.Show("Rendelés leadva!");
                 cart.Clear();
-
+                RefreshCart();
             };
             bottomPanel.Controls.Add(btnOrderCart);
 
@@ -333,7 +356,22 @@ namespace ponth
             }
 
             CocktailEditPageForm frm = new CocktailEditPageForm(ingridients,drinks);
-            frm.ShowDialog();
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                // Get drink info for the cart
+                DataTable drinkInfo = DatabaseHelper.GetData(
+                    $"SELECT name, price FROM drinks WHERE id = {drinkId}");
+
+                if (drinkInfo.Rows.Count > 0)
+                {
+                    string drinkName = drinkInfo.Rows[0]["name"].ToString();
+                    int drinkPrice = Convert.ToInt32(drinkInfo.Rows[0]["price"]);
+
+                    cart.AddItemWithExtras(drinkId, drinkName, drinkPrice, "Cocktail", frm.CollectedExtras);
+                    RefreshCart();
+                }
+            }
 
         }
 

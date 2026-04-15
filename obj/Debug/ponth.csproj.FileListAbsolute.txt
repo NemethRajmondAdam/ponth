@@ -93,3 +93,43 @@ D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.frmOrderDetails.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.ucReservations.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.exe.config
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.csproj.Up2Date
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.csproj.AssemblyReference.cache
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.CocktailEditPageForm.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.FormBase.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.FormMain.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.frmOrderDetails.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.LanguageSelectForm.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.OrderingForm.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.PayingMethodForm.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.Properties.Resources.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.ucBase.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.ucLanguageSelect.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.ucOrderDetails.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.ucOrdering.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.ucPaying.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.ucReservations.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.ucTables.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.FormMain.de.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.FormMain.en.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.FormMain.es.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.FormMain.fr.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.FormMain.hu.resources
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.csproj.GenerateResource.cache
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.exe
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.pdb
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\bin\Debug\ponth.exe.config
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\bin\Debug\ponth.exe
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\bin\Debug\ponth.pdb
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\bin\Debug\de\ponth.resources.dll
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\bin\Debug\en\ponth.resources.dll
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\bin\Debug\es\ponth.resources.dll
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\bin\Debug\fr\ponth.resources.dll
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\bin\Debug\hu\ponth.resources.dll
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\bin\Debug\MySql.Data.dll
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.csproj.CoreCompileInputs.cache
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\de\ponth.resources.dll
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\en\ponth.resources.dll
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\es\ponth.resources.dll
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\fr\ponth.resources.dll
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\hu\ponth.resources.dll
+C:\Users\NahuZa\Desktop\Suli\MesterRemek\ponth\ponthDesk\obj\Debug\ponth.csproj.Up2Date

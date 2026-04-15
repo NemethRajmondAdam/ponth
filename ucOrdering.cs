@@ -1,5 +1,6 @@
-﻿using ponth.CostumeControls;
+using ponth.CostumeControls;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -215,7 +216,7 @@ namespace ponth
             Panel bottomPanel = new Panel()
             {
                 Dock = DockStyle.Bottom,
-                Height = 150  // Megnöveltük a panel magasságát, hogy a gomboknak több helye legyen
+                Height = 150
             };
 
             CartPanel.Controls.Add(itemsPanel);
@@ -225,23 +226,31 @@ namespace ponth
 
             foreach (var item in cart.Items)
             {
+                int cartKey = cart.GetKey(item);
+
+                // Main item label — show extras count if any
+                string mainText = $"{item.Name} ({item.Quantity}x) - {item.TotalItemPrice} Ft";
+                if (item.Extras.Count > 0)
+                    mainText += $"  (+{item.Extras.Count} extra)";
+
                 Label lbl = new Label()
                 {
-                    Text = $"{item.Name} ({item.Quantity}x) - {item.Price * item.Quantity} Ft",
+                    Text = mainText,
                     Location = new Point(10, y),
-                    AutoSize = true
+                    AutoSize = true,
+                    Font = new Font("Segoe UI", 9, FontStyle.Bold)
                 };
                 Button btnRemoveOne = new Button()
                 {
                     Text = "-",
-                    Tag = item.Id,
+                    Tag = cartKey,
                     Size = new Size(35, 25),
                     Location = new Point(itemsPanel.ClientSize.Width - 80, y - 3)
                 };
                 btnRemoveOne.Click += (s, e) =>
                 {
-                    int id = (int)((Button)s).Tag;
-                    cart.RemoveOne(id);
+                    int key = (int)((Button)s).Tag;
+                    cart.RemoveOne(key);
                     RefreshCart();
                 };
                 itemsPanel.Controls.Add(btnRemoveOne);
@@ -249,14 +258,14 @@ namespace ponth
                 Button btnRemoveAll = new Button()
                 {
                     Text = "X",
-                    Tag = item.Id,
+                    Tag = cartKey,
                     Size = new Size(35, 25),
                     Location = new Point(itemsPanel.ClientSize.Width - 40, y - 3)
                 };
                 btnRemoveAll.Click += (s, e) =>
                 {
-                    int id = (int)((Button)s).Tag;
-                    cart.RemoveItem(id);
+                    int key = (int)((Button)s).Tag;
+                    cart.RemoveItem(key);
                     RefreshCart();
                 };
                 itemsPanel.Controls.Add(btnRemoveAll);
@@ -265,42 +274,43 @@ namespace ponth
                 itemsPanel.Controls.Add(btnRemoveOne);
                 itemsPanel.Controls.Add(btnRemoveAll);
                 y += 30;
+
+                // Show extras as indented sub-items
+                foreach (var extra in item.Extras)
+                {
+                    Label lblExtra = new Label()
+                    {
+                        Text = $"  + {extra.Name} ({extra.Quantity}x, {extra.Type}) - {extra.Price * extra.Quantity} Ft",
+                        Location = new Point(25, y),
+                        AutoSize = true,
+                        ForeColor = Color.DarkGreen,
+                        Font = new Font("Segoe UI", 8, FontStyle.Italic)
+                    };
+                    itemsPanel.Controls.Add(lblExtra);
+                    y += 22;
+                }
             }
 
             Label totalLabel = new Label()
             {
                 Text = $"Összesen: {cart.TotalPrice()} Ft",
-                Location = new Point(10, 10),  // A végösszeg felirat feljebb helyezése
+                Location = new Point(10, 10),
                 AutoSize = true,
                 Font = new Font("Segoe UI", 11, FontStyle.Bold)
             };
 
-            cButtons btnOrder = new cButtons()
+            cButtons btnOrderCart = new cButtons()
             {
                 Text = "Rendelés",
                 Width = 120,
                 Height = 35,
-                Location = new Point(10, 40)  // A rendelés gomb feljebb helyezése
+                Location = new Point(10, 40)
             };
 
-            btnOrder.Click += (s, e) =>
+            btnOrderCart.Click += (s, e) =>
             {
-                // Az OrderingConfirmed esemény meghívása
-                //OrderingConfirmed?.Invoke(currentTableId);
-
-                //MessageBox.Show("Rendelés leadva!");
-                //cart.Clear();
-                //RefreshCart();
-
                 Order();
             };
-
-            //btnOrder.Click += (s, e) =>
-            //{
-            //    MessageBox.Show("Rendelés leadva!");
-            //    cart.Clear();
-            //    RefreshCart();
-            //};
 
             cButtons btnClear = new cButtons()
             {
@@ -331,7 +341,7 @@ namespace ponth
             };
 
             bottomPanel.Controls.Add(totalLabel);
-            bottomPanel.Controls.Add(btnOrder);
+            bottomPanel.Controls.Add(btnOrderCart);
             bottomPanel.Controls.Add(btnClear);
             bottomPanel.Controls.Add(btnCancelCart);
         }
@@ -476,7 +486,22 @@ namespace ponth
             }
 
             CocktailEditPageForm frm = new CocktailEditPageForm(ingridients, drinks);
-            frm.ShowDialog();
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                // Get drink info for the cart
+                DataTable drinkInfo = DatabaseHelper.GetData(
+                    $"SELECT name, price FROM drinks WHERE id = {drinkId}");
+
+                if (drinkInfo.Rows.Count > 0)
+                {
+                    string drinkName = drinkInfo.Rows[0]["name"].ToString();
+                    int drinkPrice = Convert.ToInt32(drinkInfo.Rows[0]["price"]);
+
+                    cart.AddItemWithExtras(drinkId, drinkName, drinkPrice, "Cocktail", frm.CollectedExtras);
+                    RefreshCart();
+                }
+            }
         }
 
 
@@ -547,13 +572,31 @@ namespace ponth
 
             foreach (var item in cart.Items)
             {
-                int totalItemPrice = item.Price * item.Quantity;
+                int totalItemPrice = item.TotalItemPrice;
 
                 string sql =
                     $"INSERT INTO orders (bills_id, item_id, quantity, subtotal) " +
                     $"VALUES ({openBillId}, {item.Id}, {item.Quantity}, {totalItemPrice})";
 
                 DatabaseHelper.ExecuteNonQuery(sql);
+
+                // Save extras to orders_extra table
+                if (item.Extras.Count > 0)
+                {
+                    // Get the newly inserted order's ID
+                    object lastId = DatabaseHelper.ExecuteScalar("SELECT LAST_INSERT_ID()");
+                    int orderId = Convert.ToInt32(lastId);
+
+                    foreach (var extra in item.Extras)
+                    {
+                        int extraTotalPrice = extra.Price * extra.Quantity;
+                        string extraSql =
+                            $"INSERT INTO orders_extra (order_id, item_id, type, box_detail_id, quantity, price) " +
+                            $"VALUES ({orderId}, {extra.ItemId}, '{extra.Type}', {currentTableId}, {extra.Quantity}, {extraTotalPrice})";
+
+                        DatabaseHelper.ExecuteNonQuery(extraSql);
+                    }
+                }
             }
 
             int totalPrice = cart.TotalPrice();

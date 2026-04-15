@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -63,9 +63,27 @@ namespace ponth
 
             foreach (DataRow row in dt.Rows)
             {
+                int orderId = Convert.ToInt32(row["id"]);
+
+                // Load extras for this order
+                DataTable extras = DatabaseHelper.GetData(
+                    $@"SELECT oe.*, 
+                        CASE 
+                            WHEN oe.type = 'Drink' THEN d.name 
+                            ELSE i.name 
+                        END AS extra_name
+                    FROM orders_extra oe
+                    LEFT JOIN drinks d ON oe.type = 'Drink' AND oe.item_id = d.id
+                    LEFT JOIN ingredients i ON oe.type = 'Ingredient' AND oe.item_id = i.id
+                    WHERE oe.order_id = {orderId}");
+
+                int extraCount = extras.Rows.Count;
+                int panelHeight = 45 + (extraCount * 22);
+                if (panelHeight < 80) panelHeight = 80;
+
                 Panel orderPanel = new Panel();
                 orderPanel.Width = panelContainer.ClientSize.Width - 25;
-                orderPanel.Height = 80;
+                orderPanel.Height = panelHeight;
                 orderPanel.Location = new Point(10, y);
                 orderPanel.BorderStyle = BorderStyle.FixedSingle;
 
@@ -73,20 +91,43 @@ namespace ponth
                 string status = row["status"].ToString().ToLower();
                 orderPanel.BackColor = GetStatusColor(status);
 
-                // RENDELÉS LABEL
+                // RENDELÉS LABEL — show extras count
+                string extraText = extraCount > 0 ? $"  (+{extraCount} extra)" : "";
                 Label lbl = new Label();
-                lbl.Text = $"ID: {row["id"]}  Termék: {row["productName"]}  Mennyiség: {row["quantity"]}  Status: {row["status"]}";
+                lbl.Text = $"ID: {row["id"]}  Termék: {row["productName"]}  Mennyiség: {row["quantity"]}  Status: {row["status"]}{extraText}";
                 lbl.ForeColor = Color.Black;
                 lbl.Font = new Font("Arial", 10, FontStyle.Bold);
                 lbl.Location = new Point(10, 10);
                 lbl.AutoSize = true;
 
 
-                int orderId = Convert.ToInt32(row["id"]);
                 orderPanel.Click += (s, e) => ToggleOrderStatus(orderId, orderPanel, lbl);
                 lbl.Click += (s, e) => ToggleOrderStatus(orderId, orderPanel, lbl);
 
                 orderPanel.Controls.Add(lbl);
+
+                // Show extras as sub-labels
+                int extraY = 35;
+                foreach (DataRow extraRow in extras.Rows)
+                {
+                    string extraName = extraRow["extra_name"] != DBNull.Value
+                        ? extraRow["extra_name"].ToString() : "?";
+                    int qty = Convert.ToInt32(extraRow["quantity"]);
+                    string type = extraRow["type"].ToString();
+                    int price = Convert.ToInt32(extraRow["price"]);
+
+                    Label lblExtra = new Label()
+                    {
+                        Text = $"  + {extraName} ({qty}x, {type}) - {price} Ft",
+                        ForeColor = Color.DarkGreen,
+                        Font = new Font("Arial", 9, FontStyle.Italic),
+                        Location = new Point(20, extraY),
+                        AutoSize = true
+                    };
+                    orderPanel.Controls.Add(lblExtra);
+                    extraY += 22;
+                }
+
                 panelContainer.Controls.Add(orderPanel);
 
                 y += orderPanel.Height + 10;
