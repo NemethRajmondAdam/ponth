@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace ponth.CostumeControls
 {
     public class cDropDown : Form
     {
-        // Mindkét értéket visszaadjuk
-        public event Action<int, int> ItemSelected;
+        // billId + total + megjelenített szöveg
+        public event Action<int, int, string> ItemSelected;
 
         public cDropDown(DataTable tables)
         {
@@ -30,19 +26,20 @@ namespace ponth.CostumeControls
 
             foreach (DataRow row in tables.Rows)
             {
-                int tableNumber = Convert.ToInt32(row["tableNumber"]);
+                int billId = Convert.ToInt32(row["billId"]);
                 int total = Convert.ToInt32(row["total"]);
+                string display = row["display"].ToString();
 
                 cButtons btn = new cButtons();
-                btn.Text = tableNumber.ToString();   // Gomb neve az asztalszám
-                btn.Tag = total;                     // Tag-ben a total
+
+                btn.Text = display;
                 btn.Size = new Size(100, 100);
                 btn.ForeColor = Color.White;
                 btn.Margin = new Padding(5);
 
                 btn.Click += (s, e) =>
                 {
-                    ItemSelected?.Invoke(tableNumber, total);
+                    ItemSelected?.Invoke(billId, total, display);
                     this.Close();
                 };
 

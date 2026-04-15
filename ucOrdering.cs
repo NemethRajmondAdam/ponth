@@ -316,7 +316,7 @@ namespace ponth
                 RefreshCart();
             };
 
-            cButtons btnCancelCart = new cButtons()
+            Button btnCancelCart = new Button()
             {
                 Text = "Mégse",
                 Width = 120,
@@ -480,6 +480,8 @@ namespace ponth
         }
 
 
+
+
         //(EXTRA NELKULI) RENDELES FELTOLTESE ADATBAZISBA
 
         private int CurrentSUM(int openBillId)
@@ -497,7 +499,8 @@ namespace ponth
 
         private int GetOrCreateOpenBillId()
         {
-            string sql = $"SELECT id FROM open_bills WHERE box_id = {currentTableId}";
+            string sql = $"SELECT id FROM open_bills " +
+                         $"WHERE box_id = {currentTableId} AND user_id IS NULL";
 
             if (DatabaseQuestions.IsDataExists(sql))
             {
@@ -506,13 +509,35 @@ namespace ponth
             }
             else
             {
-                string insert = $"INSERT INTO open_bills (box_id,totalSum) VALUES ({currentTableId},0)";
+                string insert =
+                    $"INSERT INTO open_bills (box_id, totalSum, user_id) " +
+                    $"VALUES ({currentTableId}, 0, NULL)";
+
                 DatabaseHelper.ExecuteNonQuery(insert);
 
-                string getId = $"SELECT id FROM open_bills WHERE box_id = {currentTableId}";
+                string getId =
+                    $"SELECT id FROM open_bills " +
+                    $"WHERE box_id = {currentTableId} AND user_id IS NULL " +
+                    $"ORDER BY id DESC LIMIT 1 ";
+
                 DataTable dt = DatabaseHelper.GetData(getId);
                 return Convert.ToInt32(dt.Rows[0]["id"]);
             }
+        }
+
+        private bool isItForAPerson()
+        {
+            string sql =
+                $"SELECT user_id FROM open_bills WHERE box_id = {currentTableId}";
+
+            if (DatabaseQuestions.IsDataExists(sql))
+            {
+                DataTable dt = DatabaseHelper.GetData(sql);
+
+                return dt.Rows[0]["user_id"] != DBNull.Value;
+            }
+
+            return false;
         }
 
         private void Order()
@@ -524,8 +549,9 @@ namespace ponth
             {
                 int totalItemPrice = item.Price * item.Quantity;
 
-                string sql = $"INSERT INTO orders (bills_id, item_id, quantity, subtotal) " +
-                             $"VALUES ({openBillId}, {item.Id}, {item.Quantity}, {totalItemPrice})";
+                string sql =
+                    $"INSERT INTO orders (bills_id, item_id, quantity, subtotal) " +
+                    $"VALUES ({openBillId}, {item.Id}, {item.Quantity}, {totalItemPrice})";
 
                 DatabaseHelper.ExecuteNonQuery(sql);
             }
@@ -533,12 +559,16 @@ namespace ponth
             int totalPrice = cart.TotalPrice();
             boxSum += totalPrice;
 
-            string updateQuery = $"UPDATE open_bills SET totalSum = {boxSum} WHERE id = {openBillId}";
+            string updateQuery =
+                $"UPDATE open_bills SET totalSum = {boxSum} WHERE id = {openBillId}";
+
             DatabaseHelper.ExecuteUpdate(updateQuery);
 
             OrderingConfirmed?.Invoke(currentTableId);
 
-            //MessageBox.Show($"A rendelés összértéke: {totalPrice} Ft\nAz aktuális összeg: {boxSum} Ft");
+            MessageBox.Show(
+                $"A rendelés összértéke: {totalPrice} Ft\n" +
+                $"Az aktuális összeg: {boxSum} Ft");
 
             cart.Clear();
             RefreshCart();

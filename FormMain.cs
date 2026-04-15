@@ -197,7 +197,7 @@ namespace ponth
 
             sidebar.BringToFront();
             tableViewSwitch.BringToFront();
-            lb_orderAlert.BringToFront();
+            lb_orderAlert.BringToFront(); 
 
             ucMainPanel.Size = pictureBox1.Size;
             ucMainPanel.Location = pictureBox1.Location;
@@ -260,7 +260,7 @@ namespace ponth
 
         private void btn_Order_Click(object sender, EventArgs e)
         {
-
+            homePage();
             ucMainPanel.Panel1.Controls.Clear();
 
             popUp = new Panel();
@@ -330,6 +330,7 @@ namespace ponth
 
         private void btn_Paying_Click(object sender, EventArgs e)
         {
+            homePage();
             ucPaying uc = new ucPaying();
             uc.BackColor = Color.White;
             uc.BorderStyle = BorderStyle.FixedSingle;
@@ -412,6 +413,7 @@ namespace ponth
 
         private void btn_Reservation_Click(object sender, EventArgs e)
         {
+            homePage();
             ucReservations uc = new ucReservations();
             uc.Dock = DockStyle.Fill;
 
