@@ -148,8 +148,6 @@ D:\Németh Rajmond Ádám\ponth\obj\Debug\ponth.FormBase.resources
 D:\Németh Rajmond Ádám\ponth\obj\Debug\ponth.FormMain.resources
 D:\Németh Rajmond Ádám\ponth\obj\Debug\ponth.frmOrderDetails.resources
 D:\Németh Rajmond Ádám\ponth\obj\Debug\ponth.LanguageSelectForm.resources
-D:\Németh Rajmond Ádám\ponth\obj\Debug\ponth.OrderingForm.resources
-D:\Németh Rajmond Ádám\ponth\obj\Debug\ponth.PayingMethodForm.resources
 D:\Németh Rajmond Ádám\ponth\obj\Debug\ponth.Properties.Resources.resources
 D:\Németh Rajmond Ádám\ponth\obj\Debug\ponth.ucBase.resources
 D:\Németh Rajmond Ádám\ponth\obj\Debug\ponth.ucLanguageSelect.resources
