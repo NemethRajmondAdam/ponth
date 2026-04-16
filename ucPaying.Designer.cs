@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panelMain = new System.Windows.Forms.Panel();
+            this.btnDropdownRecipe = new ponth.CostumeControls.cButtons();
             this.btnCancel = new ponth.CostumeControls.cButtons();
             this.btnDropdown = new ponth.CostumeControls.cButtons();
             this.btnCash = new ponth.CostumeControls.cButtons();
             this.btnCard = new ponth.CostumeControls.cButtons();
-            this.lb_Total = new System.Windows.Forms.Label();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +41,7 @@
             // 
             this.panelMain.BackgroundImage = global::ponth.Properties.Resources.ponth_background;
             this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelMain.Controls.Add(this.lb_Total);
+            this.panelMain.Controls.Add(this.btnDropdownRecipe);
             this.panelMain.Controls.Add(this.btnCancel);
             this.panelMain.Controls.Add(this.btnDropdown);
             this.panelMain.Controls.Add(this.btnCash);
@@ -51,6 +51,28 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1253, 700);
             this.panelMain.TabIndex = 0;
+            // 
+            // btnDropdownRecipe
+            // 
+            this.btnDropdownRecipe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDropdownRecipe.BackColor = System.Drawing.Color.GhostWhite;
+            this.btnDropdownRecipe.BackgroundColor = System.Drawing.Color.GhostWhite;
+            this.btnDropdownRecipe.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDropdownRecipe.BorderRadius = 50;
+            this.btnDropdownRecipe.BorderSize = 0;
+            this.btnDropdownRecipe.FlatAppearance.BorderSize = 0;
+            this.btnDropdownRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDropdownRecipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDropdownRecipe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            this.btnDropdownRecipe.Location = new System.Drawing.Point(510, 33);
+            this.btnDropdownRecipe.Name = "btnDropdownRecipe";
+            this.btnDropdownRecipe.Size = new System.Drawing.Size(227, 115);
+            this.btnDropdownRecipe.TabIndex = 6;
+            this.btnDropdownRecipe.Text = "Végösszeg";
+            this.btnDropdownRecipe.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            this.btnDropdownRecipe.UseVisualStyleBackColor = false;
+            this.btnDropdownRecipe.Click += new System.EventHandler(this.btnDropdownRecipe_Click);
             // 
             // btnCancel
             // 
@@ -97,7 +119,6 @@
             // 
             // btnCash
             // 
-            this.btnCash.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCash.BackColor = System.Drawing.Color.Transparent;
             this.btnCash.BackgroundColor = System.Drawing.Color.Transparent;
             this.btnCash.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
@@ -136,19 +157,6 @@
             this.btnCard.UseVisualStyleBackColor = false;
             this.btnCard.Click += new System.EventHandler(this.btnCard_Click);
             // 
-            // lb_Total
-            // 
-            this.lb_Total.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lb_Total.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.lb_Total.Location = new System.Drawing.Point(548, 185);
-            this.lb_Total.Name = "lb_Total";
-            this.lb_Total.Size = new System.Drawing.Size(135, 40);
-            this.lb_Total.TabIndex = 5;
-            this.lb_Total.Text = "Végösszeg:";
-            this.lb_Total.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // ucPaying
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,6 +176,6 @@
         private CostumeControls.cButtons btnCard;
         private CostumeControls.cButtons btnDropdown;
         private CostumeControls.cButtons btnCancel;
-        private System.Windows.Forms.Label lb_Total;
+        private CostumeControls.cButtons btnDropdownRecipe;
     }
 }

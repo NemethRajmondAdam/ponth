@@ -64,6 +64,12 @@
     <Compile Include="CostumeControls\cDropDown.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CostumeControls\cOrderDropDown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CostumeControls\cOrderDropDown.Designer.cs">
+      <DependentUpon>cOrderDropDown.cs</DependentUpon>
+    </Compile>
     <Compile Include="CostumeControls\cToogleSwitch.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </Compile>
     <EmbeddedResource Include="CocktailEditPageForm.resx">
       <DependentUpon>CocktailEditPageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CostumeControls\cOrderDropDown.resx">
+      <DependentUpon>cOrderDropDown.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>

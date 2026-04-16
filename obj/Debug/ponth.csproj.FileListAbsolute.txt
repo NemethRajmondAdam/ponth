@@ -28,7 +28,6 @@ D:\Németh Rajmond Ádám 13.i\ponth\bin\Debug\ponth.pdb
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.csproj.AssemblyReference.cache
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.FormBase.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.FormMain.resources
-D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.PayingMethodForm.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.Properties.Resources.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.csproj.GenerateResource.cache
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.csproj.CoreCompileInputs.cache
@@ -50,7 +49,6 @@ D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\de\ponth.resources.dll
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\es\ponth.resources.dll
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\fr\ponth.resources.dll
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.CocktailEditPageForm.resources
-D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.OrderingForm.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.LanguageSelectForm.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.ucLanguageSelect.resources
 D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.ucBase.resources
@@ -171,3 +169,4 @@ D:\Németh Rajmond Ádám\ponth\obj\Debug\hu\ponth.resources.dll
 D:\Németh Rajmond Ádám\ponth\obj\Debug\ponth.csproj.Up2Date
 D:\Németh Rajmond Ádám\ponth\obj\Debug\ponth.exe
 D:\Németh Rajmond Ádám\ponth\obj\Debug\ponth.pdb
+D:\Németh Rajmond Ádám 13.i\ponth\obj\Debug\ponth.CostumeControls.cOrderDropDown.resources

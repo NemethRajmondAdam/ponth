@@ -18,9 +18,7 @@ namespace ponth
             InitializeComponent();
         }
 
-        // ===============================
-        // SZÁMLÁK BETÖLTÉSE
-        // ===============================
+        //SZAMLAK
         private void GetTables()
         {
             tables = new DataTable();
@@ -78,9 +76,7 @@ namespace ponth
             }
         }
 
-        // ===============================
-        // DROPDOWN MEGNYITÁS
-        // ===============================
+        //DROPDOWNOK
         private void btnDropdown_Click(object sender, EventArgs e)
         {
             GetTables();
@@ -97,8 +93,42 @@ namespace ponth
                 btnDropdown.Text = display;
                 btnDropdown.Tag = billId;
 
-                lb_Total.Text = total + " FT";
+                btnDropdownRecipe.Text = total + " FT";
             };
+
+            popup.Show();
+        }
+
+        private void btnDropdownRecipe_Click(object sender, EventArgs e)
+        {
+            int billId = Convert.ToInt32(btnDropdown.Tag);
+
+            DataTable orders = DatabaseHelper.GetData(@"
+        SELECT
+            o.id AS orderId,
+            o.bills_id AS billId,
+            d.name AS drinkName,
+            o.quantity,
+            o.subtotal,
+            oe.quantity AS extraQuantity,
+            oe.price AS extraPrice,
+            COALESCE(d2.name, i.name) AS extraName
+        FROM orders o
+        JOIN drinks d ON d.id = o.item_id
+        LEFT JOIN orders_extra oe ON oe.order_id = o.id
+        LEFT JOIN drinks d2 ON d2.id = oe.item_id
+        LEFT JOIN ingredients i ON i.id = oe.item_id
+        WHERE o.bills_id = " + billId);
+
+            cOrderDropDown popup = new cOrderDropDown(orders);
+
+            Point location =
+                btnDropdownRecipe.PointToScreen(Point.Empty);
+
+            popup.Location = new Point(
+                location.X,
+                location.Y + btnDropdownRecipe.Height
+            );
 
             popup.Show();
         }
@@ -108,17 +138,13 @@ namespace ponth
             CancelRequested?.Invoke();
         }
 
-        // ===============================
-        // VAN-E KIVÁLASZTOTT SZÁMLA
-        // ===============================
+
         private bool realNumer()
         {
             return btnDropdown.Tag != null;
         }
 
-        // ===============================
-        // SZÁMLA ZÁRÁSA
-        // ===============================
+        //SZAMLAZARAS
         private void billClosing(string payMethod)
         {
             int billId = Convert.ToInt32(btnDropdown.Tag);
@@ -150,14 +176,11 @@ namespace ponth
 
             DatabaseHelper.ExecuteNonQuery(sql);
 
-            // ⭐ CSAK EZT AZ EGY SZÁMLÁT TÖRÖLJÜK
             DatabaseHelper.ExecuteNonQuery(
                 $"DELETE FROM open_bills WHERE id = {billId}");
         }
 
-        // ===============================
-        // FIZETÉS
-        // ===============================
+        //FIZETES
         private void Payment(string payMethod)
         {
             if (realNumer())
@@ -165,7 +188,7 @@ namespace ponth
                 billClosing(payMethod);
 
                 MessageBox.Show(
-                    $"Fizetve {lb_Total.Text}");
+                    $"Fizetve {btnDropdownRecipe.Text}");
 
                 PaymentDone?.Invoke();
             }
@@ -184,5 +207,7 @@ namespace ponth
         {
             Payment("Cash");
         }
+
+
     }
 }
