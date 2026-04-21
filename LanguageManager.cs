@@ -6,7 +6,7 @@ public static class LanguageManager
     // Támogatott nyelvek: kód + megjelenítendő név
     public static readonly (string Code, string DisplayName)[] SupportedLanguages =
     {
-        ("hu", "Magyar"),
+        ("hu", "Hungarian"),
         ("en", "English"),
         ("de", "Deutsch"),
         ("fr", "Français"),

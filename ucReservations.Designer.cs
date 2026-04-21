@@ -86,9 +86,9 @@
             // 
             // btn_Search
             // 
-            this.btn_Search.BackColor = System.Drawing.Color.SeaGreen;
-            this.btn_Search.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.btn_Search.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Search.BackColor = System.Drawing.Color.FromArgb(228, 197, 114);
+            this.btn_Search.BackgroundColor = System.Drawing.Color.FromArgb(228, 197, 114);
+            this.btn_Search.BorderColor = System.Drawing.Color.FromArgb(228, 197, 114);
             this.btn_Search.BorderRadius = 20;
             this.btn_Search.BorderSize = 0;
             this.btn_Search.Enabled = false;
@@ -99,7 +99,7 @@
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(150, 50);
             this.btn_Search.TabIndex = 0;
-            this.btn_Search.Text = "Keresés";
+            this.btn_Search.Text = "Search";
             this.btn_Search.TextColor = System.Drawing.Color.White;
             this.btn_Search.UseVisualStyleBackColor = false;
             // 

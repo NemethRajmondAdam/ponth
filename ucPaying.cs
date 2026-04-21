@@ -43,7 +43,7 @@ namespace ponth
 
             if (openBills.Rows.Count == 0)
             {
-                btnDropdown.Text = "Nincs fizetendő számla";
+                btnDropdown.Text = "No bills to pay";
                 btnDropdown.Enabled = false;
                 return;
             }
@@ -188,13 +188,13 @@ namespace ponth
                 billClosing(payMethod);
 
                 MessageBox.Show(
-                    $"Fizetve {btnDropdownRecipe.Text}");
+                    $"Payed {btnDropdownRecipe.Text}");
 
                 PaymentDone?.Invoke();
             }
             else
             {
-                MessageBox.Show("Válassz számlát!");
+                MessageBox.Show("Choose a bill!");
             }
         }
 

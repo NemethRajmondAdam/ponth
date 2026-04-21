@@ -90,6 +90,7 @@ namespace ponth
         //MAINFORM
         private void FormMain_Load(object sender, EventArgs e)
         {
+
             btn_ChangeLang.Text = $"-{LanguageManager.CurrentLanguageName}-";
 
             this.MaximizeBox = true;

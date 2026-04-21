@@ -64,7 +64,7 @@
             this.btn_Ok.Name = "btn_Ok";
             this.btn_Ok.Size = new System.Drawing.Size(109, 40);
             this.btn_Ok.TabIndex = 10;
-            this.btn_Ok.Text = "Mentés";
+            this.btn_Ok.Text = "Save";
             this.btn_Ok.TextColor = System.Drawing.Color.LimeGreen;
             this.btn_Ok.UseVisualStyleBackColor = false;
             this.btn_Ok.Click += new System.EventHandler(this.btn_Ok_Click);
@@ -88,7 +88,7 @@
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(109, 40);
             this.btn_Cancel.TabIndex = 9;
-            this.btn_Cancel.Text = "Mégse";
+            this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.TextColor = System.Drawing.Color.Red;
             this.btn_Cancel.UseVisualStyleBackColor = false;
             // 

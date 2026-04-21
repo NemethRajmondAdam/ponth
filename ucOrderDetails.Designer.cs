@@ -88,7 +88,7 @@
             this.btn_Ok.Name = "btn_Ok";
             this.btn_Ok.Size = new System.Drawing.Size(109, 40);
             this.btn_Ok.TabIndex = 10;
-            this.btn_Ok.Text = "Mentés";
+            this.btn_Ok.Text = "Save";
             this.btn_Ok.TextColor = System.Drawing.Color.LimeGreen;
             this.btn_Ok.UseVisualStyleBackColor = false;
             this.btn_Ok.Click += new System.EventHandler(this.btnOk_Click);
@@ -112,7 +112,7 @@
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(109, 40);
             this.btn_Cancel.TabIndex = 9;
-            this.btn_Cancel.Text = "Mégse";
+            this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.TextColor = System.Drawing.Color.Red;
             this.btn_Cancel.UseVisualStyleBackColor = false;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
@@ -125,7 +125,7 @@
             this.txtBox_AccountHolder.Name = "txtBox_AccountHolder";
             this.txtBox_AccountHolder.Size = new System.Drawing.Size(174, 20);
             this.txtBox_AccountHolder.TabIndex = 5;
-            this.txtBox_AccountHolder.Text = "Nev";
+            this.txtBox_AccountHolder.Text = "Name";
             this.txtBox_AccountHolder.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // chckBox_Account
@@ -137,7 +137,7 @@
             this.chckBox_Account.Name = "chckBox_Account";
             this.chckBox_Account.Size = new System.Drawing.Size(88, 17);
             this.chckBox_Account.TabIndex = 4;
-            this.chckBox_Account.Text = "Szamlat nyit?";
+            this.chckBox_Account.Text = "Opening a bill?";
             this.chckBox_Account.UseVisualStyleBackColor = true;
             this.chckBox_Account.CheckedChanged += new System.EventHandler(this.chckBox_Account_CheckedChanged);
             // 
@@ -151,7 +151,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Asztal sorszama";
+            this.label2.Text = "Table number";
             // 
             // numUpDown_TableID
             // 
@@ -172,7 +172,7 @@
             this.chckBox_OrderingToTable.Name = "chckBox_OrderingToTable";
             this.chckBox_OrderingToTable.Size = new System.Drawing.Size(111, 17);
             this.chckBox_OrderingToTable.TabIndex = 1;
-            this.chckBox_OrderingToTable.Text = "Asztalhoz rendeli?";
+            this.chckBox_OrderingToTable.Text = "Ordering at the table?";
             this.chckBox_OrderingToTable.UseVisualStyleBackColor = true;
             this.chckBox_OrderingToTable.CheckedChanged += new System.EventHandler(this.chckBox_OrderingToTable_CheckedChanged);
             // 

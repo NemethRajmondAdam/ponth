@@ -68,8 +68,8 @@ namespace ponth
                 if (numUpDown_TableID.Value == 0 || numUpDown_TableID.Value > numberOfTable())
                 {
                     numUpDown_TableID.Focus();
-                    MessageBox.Show("Nem letezo asztal",
-                        "Figyelmeztetés",
+                    MessageBox.Show("The table doesn't exist",
+                        "Warning",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     return;

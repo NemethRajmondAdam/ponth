@@ -69,7 +69,7 @@
             this.btnDropdownRecipe.Name = "btnDropdownRecipe";
             this.btnDropdownRecipe.Size = new System.Drawing.Size(227, 115);
             this.btnDropdownRecipe.TabIndex = 6;
-            this.btnDropdownRecipe.Text = "Végösszeg";
+            this.btnDropdownRecipe.Text = "Total";
             this.btnDropdownRecipe.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
             this.btnDropdownRecipe.UseVisualStyleBackColor = false;
             this.btnDropdownRecipe.Click += new System.EventHandler(this.btnDropdownRecipe_Click);
@@ -90,7 +90,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(150, 40);
             this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Mégse";
+            this.btnCancel.Text = "Cancel";
             this.btnCancel.TextColor = System.Drawing.Color.OrangeRed;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -112,7 +112,7 @@
             this.btnDropdown.Name = "btnDropdown";
             this.btnDropdown.Size = new System.Drawing.Size(227, 115);
             this.btnDropdown.TabIndex = 3;
-            this.btnDropdown.Text = "Asztalszám";
+            this.btnDropdown.Text = "Table number";
             this.btnDropdown.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
             this.btnDropdown.UseVisualStyleBackColor = false;
             this.btnDropdown.Click += new System.EventHandler(this.btnDropdown_Click);
@@ -132,7 +132,7 @@
             this.btnCash.Name = "btnCash";
             this.btnCash.Size = new System.Drawing.Size(276, 340);
             this.btnCash.TabIndex = 1;
-            this.btnCash.Text = "Készpénz";
+            this.btnCash.Text = "Cash";
             this.btnCash.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
             this.btnCash.UseVisualStyleBackColor = false;
             this.btnCash.Click += new System.EventHandler(this.btnCash_Click);
@@ -152,7 +152,7 @@
             this.btnCard.Name = "btnCard";
             this.btnCard.Size = new System.Drawing.Size(276, 340);
             this.btnCard.TabIndex = 0;
-            this.btnCard.Text = "Kártya";
+            this.btnCard.Text = "Card";
             this.btnCard.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
             this.btnCard.UseVisualStyleBackColor = false;
             this.btnCard.Click += new System.EventHandler(this.btnCard_Click);

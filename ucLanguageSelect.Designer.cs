@@ -136,7 +136,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(109, 40);
             this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "Mentés";
+            this.btnSave.Text = "Save";
             this.btnSave.TextColor = System.Drawing.Color.LimeGreen;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -159,7 +159,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(109, 40);
             this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "Mégse";
+            this.btnCancel.Text = "Cancel";
             this.btnCancel.TextColor = System.Drawing.Color.Red;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);

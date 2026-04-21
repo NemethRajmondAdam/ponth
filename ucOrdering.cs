@@ -22,6 +22,7 @@ namespace ponth
             InitializeComponent();
             currentTableId = tableId;
             this.Load += ucOrdering_Load;
+
         }
 
         private void ucOrdering_Load(object sender, EventArgs e)
@@ -50,7 +51,7 @@ namespace ponth
             {
                 Label empty = new Label()
                 {
-                    Text = "Nincs ital az adatbázisban!",
+                    Text = "There is no drink in the database.",
                     AutoSize = true,
                     Font = new Font("Segoe UI", 14, FontStyle.Bold),
                     ForeColor = Color.Red
@@ -147,7 +148,7 @@ namespace ponth
 
             Label lblType = new Label()
             {
-                Text = $"Típus: {type}",
+                Text = $"Type: {type}",
                 Font = new Font("Segoe UI", 11, FontStyle.Italic),
                 ForeColor = Color.DimGray,
                 Location = new Point(10, 75),
@@ -156,11 +157,12 @@ namespace ponth
 
             cButtons btnOrder = new cButtons()
             {
-                Text = "Rendelés",
+                Text = "Order",
                 Location = new Point(10, 115),
                 Tag = id,
                 Width = 120,
-                Height = 35
+                Height = 35,
+                BackColor = Color.FromArgb(228, 197, 114),
             };
 
             btnOrder.Click += (s, e) =>
@@ -177,10 +179,11 @@ namespace ponth
             {
                 LinkLabel linkEdit = new LinkLabel()
                 {
-                    Text = "Szerkesztés",
+                    Text = "Costumize",
                     Location = new Point(150, 125),
                     AutoSize = true,
                     Tag = id,
+                    LinkColor = Color.FromArgb(228, 197, 114),
                 };
 
                 linkEdit.Click += (s, e) =>
@@ -293,7 +296,7 @@ namespace ponth
 
             Label totalLabel = new Label()
             {
-                Text = $"Összesen: {cart.TotalPrice()} Ft",
+                Text = $"Total: {cart.TotalPrice()} Ft",
                 Location = new Point(10, 10),
                 AutoSize = true,
                 Font = new Font("Segoe UI", 11, FontStyle.Bold)
@@ -301,10 +304,11 @@ namespace ponth
 
             cButtons btnOrderCart = new cButtons()
             {
-                Text = "Rendelés",
+                Text = "Order",
                 Width = 120,
                 Height = 35,
-                Location = new Point(10, 40)
+                Location = new Point(10, 40),
+                BackColor = Color.FromArgb(228, 197, 114),
             };
 
             btnOrderCart.Click += (s, e) =>
@@ -314,10 +318,11 @@ namespace ponth
 
             cButtons btnClear = new cButtons()
             {
-                Text = "Kosár törlése",
+                Text = "Delete cart",
                 Width = 120,
                 Height = 35,
-                Location = new Point(140, 40)
+                Location = new Point(140, 40),
+                BackColor = Color.FromArgb(228, 197, 114),
             };
 
             btnClear.Click += (s, e) =>
@@ -328,7 +333,7 @@ namespace ponth
 
             Button btnCancelCart = new Button()
             {
-                Text = "Mégse",
+                Text = "Cancel",
                 Width = 120,
                 Height = 35,
                 Location = new Point(270, 40),
@@ -610,8 +615,8 @@ namespace ponth
             OrderingConfirmed?.Invoke(currentTableId);
 
             MessageBox.Show(
-                $"A rendelés összértéke: {totalPrice} Ft\n" +
-                $"Az aktuális összeg: {boxSum} Ft");
+                $"Total: {totalPrice} Ft\n" +
+                $"Current : {boxSum} Ft");
 
             cart.Clear();
             RefreshCart();

@@ -19,7 +19,7 @@ namespace ponth
             InitializeComponent();
             this.tableId = tableId;
 
-            this.Text = $"Asztal {tableId} rendelései";
+            this.Text = $"Table {tableId} orders";
             this.Size = new Size(600, 500);
             this.StartPosition = FormStartPosition.CenterParent;
 
@@ -33,7 +33,7 @@ namespace ponth
 
             // Felszolgálás gomb
             btnServeAll = new Button();
-            btnServeAll.Text = "Felszolgál";
+            btnServeAll.Text = "Serve";
             btnServeAll.Dock = DockStyle.Bottom;
             btnServeAll.Height = 40;
             btnServeAll.BackColor = Color.LightBlue;
@@ -94,7 +94,7 @@ namespace ponth
                 // RENDELÉS LABEL — show extras count
                 string extraText = extraCount > 0 ? $"  (+{extraCount} extra)" : "";
                 Label lbl = new Label();
-                lbl.Text = $"ID: {row["id"]}  Termék: {row["productName"]}  Mennyiség: {row["quantity"]}  Status: {row["status"]}{extraText}";
+                lbl.Text = $"ID: {row["id"]}  Product: {row["productName"]}  Quantity: {row["quantity"]}  Status: {row["status"]}{extraText}";
                 lbl.ForeColor = Color.Black;
                 lbl.Font = new Font("Arial", 10, FontStyle.Bold);
                 lbl.Location = new Point(10, 10);

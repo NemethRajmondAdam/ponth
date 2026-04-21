@@ -17,13 +17,13 @@ namespace ponth
         private void LoadData(string name = "")
         {
             string query = @"SELECT 
-                        name AS 'Név',
-                        phone AS 'Telefonszám',
-                        reservation_date AS 'Dátum',
-                        reservation_time AS 'Időpont',
-                        duration_minutes AS 'Hossz',
-                        boxes_id AS 'Asztal',
-                        status AS 'Státusz'
+                        name AS 'Name',
+                        phone AS 'Phone number',
+                        reservation_date AS 'Date',
+                        reservation_time AS 'Time',
+                        duration_minutes AS 'Duration time',
+                        boxes_id AS 'Table',
+                        status AS 'Status'
                      FROM reservations";
 
             if (!string.IsNullOrEmpty(name))

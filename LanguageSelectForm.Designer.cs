@@ -65,7 +65,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(109, 51);
             this.btnSave.TabIndex = 6;
-            this.btnSave.Text = "Mentés";
+            this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -77,7 +77,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(109, 51);
             this.btnCancel.TabIndex = 5;
-            this.btnCancel.Text = "Mégse";
+            this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnES
@@ -161,7 +161,7 @@
             this.Name = "LanguageSelectForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nyelvi beállítás";
+            this.Text = "Language settings";
             this.Load += new System.EventHandler(this.LanguageSelectForm_Load);
             this.panelMain.ResumeLayout(false);
             this.ResumeLayout(false);

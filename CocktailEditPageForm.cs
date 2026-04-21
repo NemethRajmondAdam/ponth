@@ -45,20 +45,20 @@ namespace ponth
 
             Button btnAddToCart = new Button()
             {
-                Text = "Hozzáadás a kosárhoz",
+                Text = "Add to cart",
                 Width = 220,
                 Height = 40,
                 Location = new Point(10, 10),
                 BackColor = Color.FromArgb(76, 175, 80),
                 ForeColor = Color.White,
                 Font = new Font("Segoe UI", 12, FontStyle.Bold),
-                FlatStyle = FlatStyle.Flat
+                FlatStyle = FlatStyle.Flat,
             };
             btnAddToCart.Click += btnAddToCart_Click;
 
             Button btnCancel = new Button()
             {
-                Text = "Mégse",
+                Text = "Cancel",
                 Width = 120,
                 Height = 40,
                 Location = new Point(240, 10),
@@ -221,7 +221,7 @@ namespace ponth
             cocktailIngredientIds.Clear();
 
             // === "TARTALMAZZA" (Contains) section ===
-            Panel containsHeader = CreateHeader("Tartalmazza");
+            Panel containsHeader = CreateHeader("Contains");
             flowLayoutPanelIngridients.Controls.Add(containsHeader);
             
             foreach (DataRow row in drinks.Rows)
@@ -265,7 +265,7 @@ namespace ponth
             }
 
             // === "ITALOK" (Drinks) section — only drinks NOT already shown above ===
-            Panel drinkHeader = CreateHeader("Italok");
+            Panel drinkHeader = CreateHeader("Drinks");
             flowLayoutPanelIngridients.Controls.Add(drinkHeader);
 
             foreach (DataRow row in drinks.Rows)
@@ -289,7 +289,7 @@ namespace ponth
             }
 
             // === "ÖSSZETEVŐK" (Ingredients) section — only ingredients NOT already shown ===
-            Panel ingredientHeader = CreateHeader("Összetevők");
+            Panel ingredientHeader = CreateHeader("Ingredients");
             flowLayoutPanelIngridients.Controls.Add(ingredientHeader);
 
             foreach (DataRow row in ingridients.Rows)
